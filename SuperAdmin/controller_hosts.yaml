@@ -1,0 +1,5 @@
+---
+controller_hosts:
+  - name: "a3matx.bk.lab"
+    inventory: "SuperAdmin Inventory"
+...

@@ -1,0 +1,391 @@
+---
+controller_templates:
+  - name: "CASC - Soft Delete Host"
+    organization: "SuperAdmin"
+    project: "AAP Config as Code"
+    inventory: "SuperAdmin Inventory"
+    playbook: "playbooks/aap_host_delete.yml"
+    job_type: "run"
+    credentials:
+      - "AAP Credential"
+      - "CASC - Machine Credential"
+    execution_environment: "AAP Config as Code EE"
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: vm_name
+          new_question: True
+          question_name: "Please enter the fqdn of the host to delete"
+      description: ""
+  - name: "CASC - Dispatch Configuration"
+    description: 'Playbook to apply CASC configuration to AAP Instance'
+    organization: "SuperAdmin"
+    project: "AAP Config as Code"
+    inventory: "Localhost"
+    playbook: "playbooks/filetree_dispatch.yml"
+    job_type: "run"
+    credentials:
+      - "AAP Credential"
+    execution_environment: "AAP Config as Code EE"
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "bpkrumme"
+          default: "bpkrumme"
+          required: True
+          variable: casc_tree_namespace
+          new_question: True
+          question_name: "What is the repo namespace?"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "casc_tree"
+          default: "casc_tree"
+          required: True
+          variable: casc_tree_project
+          new_question: True
+          question_name: "What is the project repo?"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "Cloud"
+          required: True
+          variable: dispatch_organization
+          new_question: False
+          question_name: "Which Subtree?"
+      description: ""
+  - name: "CASC - Filetree Create"
+    organization: "SuperAdmin"
+    project: "AAP Config as Code"
+    inventory: "SuperAdmin Inventory"
+    playbook: "playbooks/filetree_create.yml"
+    job_type: "run"
+    credentials:
+      - "AAP Credential"
+      - "DAY2 - Machine"
+    execution_environment: "AAP Config as Code EE"
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "Default"
+            - "HomeLab"
+            - "SuperAdmin"
+            - "Cloud Operations"
+            - "Helpdesk"
+            - "IDM Operations"
+            - "Monitoring Operations"
+            - "Network Operations"
+            - "OpenShift Operations"
+            - "Patching Operations"
+            - "Server Operations"
+            - "Virtualization Operations"
+          required: False
+          variable: organization_filter
+          new_question: False
+          question_name: "Which Organization would you like to export?"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "True"
+            - "False"
+          default: "True"
+          required: True
+          variable: flatten_output
+          new_question: False
+          question_name: "Do you want to flatten the file output?"
+      description: ""
+  - name: "CASC - Create Scheduled Patching Job"
+    organization: "SuperAdmin"
+    project: "AAP Config as Code"
+    inventory: "SuperAdmin Inventory"
+    playbook: "playbooks/create_patching_schedule.yml"
+    job_type: "run"
+    credentials:
+      - "AAP Credential"
+      - "DAY2 - Machine"
+    execution_environment: "AAP Config as Code EE"
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: schedule_month
+          new_question: True
+          question_name: "What is the start month?"
+          question_description: "Please use 2 digit format"
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: schedule_day
+          new_question: True
+          question_name: "What is the start day?"
+          question_description: "Please use 2-digit format"
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: schedule_year
+          new_question: False
+          question_name: "What is the start year?"
+          question_description: "Please use 4-digit format"
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: schedule_time
+          new_question: True
+          question_name: "What is the start time?"
+          question_description: "Please use HH:MM:SS format"
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: schedule_limit
+          new_question: True
+          question_name: "Which hosts need patched?"
+          question_description: "Please enter a valid ansible target specification"
+      description: ""
+  - name: "CASC - Export Workflows as JSON Object"
+    organization: "SuperAdmin"
+    project: "AAP Config as Code"
+    inventory: "SuperAdmin Inventory"
+    playbook: "playbooks/export_test.yml"
+    job_type: "run"
+    credentials:
+      - "AAP Credential"
+      - "DAY2 - Machine"
+    execution_environment: "AAP Config as Code EE"
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: multiselect
+          choices:
+            - "DEMOS - WF - Build & Configure"
+            - "HACKATHON - Check file and fix if failed"
+            - "WORKFLOW - Apply Terraform, Apply Baseline Config, Patch & Reboot"
+            - "WORKFLOW - Create & Configure VM in OCP-Virt"
+            - "WORKFLOW - Create & Configure VM in OCP-Virt (No Patching)"
+            - "WORKFLOW - Deprovision VM in OpenShift Virt"
+            - "WORKFLOW - SATELLITE - Synchronize and Publish New Content"
+          required: True
+          variable: survey_wfs
+          new_question: False
+          question_name: "Which WJT would you like to export?"
+      description: ""
+  - name: "CASC - Create Organization"
+    organization: "SuperAdmin"
+    project: "AAP Config as Code"
+    inventory: "SuperAdmin Inventory"
+    playbook: "playbooks/create_org.yml"
+    job_type: "run"
+    credentials:
+      - "AAP Credential"
+      - "CASC - Machine Credential"
+    execution_environment: "AAP Config as Code EE"
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: org_name
+          new_question: True
+          question_name: "What is the organization name?"
+          question_description: "Enter a name for the organization"
+      description: ""
+  - name: "CASC - Create Project"
+    organization: "SuperAdmin"
+    project: "AAP Config as Code"
+    inventory: "SuperAdmin Inventory"
+    playbook: "playbooks/create_project.yml"
+    job_type: "run"
+    credentials:
+      - "AAP Credential"
+      - "CASC - Machine Credential"
+    execution_environment: "AAP Config as Code EE"
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: project_name
+          new_question: True
+          question_name: "What is the name of the project?"
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: project_org
+          new_question: True
+          question_name: "Which orgnization owns this project?"
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: project_url
+          new_question: True
+          question_name: "What is the project repo URL?"
+      description: ""
+  - name: "CASC - Synchronize Collection Repositories"
+    organization: "SuperAdmin"
+    project: "AAP Config as Code"
+    inventory: "SuperAdmin Inventory"
+    playbook: "playbooks/sync_collection_repos.yml"
+    job_type: "run"
+    credentials:
+      - "AAP Credential"
+      - "CASC - Machine Credential"
+    execution_environment: "AAP Config as Code EE"
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: multiselect
+          choices:
+            - "community"
+            - "rh-certified"
+            - "rh-validated"
+          required: True
+          variable: repository_name
+          new_question: False
+          question_name: "Which repositories do you want to synchronize?"
+      description: ""
+  - name: "CASC - Synchronize EE Registries"
+    organization: "SuperAdmin"
+    project: "AAP Config as Code"
+    inventory: "SuperAdmin Inventory"
+    playbook: "playbooks/sync_ee_registries.yml"
+    job_type: "run"
+    credentials:
+      - "AAP Credential"
+      - "CASC - Machine Credential"
+    execution_environment: "AAP Config as Code EE"
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: multiselect
+          choices:
+            - "Red Hat Registry"
+          default: "Red Hat Registry"
+          required: True
+          variable: registry_name
+          new_question: False
+          question_name: "Which registries do you want to synchronize?"
+      description: ""
+  - name: "CASC - Create Authenticator Mapping"
+    organization: "SuperAdmin"
+    project: "AAP Config as Code"
+    inventory: "Localhost"
+    playbook: "playbooks/create_auth_map.yml"
+    job_type: "run"
+    credentials:
+      - "AAP Credential"
+      - "CASC - Machine Credential"
+    execution_environment: "AAP Config as Code EE"
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "BKLab LDAP"
+          default: "BKLab LDAP"
+          required: True
+          variable: auth_map_authenticator
+          new_question: False
+          question_name: "Which authenticator are creating a map for?"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "allow"
+            - "is_superuser"
+            - "team"
+            - "organization"
+            - "role"
+          required: True
+          variable: auth_map_type
+          new_question: False
+          question_name: "Which map type are you creating?"
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: auth_map_name
+          new_question: False
+          question_name: "Name your authenticator map"
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: auth_map_org
+          new_question: False
+          question_name: "Which Organization does this apply to?"
+          question_description: "Ensure the Organization name is entered properly.  This is case sensitive."
+        - max: 1024
+          min: 0
+          type: text
+          required: False
+          variable: auth_map_team
+          new_question: True
+          question_name: "Which team does this apply to?"
+          question_description: "Only complete this if you are modifying a team map.  Ignore for org maps."
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "Organization Member"
+            - "Organization Admin"
+            - "Team Member"
+            - "Team Admin"
+          required: True
+          variable: auth_map_role
+          new_question: False
+          question_name: "What role are you applying with this map?"
+          question_description: "We only map groupst to orgs and groups to teams, pick appropriately"
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: auth_map_ldap_group
+          new_question: False
+          question_name: "What is the CN of the LDAP group?"
+      description: ""
+...

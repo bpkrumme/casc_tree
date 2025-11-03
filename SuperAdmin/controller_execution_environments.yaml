@@ -1,0 +1,6 @@
+---
+controller_execution_environments:
+  - name: "AAP Config as Code EE"
+    organization: "SuperAdmin"
+    image: "production-aap.apps.ocp.bk.lab/homelab_ees/aap_casc_ee:latest"
+    pull: "always"

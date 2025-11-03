@@ -1,0 +1,6 @@
+---
+controller_inventories:
+  - name: "SuperAdmin Inventory"
+    organization: "SuperAdmin"
+    prevent_instance_group_fallback: False
+...
