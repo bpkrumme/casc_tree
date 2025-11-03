@@ -20,6 +20,7 @@ controller_templates:
           variable: idm_ops_group_name
           new_question: True
           question_name: "What is the name of the group you want to create?"
+      description: ""
   - name: "IDM - Add group to IDM group in BK.LAB"
     organization: "IDM Operations"
     project: "IDM Operations"
@@ -47,6 +48,7 @@ controller_templates:
           variable: idm_ops_groupadd_name
           new_question: True
           question_name: "What is the child group?"
+      description: ""
   - name: "IDM - Delete host from BK.LAB"
     organization: "IDM Operations"
     project: "IDM Operations"
@@ -67,6 +69,7 @@ controller_templates:
           variable: vm_name
           new_question: True
           question_name: "Which host needs to be deleted?"
+      description: ""
   - name: "IDM - Join Domain"
     organization: "IDM Operations"
     project: "IDM Operations"
@@ -89,6 +92,7 @@ controller_templates:
           variable: vm_name
           new_question: True
           question_name: "VM Name"
+      description: ""
   - name: "IDM - Unjoin Domain"
     organization: "IDM Operations"
     project: "IDM Operations"
@@ -109,4 +113,5 @@ controller_templates:
           variable: vm_name
           new_question: True
           question_name: "VM Name"
+      description: ""
 ...
