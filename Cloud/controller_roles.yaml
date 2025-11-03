@@ -1,0 +1,11 @@
+---
+controller_roles:
+  - team: "Cloud Ops Members"
+    job_templates:
+      - "CLOUD - Terraform Apply"
+      - "CLOUD - Terraform Destroy"
+    role: "execute"
+  - team: "Cloud Ops Members"
+    projects:
+      - "Cloud Operations"
+    role: "use"

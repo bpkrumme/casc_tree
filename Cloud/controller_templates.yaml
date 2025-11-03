@@ -49,22 +49,22 @@ controller_templates:
           min: 0
           type: multiplechoice
           choices:
-            - !unsafe "terraform_basic"
-          default: !unsafe "terraform_basic"
+            - "terraform_basic"
+          default: "terraform_basic"
           required: True
           variable: terraform_project
           new_question: False
-          question_name: !unsafe "Which Terraform Project?"
+          question_name: "Which Terraform Project?"
         - max: 1024
           min: 0
           type: multiplechoice
           choices:
-            - !unsafe "bpkrumme"
-          default: !unsafe "bpkrumme"
+            - "bpkrumme"
+          default: "bpkrumme"
           required: True
           variable: terraform_namespace
           new_question: True
-          question_name: !unsafe "Which terraform namespace?"
+          question_name: "Which terraform namespace?"
       description: ""
     become_enabled: false
     diff_mode: false
@@ -119,22 +119,22 @@ controller_templates:
           min: 0
           type: multiplechoice
           choices:
-            - !unsafe "terraform_basic"
-          default: !unsafe "terraform_basic"
+            - "terraform_basic"
+          default: "terraform_basic"
           required: True
           variable: terraform_project
           new_question: False
-          question_name: !unsafe "Which Terraform Project?"
+          question_name: "Which Terraform Project?"
         - max: 1024
           min: 0
           type: multiplechoice
           choices:
-            - !unsafe "bpkrumme"
-          default: !unsafe "bpkrumme"
+            - "bpkrumme"
+          default: "bpkrumme"
           required: True
           variable: terraform_namespace
           new_question: True
-          question_name: !unsafe "Which terraform namespace?"
+          question_name: "Which terraform namespace?"
       description: ""
     become_enabled: false
     diff_mode: false
