@@ -303,7 +303,7 @@ controller_templates:
       description: ""
   - name: "PATCH - Install Updates and Reboot"
     organization: "Patching Operations"
-    project: "Patch Operations"
+    project: "Patching Operations"
     inventory: "Satellite Inventory"
     playbook: "playbooks/dnf_update_and_reboot.yml"
     job_type: "run"
@@ -326,9 +326,9 @@ controller_templates:
     become_enabled: true
   - name: "PATCH - Update Windows with Dependent Reboot"
     organization: "Patching Operations"
-    project: "Ansible POCs"
+    project: "Patching Operations"
     inventory: "OCP Virtualization Inventory"
-    playbook: "windows_update_and_reboot.yml"
+    playbook: "playbooks/windows_update_and_reboot.yml"
     job_type: "run"
     credentials:
       - "Windows Machine"
