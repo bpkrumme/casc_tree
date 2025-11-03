@@ -1,0 +1,339 @@
+---
+controller_templates:
+  - name: "SATELLITE - Register Host"
+    organization: "Patching Operations"
+    project: "Satellite Operations"
+    inventory: "OCP Virtualization Inventory"
+    playbook: "playbooks/register_host.yml"
+    job_type: "run"
+    credentials:
+      - "DAY1 - Linux Machine"
+      - "Satellite Ops Credential"
+    allow_simultaneous: true
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "Dev"
+            - "Test"
+            - "Prod"
+          required: True
+          variable: satellite_ops_environment
+          new_question: True
+          question_name: "VM Lifecycle Environment"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "App"
+            - "Web"
+          required: True
+          variable: satellite_ops_server_type
+          new_question: True
+          question_name: "VM Server Type"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "HomeLab"
+          default: "HomeLab"
+          required: True
+          variable: satellite_ops_org_name
+          new_question: True
+          question_name: "VM Organization"
+      description: ""
+    become_enabled: true
+  - name: "SATELLITE - Synchronize Products"
+    organization: "Patching Operations"
+    project: "Satellite Operations"
+    inventory: "Satellite Inventory"
+    playbook: "playbooks/sync_products.yml"
+    job_type: "run"
+    credentials:
+      - "DAY2 - Machine"
+      - "Satellite Ops Credential"
+    execution_environment: "Satellite Operations EE"
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "HomeLab"
+          default: "HomeLab"
+          required: True
+          variable: satellite_ops_org_name
+          new_question: True
+          question_name: "Please select the Satellite Organization"
+        - max: 1024
+          min: 0
+          type: multiselect
+          choices:
+            - "Oracle Linux for x86_64"
+            - "Red Hat Ansible Automation Platform"
+            - "Red Hat Directory Server"
+            - "Red Hat Enterprise Linux Fast Datapath"
+            - "Red Hat Enterprise Linux for x86_64"
+            - "Red Hat Enterprise Linux High Availability for x86_64"
+            - "Red Hat Enterprise Linux Resilient Storage for x86_64"
+            - "Red Hat OpenShift Container Platform"
+            - "Red Hat OpenShift Data Foundation"
+          required: True
+          variable: satellite_ops_product
+          new_question: True
+          question_name: "Which products would you like to synchronize?"
+      description: ""
+  - name: "SATELLITE - Publish Base Content Views"
+    organization: "Patching Operations"
+    project: "Satellite Operations"
+    inventory: "Satellite Inventory"
+    playbook: "playbooks/publish_content_view.yml"
+    credentials:
+      - "DAY2 - Machine"
+      - "Satellite Ops Credential"
+    execution_environment: "Satellite Operations EE"
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "HomeLab"
+          default: "HomeLab"
+          required: True
+          variable: satellite_ops_org_name
+          new_question: True
+          question_name: "Please select the Satellite Organization"
+        - max: 1024
+          min: 0
+          type: multiselect
+          choices:
+            - "Base-OL9"
+            - "Base-RHEL9"
+            - "Base-RHEL95"
+            - "Base-RHEL96"
+            - "Base-RHEL10"
+            - "Base-RHEL100"
+          required: True
+          variable: satellite_ops_cv_name
+          new_question: True
+          question_name: "Which Base Content Views would you like to Publish?"
+      description: ""
+  - name: "SATELLITE - Publish AddOn Content Views"
+    organization: "Patching Operations"
+    project: "Satellite Operations"
+    inventory: "Satellite Inventory"
+    playbook: "playbooks/publish_content_view.yml"
+    job_type: "run"
+    credentials:
+      - "DAY2 - Machine"
+      - "Satellite Ops Credential"
+    execution_environment: "Satellite Operations EE"
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "HomeLab"
+          default: "HomeLab"
+          required: True
+          variable: satellite_ops_org_name
+          new_question: True
+          question_name: "Please select the Satellite Organization"
+        - max: 1024
+          min: 0
+          type: multiselect
+          choices:
+            - "AddOn-AAP2.4-RHEL9"
+            - "AddOn-AAP2.5-RHEL9"
+            - "AddOn-HA-RHEL9"
+            - "AddOn-OCP417-RHEL9"
+            - "AddOn-OCP418-RHEL9"
+            - "AddOn-ODF-RHEL9"
+            - "AddOn-RHDS125-RHEL9"
+            - "AddOn-RHDS13-RHEL10"
+            - "AddOn-RS-RHEL9"
+            - "AddOn-EX-RHEL10"
+            - "AddOn-FDP-RHEL10"
+            - "AddOn-OCP419-RHEL9"
+            - "AddOn-RT-RHEL10"
+          required: True
+          variable: satellite_ops_cv_name
+          new_question: True
+          question_name: "Which AddOn Content Views would you like to Publish?"
+      description: ""
+  - name: "SATELLITE - Publish Composite Content Views"
+    organization: "Patching Operations"
+    project: "Satellite Operations"
+    inventory: "Satellite Inventory"
+    playbook: "playbooks/publish_content_view.yml"
+    job_type: "run"
+    credentials:
+      - "DAY2 - Machine"
+      - "Satellite Ops Credential"
+    execution_environment: "Satellite Operations EE"
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "HomeLab"
+          default: "HomeLab"
+          required: True
+          variable: satellite_ops_org_name
+          new_question: True
+          question_name: "Please select the Satellite Organization"
+        - max: 1024
+          min: 0
+          type: multiselect
+          choices:
+            - "Composite-OL9"
+            - "Composite-RHEL100-DS13"
+            - "Composite-RHEL95-DS125"
+            - "Composite-RHEL96-DS125"
+            - "Composite-RHEL9-HA_RS"
+            - "Composite-AAP"
+            - "Composite-RHEL10-EX-FDP-RT"
+          required: True
+          variable: satellite_ops_cv_name
+          new_question: True
+          question_name: "Which Composite Content Views would you like to Publish?"
+      description: ""
+  - name: "SATELLITE - Promote Composite Content Views"
+    organization: "Patching Operations"
+    project: "Satellite Operations"
+    inventory: "Satellite Inventory"
+    playbook: "playbooks/promote_content_view.yml"
+    job_type: "run"
+    credentials:
+      - "DAY2 - Machine"
+      - "Satellite Ops Credential"
+    execution_environment: "Satellite Operations EE"
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "HomeLab"
+          default: "HomeLab"
+          required: True
+          variable: satellite_ops_org_name
+          new_question: True
+          question_name: "Please select the Satellite Organization"
+        - max: 1024
+          min: 0
+          type: multiselect
+          choices:
+            - "Composite-AAP"
+            - "Composite-OL9"
+            - "Composite-RHEL100-DS13"
+            - "Composite-RHEL95-DS125"
+            - "Composite-RHEL10-EX-FDP-RT"
+            - "Composite-RHEL9-HA_RS"
+          required: True
+          variable: satellite_ops_cv_name
+          new_question: True
+          question_name: "Which Composite Content Views would you like to Publish?"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "Library"
+            - "Development"
+            - "Testing"
+            - "Production"
+          default: "Library"
+          required: True
+          variable: satellite_ops_current_lc_env
+          new_question: True
+          question_name: "Please select the CURRENT Lifecycle Environment"
+          question_description: "If the CCV has been promoted from Library select the appropriate LCE, Otherwise select \"Library\""
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "Development"
+            - "Testing"
+            - "Production"
+          required: True
+          variable: satellite_ops_lc_env
+          new_question: True
+          question_name: "Please select the TARGET Lifecycle Environment"
+          question_description: "This is the LCE you want to make content available to"
+      description: ""
+  - name: "SATELLITE - Delete Host"
+    organization: "Patching Operations"
+    project: "Satellite Operations"
+    inventory: "Satellite Inventory"
+    playbook: "playbooks/delete_satellite_host.yml"
+    job_type: "run"
+    credentials:
+      - "DAY1 - Linux Machine"
+      - "Satellite Ops Credential"
+    allow_simultaneous: true
+    execution_environment: "Satellite Operations EE"
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: vm_name
+          new_question: True
+          question_name: "VM Name"
+      description: ""
+  - name: "PATCH - Install Updates and Reboot"
+    organization: "Patching Operations"
+    project: "Patch Operations"
+    inventory: "Satellite Inventory"
+    playbook: "playbooks/dnf_update_and_reboot.yml"
+    job_type: "run"
+    credentials:
+      - "DAY2 - Machine"
+    allow_simultaneous: true
+    execution_environment: "Patch Operations EE"
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: vm_name
+          new_question: True
+          question_name: "Enter a valid ansible hosts parameter spec"
+      description: ""
+    become_enabled: true
+  - name: "PATCH - Update Windows with Dependent Reboot"
+    organization: "Patching Operations"
+    project: "Ansible POCs"
+    inventory: "OCP Virtualization Inventory"
+    playbook: "windows_update_and_reboot.yml"
+    job_type: "run"
+    credentials:
+      - "Windows Machine"
+    allow_simultaneous: true
+    execution_environment: "Patch Operations EE"
+    survey_enabled: false
+    become_enabled: true
+...
