@@ -1,0 +1,46 @@
+---
+controller_templates:
+  - name: "HACKATHON - Initialize Test Environment"
+    organization: "Default"
+    project: "EDA-HandOff-HACKATHON!!!!!!!"
+    inventory: "OCP Virtualization Inventory"
+    playbook: "init.yml"
+    limit: "workinghost.bk.lab:brokenhost.bk.lab"
+    job_type: "run"
+    credentials:
+      - "DAY1 - Linux Machine"
+    become_enabled: true
+  - name: "HACKATHON - Check Failure State"
+    organization: "Default"
+    project: "EDA-HandOff-HACKATHON!!!!!!!"
+    inventory: "OCP Virtualization Inventory"
+    playbook: "check_broken.yml"
+    limit: "workinghost.bk.lab:brokenhost.bk.lab"
+    job_type: "run"
+    credentials:
+      - "DAY1 - Linux Machine"
+    survey_enabled: true
+    become_enabled: true
+  - name: "HACKATHON - Fix the thing!!!"
+    organization: "Default"
+    project: "EDA-HandOff-HACKATHON!!!!!!!"
+    inventory: "OCP Virtualization Inventory"
+    playbook: "fix.yml"
+    job_type: "run"
+    credentials:
+      - "DAY1 - Linux Machine"
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: text
+          default: "brokenhost.bk.lab"
+          required: True
+          variable: broken_host
+          new_question: False
+          question_name: "Broken Hosts"
+      description: ""
+    become_enabled: true
+...
