@@ -19,7 +19,7 @@ controller_templates:
           type: text
           required: True
           variable: idm_ops_group_name
-          new_question: True
+          new_question: False
           question_name: "What is the name of the group you want to create?"
       description: ""
   - name: "IDM - Add group to IDM group in BK.LAB"
@@ -41,14 +41,14 @@ controller_templates:
           type: text
           required: True
           variable: idm_ops_group_name
-          new_question: True
+          new_question: False
           question_name: "What is the parent group?"
         - max: 1024
           min: 0
           type: text
           required: True
           variable: idm_ops_groupadd_name
-          new_question: True
+          new_question: False
           question_name: "What is the child group?"
       description: ""
   - name: "IDM - Delete host from BK.LAB"
@@ -70,7 +70,7 @@ controller_templates:
           type: text
           required: True
           variable: vm_name
-          new_question: True
+          new_question: False
           question_name: "Which host needs to be deleted?"
       description: ""
   - name: "IDM - Join Domain"
@@ -93,7 +93,7 @@ controller_templates:
           type: text
           required: True
           variable: vm_name
-          new_question: True
+          new_question: False
           question_name: "VM Name"
       description: ""
   - name: "IDM - Unjoin Domain"
@@ -115,7 +115,7 @@ controller_templates:
           type: text
           required: True
           variable: vm_name
-          new_question: True
+          new_question: False
           question_name: "VM Name"
       description: ""
 ...
