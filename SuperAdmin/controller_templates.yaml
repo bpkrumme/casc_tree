@@ -31,6 +31,7 @@ controller_templates:
     job_type: "run"
     credentials:
       - "AAP Credential"
+      - "SuperAdmin Vault"
     execution_environment: "AAP Config as Code EE"
     survey_enabled: true
     survey_spec:
