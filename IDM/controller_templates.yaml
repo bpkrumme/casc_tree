@@ -1,0 +1,112 @@
+---
+controller_templates:
+  - name: "IDM - Create IDM Group in BK.LAB"
+    organization: "IDM Operations"
+    project: "IDM Operations"
+    inventory: "IDM Operations Inventory"
+    playbook: "playbooks/create_idm_group.yml"
+    job_type: "run"
+    credentials:
+      - "IDM Operations Admin Credential"
+      - "IDM Operations Machine Credential"
+    execution_environment: "IDM Operations EE"
+    survey_enabled: true
+    survey_spec:
+      spec:
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: idm_ops_group_name
+          new_question: True
+          question_name: "What is the name of the group you want to create?"
+  - name: "IDM - Add group to IDM group in BK.LAB"
+    organization: "IDM Operations"
+    project: "IDM Operations"
+    inventory: "IDM Operations Inventory"
+    playbook: "playbooks/add_group_to_idm_group.yml"
+    job_type: "run"
+    credentials:
+      - "IDM Operations Admin Credential"
+      - "IDM Operations Machine Credential"
+    execution_environment: "IDM Operations EE"
+    survey_enabled: true
+    survey_spec:
+      spec:
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: idm_ops_group_name
+          new_question: True
+          question_name: "What is the parent group?"
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: idm_ops_groupadd_name
+          new_question: True
+          question_name: "What is the child group?"
+  - name: "IDM - Delete host from BK.LAB"
+    organization: "IDM Operations"
+    project: "IDM Operations"
+    inventory: "IDM Operations Inventory"
+    playbook: "playbooks/delete_idm_host.yml"
+    job_type: "run"
+    credentials:
+      - "IDM Operations Admin Credential"
+      - "IDM Operations Machine Credential"
+    execution_environment: "IDM Operations EE"
+    survey_enabled: true
+    survey_spec:
+      spec:
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: vm_name
+          new_question: True
+          question_name: "Which host needs to be deleted?"
+  - name: "IDM - Join Domain"
+    organization: "IDM Operations"
+    project: "IDM Operations"
+    inventory: "IDM Operations Inventory"
+    playbook: "playbooks/join_idm_domain.yml"
+    job_type: "run"
+    credentials:
+      - "IDM Operations Admin Credential"
+      - "IDM Operations Machine Credential"
+    execution_environment: "IDM Operations EE"
+    host_config_key: ""
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: vm_name
+          new_question: True
+          question_name: "VM Name"
+  - name: "IDM - Unjoin Domain"
+    organization: "IDM Operations"
+    project: "IDM Operations"
+    inventory: "IDM Operations Inventory"
+    playbook: "playbooks/leave_idm_domain.yml"
+    job_type: "run"
+    credentials:
+      - "IDM Operations Admin Credential"
+      - "IDM Operations Machine Credential"
+    execution_environment: "IDM Operations EE"
+    survey_enabled: true
+    survey_spec:
+      spec:
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: vm_name
+          new_question: True
+          question_name: "VM Name"
+...

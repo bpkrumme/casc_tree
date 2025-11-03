@@ -1,0 +1,9 @@
+---
+controller_roles:
+  - team: "IDM Ops Members"
+    job_templates:
+    role: "execute"
+  - team: "IDM Ops Members"
+    projects:
+      - "IDM Operations"
+    role: "use"

@@ -1,0 +1,7 @@
+---
+controller_hosts:
+  - name: "ipaserver"
+    inventory: "IDM Operations Inventory"
+    variables:
+      ansible_host: "{{ vault_ipaserver_hostname }}"
+...
