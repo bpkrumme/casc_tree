@@ -61,6 +61,16 @@ controller_templates:
           type: multiplechoice
           choices:
             - "Cloud"
+            - "Default"
+            - "Helpdesk"
+            - "IDM"
+            - "Monitoring"
+            - "Network"
+            - "OpenShift"
+            - "Patching"
+            - "Server"
+            - "SuperAdmin"
+            - "Virtualization"
           required: True
           variable: dispatch_organization
           new_question: False
