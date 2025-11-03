@@ -12,6 +12,7 @@ controller_templates:
     execution_environment: "IDM Operations EE"
     survey_enabled: true
     survey_spec:
+      name: ""
       spec:
         - max: 1024
           min: 0
@@ -33,6 +34,7 @@ controller_templates:
     execution_environment: "IDM Operations EE"
     survey_enabled: true
     survey_spec:
+      name: ""
       spec:
         - max: 1024
           min: 0
@@ -61,6 +63,7 @@ controller_templates:
     execution_environment: "IDM Operations EE"
     survey_enabled: true
     survey_spec:
+      name: ""
       spec:
         - max: 1024
           min: 0
@@ -105,6 +108,7 @@ controller_templates:
     execution_environment: "IDM Operations EE"
     survey_enabled: true
     survey_spec:
+      name: ""
       spec:
         - max: 1024
           min: 0
