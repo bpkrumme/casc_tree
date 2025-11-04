@@ -85,7 +85,7 @@ controller_templates:
     job_type: "run"
     credentials:
       - "AAP Credential"
-      - "DAY2 - Machine"
+      - "CASC - Machine Credential"
     execution_environment: "AAP Config as Code EE"
     survey_enabled: true
     survey_spec:
@@ -131,7 +131,7 @@ controller_templates:
     job_type: "run"
     credentials:
       - "AAP Credential"
-      - "DAY2 - Machine"
+      - "CASC - Machine Credential"
     execution_environment: "AAP Config as Code EE"
     survey_enabled: true
     survey_spec:
@@ -186,7 +186,7 @@ controller_templates:
     job_type: "run"
     credentials:
       - "AAP Credential"
-      - "DAY2 - Machine"
+      - "CASC - Machine Credential"
     execution_environment: "AAP Config as Code EE"
     survey_enabled: true
     survey_spec:
