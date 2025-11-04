@@ -12,6 +12,7 @@ controller_roles:
   - team: "Cloud Ops Members"
     inventories:
       - "Master Inventory"
+      - "Localhost"
     role: "use"
   - team: "Cloud Ops Members"
     credentials:

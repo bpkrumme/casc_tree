@@ -19,6 +19,7 @@ controller_roles:
   - team: "Patching Ops Members"
     inventories:
       - "Master Inventory"
+      - "Localhost"
     role: "use"
   - team: "Patching Ops Members"
     credentials:

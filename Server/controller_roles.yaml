@@ -3,4 +3,5 @@ controller_roles:
   - team: "Server Ops Members"
     inventories:
       - "Master Inventory"
+      - "Localhost"
     role: "use"
