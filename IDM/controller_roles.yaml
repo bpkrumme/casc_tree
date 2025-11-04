@@ -17,3 +17,9 @@ controller_roles:
       - "IDM Operations Inventory"
       - "Master Inventory"
     role: "use"
+  - team: "IDM Ops Members"
+    credentials:
+      - "DAY1 - Linux Machine - No Domain"
+      - "DAY2 - Linux Machine - BK.LAB Domain"
+      - "Windows Machine"
+    role: "use"
