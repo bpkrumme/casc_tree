@@ -15,4 +15,5 @@ controller_roles:
   - team: "IDM Ops Members"
     inventories:
       - "IDM Operations Inventory"
+      - "Master Inventory"
     role: "use"

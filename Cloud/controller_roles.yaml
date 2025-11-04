@@ -9,3 +9,7 @@ controller_roles:
     projects:
       - "Cloud Operations"
     role: "use"
+  - team: "Cloud Ops Members"
+    inventories:
+      - "Master Inventory"
+    role: "use"

@@ -1,0 +1,6 @@
+---
+controller_roles:
+  - team: "Virtualization Ops Members"
+    inventories:
+      - "Master Inventory"
+    role: "use"

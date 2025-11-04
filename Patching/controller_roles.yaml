@@ -16,3 +16,7 @@ controller_roles:
     projects:
       - "Patching Operations"
     role: "use"
+  - team: "Patching Ops Members"
+    inventories:
+      - "Master Inventory"
+    role: "use"
