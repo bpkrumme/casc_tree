@@ -33,6 +33,7 @@ controller_templates:
           variable: terraform_namespace
           new_question: True
           question_name: "Which terraform namespace?"
+      description: ""
   - name: "CLOUD - Terraform Destroy"
     description: "Run a Terraform Destroy job from a TF project repository"
     organization: "Cloud Operations"
@@ -67,4 +68,5 @@ controller_templates:
           variable: terraform_namespace
           new_question: True
           question_name: "Which terraform namespace?"
+      description: ""
 ...
