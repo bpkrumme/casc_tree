@@ -1,6 +1,60 @@
 ---
 controller_templates:
+  - name: "IDM - Create IDM Group in BK.LAB"
+    state: absent
+    organization: "IDM Operations"
+    project: "IDM Operations"
+    inventory: "IDM Operations Inventory"
+    playbook: "playbooks/create_idm_group.yml"
+    job_type: "run"
+    credentials:
+      - "IDM Operations Admin Credential"
+      - "IDM Operations Machine Credential"
+    execution_environment: "IDM Operations EE"
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: idm_ops_group_name
+          new_question: False
+          question_name: "What is the name of the group you want to create?"
+      description: ""
+  - name: "IDM - Add group to IDM group in BK.LAB"
+    state: absent
+    organization: "IDM Operations"
+    project: "IDM Operations"
+    inventory: "IDM Operations Inventory"
+    playbook: "playbooks/add_group_to_idm_group.yml"
+    job_type: "run"
+    credentials:
+      - "IDM Operations Admin Credential"
+      - "IDM Operations Machine Credential"
+    execution_environment: "IDM Operations EE"
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: idm_ops_group_name
+          new_question: False
+          question_name: "What is the parent group?"
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: idm_ops_groupadd_name
+          new_question: False
+          question_name: "What is the child group?"
+      description: ""
   - name: "IDM - Delete host from BK.LAB"
+    state: present
     organization: "IDM Operations"
     project: "IDM Operations"
     inventory: "IDM Operations Inventory"
@@ -23,6 +77,7 @@ controller_templates:
           question_name: "Which host needs to be deleted?"
       description: ""
   - name: "IDM - Join Domain"
+    state: present
     organization: "IDM Operations"
     project: "IDM Operations"
     inventory: "Master Inventory"
@@ -46,6 +101,7 @@ controller_templates:
       description: ""
     become_enabled: true
   - name: "IDM - Unjoin Domain"
+    state: present
     organization: "IDM Operations"
     project: "IDM Operations"
     inventory: "Master Inventory"
