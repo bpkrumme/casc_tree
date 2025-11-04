@@ -123,4 +123,27 @@ controller_templates:
           question_name: "VM Name"
       description: ""
     become_enabled: true
+  - name: "IDM - Delete IDM group in BK.LAB"
+    state: present
+    organization: "IDM Operations"
+    project: "IDM Operations"
+    inventory: "IDM Operations Inventory"
+    playbook: "playbooks/delete_idm_group.yml"
+    job_type: "run"
+    credentials:
+      - "IDM Operations Admin Credential"
+      - "IDM Operations Machine Credential"
+    execution_environment: "IDM Operations EE"
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: idm_ops_group_name
+          new_question: False
+          question_name: "What is the name of the group you want to delete?"
+      description: ""
 ...
