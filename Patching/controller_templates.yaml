@@ -3,7 +3,7 @@ controller_templates:
   - name: "SATELLITE - Register Host"
     organization: "Patching Operations"
     project: "Satellite Operations"
-    inventory: "OCP Virtualization Inventory"
+    inventory: "Master Inventory"
     playbook: "playbooks/register_host.yml"
     job_type: "run"
     credentials:
@@ -50,7 +50,7 @@ controller_templates:
   - name: "SATELLITE - Synchronize Products"
     organization: "Patching Operations"
     project: "Satellite Operations"
-    inventory: "Satellite Inventory"
+    inventory: "Master Inventory"
     playbook: "playbooks/sync_products.yml"
     job_type: "run"
     credentials:
@@ -92,7 +92,7 @@ controller_templates:
   - name: "SATELLITE - Publish Base Content Views"
     organization: "Patching Operations"
     project: "Satellite Operations"
-    inventory: "Satellite Inventory"
+    inventory: "Master Inventory"
     playbook: "playbooks/publish_content_view.yml"
     credentials:
       - "DAY2 - Machine"
@@ -130,7 +130,7 @@ controller_templates:
   - name: "SATELLITE - Publish AddOn Content Views"
     organization: "Patching Operations"
     project: "Satellite Operations"
-    inventory: "Satellite Inventory"
+    inventory: "Master Inventory"
     playbook: "playbooks/publish_content_view.yml"
     job_type: "run"
     credentials:
@@ -176,7 +176,7 @@ controller_templates:
   - name: "SATELLITE - Publish Composite Content Views"
     organization: "Patching Operations"
     project: "Satellite Operations"
-    inventory: "Satellite Inventory"
+    inventory: "Master Inventory"
     playbook: "playbooks/publish_content_view.yml"
     job_type: "run"
     credentials:
@@ -216,7 +216,7 @@ controller_templates:
   - name: "SATELLITE - Promote Composite Content Views"
     organization: "Patching Operations"
     project: "Satellite Operations"
-    inventory: "Satellite Inventory"
+    inventory: "Master Inventory"
     playbook: "playbooks/promote_content_view.yml"
     job_type: "run"
     credentials:
@@ -281,7 +281,7 @@ controller_templates:
   - name: "SATELLITE - Delete Host"
     organization: "Patching Operations"
     project: "Satellite Operations"
-    inventory: "Satellite Inventory"
+    inventory: "Master Inventory"
     playbook: "playbooks/delete_satellite_host.yml"
     job_type: "run"
     credentials:
@@ -304,7 +304,7 @@ controller_templates:
   - name: "PATCH - Install Updates and Reboot"
     organization: "Patching Operations"
     project: "Patching Operations"
-    inventory: "Satellite Inventory"
+    inventory: "Master Inventory"
     playbook: "playbooks/dnf_update_and_reboot.yml"
     job_type: "run"
     credentials:
@@ -327,7 +327,7 @@ controller_templates:
   - name: "PATCH - Update Windows with Dependent Reboot"
     organization: "Patching Operations"
     project: "Patching Operations"
-    inventory: "OCP Virtualization Inventory"
+    inventory: "Master Inventory"
     playbook: "playbooks/windows_update_and_reboot.yml"
     job_type: "run"
     credentials:
