@@ -7,7 +7,7 @@ controller_templates:
     playbook: "playbooks/register_host.yml"
     job_type: "run"
     credentials:
-      - "DAY1 - Linux Machine"
+      - "DAY1 - Linux Machine - No Domain"
       - "Satellite Ops Credential"
     allow_simultaneous: true
     survey_enabled: true
@@ -54,7 +54,7 @@ controller_templates:
     playbook: "playbooks/sync_products.yml"
     job_type: "run"
     credentials:
-      - "DAY2 - Machine"
+      - "DAY2 - Linux Machine - BK.LAB Domain"
       - "Satellite Ops Credential"
     execution_environment: "Satellite Operations EE"
     survey_enabled: true
@@ -95,7 +95,7 @@ controller_templates:
     inventory: "Master Inventory"
     playbook: "playbooks/publish_content_view.yml"
     credentials:
-      - "DAY2 - Machine"
+      - "DAY2 - Linux Machine - BK.LAB Domain"
       - "Satellite Ops Credential"
     execution_environment: "Satellite Operations EE"
     survey_enabled: true
@@ -134,7 +134,7 @@ controller_templates:
     playbook: "playbooks/publish_content_view.yml"
     job_type: "run"
     credentials:
-      - "DAY2 - Machine"
+      - "DAY2 - Linux Machine - BK.LAB Domain"
       - "Satellite Ops Credential"
     execution_environment: "Satellite Operations EE"
     survey_enabled: true
@@ -180,7 +180,7 @@ controller_templates:
     playbook: "playbooks/publish_content_view.yml"
     job_type: "run"
     credentials:
-      - "DAY2 - Machine"
+      - "DAY2 - Linux Machine - BK.LAB Domain"
       - "Satellite Ops Credential"
     execution_environment: "Satellite Operations EE"
     survey_enabled: true
@@ -220,7 +220,7 @@ controller_templates:
     playbook: "playbooks/promote_content_view.yml"
     job_type: "run"
     credentials:
-      - "DAY2 - Machine"
+      - "DAY2 - Linux Machine - BK.LAB Domain"
       - "Satellite Ops Credential"
     execution_environment: "Satellite Operations EE"
     survey_enabled: true
@@ -285,7 +285,7 @@ controller_templates:
     playbook: "playbooks/delete_satellite_host.yml"
     job_type: "run"
     credentials:
-      - "DAY1 - Linux Machine"
+      - "DAY1 - Linux Machine - No Domain"
       - "Satellite Ops Credential"
     allow_simultaneous: true
     execution_environment: "Satellite Operations EE"
@@ -308,7 +308,7 @@ controller_templates:
     playbook: "playbooks/dnf_update_and_reboot.yml"
     job_type: "run"
     credentials:
-      - "DAY2 - Machine"
+      - "DAY2 - Linux Machine - BK.LAB Domain"
     allow_simultaneous: true
     execution_environment: "Patch Operations EE"
     survey_enabled: true
