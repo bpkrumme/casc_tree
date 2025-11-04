@@ -2,8 +2,8 @@
 controller_roles:
   - team: "IDM Ops Members"
     job_templates:
-      - "IDM - Create IDM Group in BK.LAB"
-      - "IDM - Add group to IDM group in BK.LAB"
+#      - "IDM - Create IDM Group in BK.LAB"
+#      - "IDM - Add group to IDM group in BK.LAB"
       - "IDM - Delete host from BK.LAB"
       - "IDM - Join Domain"
       - "IDM - Unjoin Domain"
