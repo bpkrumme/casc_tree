@@ -11,6 +11,7 @@ controller_inventory_sources:
     inventory: "Master Inventory"
     update_on_launch: "True"
     overwrite: "True"
+    credential: "OCP Virt Credential"
   - name: "MASTER - Satellite Source"
     organization: "Default"
     source: "satellite6"
@@ -41,5 +42,5 @@ controller_inventory_sources:
     inventory: "Master Inventory"
     update_on_launch: "True"
     overwrite: "True"
-    credential: "Terraform State"
+    credential: "CLOUD - Terraform State"
 ...
