@@ -85,6 +85,7 @@ controller_templates:
     job_type: "run"
     credentials:
       - "DAY1 - Linux Machine - No Domain"
+      - "IDM Operations Admin Credential"
     execution_environment: "IDM Operations EE"
     host_config_key: ""
     survey_enabled: true
@@ -109,6 +110,7 @@ controller_templates:
     job_type: "run"
     credentials:
       - "DAY2 - Linux Machine - BK.LAB Domain"
+      - "IDM Operations Admin Credential"
     execution_environment: "IDM Operations EE"
     survey_enabled: true
     survey_spec:
