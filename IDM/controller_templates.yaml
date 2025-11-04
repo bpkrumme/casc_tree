@@ -96,6 +96,7 @@ controller_templates:
           new_question: False
           question_name: "VM Name"
       description: ""
+    become_enabled: true
   - name: "IDM - Unjoin Domain"
     organization: "IDM Operations"
     project: "IDM Operations"
@@ -118,4 +119,5 @@ controller_templates:
           new_question: False
           question_name: "VM Name"
       description: ""
+    become_enabled: true
 ...
