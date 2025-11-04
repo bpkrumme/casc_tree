@@ -1,0 +1,45 @@
+---
+controller_inventory_sources:
+  - name: "MASTER - OCP Virt Source"
+    organization: "Default"
+    source: "openshift_virtualization"
+    source_vars:
+      host_format: '{name}'
+      keyed_groups:
+      - key: vmi_guest_os_info.name
+        prefix: OS
+    inventory: "Master Inventory"
+    update_on_launch: "True"
+    overwrite: "True"
+  - name: "MASTER - Satellite Source"
+    organization: "Default"
+    source: "satellite6"
+    source_vars:
+      group_prefix: sat_
+      validate_certs: false
+      want_facts: true
+      want_hostcollections: true
+      want_ipv4: true
+      want_location: true
+      want_organization: true
+    inventory: "Master Inventory"
+    update_on_launch: "True"
+    overwrite: "True"
+    credential: "Satellite Inventory Credential"
+  - name: "MASTER - TF State Source"
+    organization: "Default"
+    source: "terraform"
+    source_vars:
+      backend_type: s3
+      hostnames:
+      - name: tag:Name
+      keyed_groups:
+      - prefix: ec2_env
+        key: tags.Environment
+      - prefix: ec2_region
+        key: tags.Region
+    inventory: "Master Inventory"
+    update_on_launch: "True"
+    overwrite: "True"
+    credential: "Terraform State"
+...
