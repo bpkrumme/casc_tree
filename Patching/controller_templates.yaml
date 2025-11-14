@@ -69,7 +69,7 @@ controller_templates:
           default: "HomeLab"
           required: True
           variable: satellite_ops_org_name
-          new_question: True
+          new_question: False
           question_name: "Please select the Satellite Organization"
         - max: 1024
           min: 0
@@ -86,7 +86,7 @@ controller_templates:
             - "Red Hat OpenShift Data Foundation"
           required: True
           variable: satellite_ops_product
-          new_question: True
+          new_question: False
           question_name: "Which products would you like to synchronize?"
       description: ""
   - name: "SATELLITE - Publish Base Content Views"
