@@ -72,7 +72,7 @@ controller_templates:
           question_name: "Which terraform namespace?"
       description: ""
   - name: "CLOUD - Terraform Apply - NEW"
-    state: absent
+    state: present
     description: "Run a Terraform Apply job from a TF project repository - NEW"
     organization: "Cloud Operations"
     project: "Cloud Operations"
