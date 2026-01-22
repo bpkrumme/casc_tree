@@ -31,6 +31,7 @@ controller_templates:
           choices:
             - "App"
             - "Web"
+            - "Core"
           required: True
           variable: satellite_ops_server_type
           new_question: True
@@ -78,10 +79,7 @@ controller_templates:
             - "Oracle Linux for x86_64"
             - "Red Hat Ansible Automation Platform"
             - "Red Hat Directory Server"
-            - "Red Hat Enterprise Linux Fast Datapath"
             - "Red Hat Enterprise Linux for x86_64"
-            - "Red Hat Enterprise Linux High Availability for x86_64"
-            - "Red Hat Enterprise Linux Resilient Storage for x86_64"
             - "Red Hat OpenShift Container Platform"
             - "Red Hat OpenShift Data Foundation"
           required: True
@@ -118,10 +116,8 @@ controller_templates:
           choices:
             - "Base-OL9"
             - "Base-RHEL9"
-            - "Base-RHEL95"
-            - "Base-RHEL96"
             - "Base-RHEL10"
-            - "Base-RHEL100"
+            - "Base-RHEL101"
           required: True
           variable: satellite_ops_cv_name
           new_question: True
@@ -155,19 +151,11 @@ controller_templates:
           min: 0
           type: multiselect
           choices:
-            - "AddOn-AAP2.4-RHEL9"
             - "AddOn-AAP2.5-RHEL9"
-            - "AddOn-HA-RHEL9"
-            - "AddOn-OCP417-RHEL9"
-            - "AddOn-OCP418-RHEL9"
+            - "AddOn-AAP2.6-RHEL9"
+            - "AddOn-OCP420-RHEL9"
             - "AddOn-ODF-RHEL9"
-            - "AddOn-RHDS125-RHEL9"
-            - "AddOn-RHDS13-RHEL10"
-            - "AddOn-RS-RHEL9"
-            - "AddOn-EX-RHEL10"
-            - "AddOn-FDP-RHEL10"
-            - "AddOn-OCP419-RHEL9"
-            - "AddOn-RT-RHEL10"
+            - "AddOn-RHDS13-RHEL101"
           required: True
           variable: satellite_ops_cv_name
           new_question: True
@@ -201,13 +189,10 @@ controller_templates:
           min: 0
           type: multiselect
           choices:
+            - "Composite-AAP"
+            - "Composite-LabHosts"
             - "Composite-OL9"
             - "Composite-RHEL100-DS13"
-            - "Composite-RHEL95-DS125"
-            - "Composite-RHEL96-DS125"
-            - "Composite-RHEL9-HA_RS"
-            - "Composite-AAP"
-            - "Composite-RHEL10-EX-FDP-RT"
           required: True
           variable: satellite_ops_cv_name
           new_question: True
@@ -242,11 +227,9 @@ controller_templates:
           type: multiselect
           choices:
             - "Composite-AAP"
+            - "Composite-LabHosts"
             - "Composite-OL9"
             - "Composite-RHEL100-DS13"
-            - "Composite-RHEL95-DS125"
-            - "Composite-RHEL10-EX-FDP-RT"
-            - "Composite-RHEL9-HA_RS"
           required: True
           variable: satellite_ops_cv_name
           new_question: True
