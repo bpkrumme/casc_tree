@@ -1,21 +1,4 @@
 ---
 gateway_organizations: 
   - name: "Default"
-    description: |-
-      {%- raw -%}
-      The default organization for Ansible Automation Platform
-      {%- endraw -%}
-  - name: "SuperAdmin"
-  - name: "Cloud Operations"
-  - name: "IDM Operations"
-  - name: "OpenShift Operations"
-  - name: "Helpdesk"
-  - name: "Monitoring Operations"
-  - name: "Network Operations"
-  - name: "Patching Operations"
-  - name: "Server Operations"
-  - name: "Virtualization Operations"
-  - name: "Web Operations"
-  - name: "Self-Service"
-  - name: "ITSM Operations"
 ...

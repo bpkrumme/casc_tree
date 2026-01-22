@@ -1,0 +1,6 @@
+---
+controller_execution_environments:
+  - name: "Network Operations EE"
+    organization: "Network Operations"
+    image: "production-aap.apps.ocp.bk.lab/homelab_ees/network_ee:latest"
+    pull: "always"

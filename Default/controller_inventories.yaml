@@ -6,6 +6,3 @@ controller_inventories:
   - name: "Master Inventory"
     organization: "Default"
     prevent_instance_group_fallback: False
-  - name: "SuperAdmin Inventory"
-    organization: "SuperAdmin"
-    prevent_instance_group_fallback: False

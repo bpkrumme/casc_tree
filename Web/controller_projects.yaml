@@ -1,9 +1,9 @@
 ---
 controller_projects:
-  - name: "AAP Config as Code"
-    organization: "SuperAdmin"
+  - name: "Web Operations"
+    organization: "Web Operations"
     scm_type: "git"
-    scm_url: "https://github.com/bpkrumme/aap_casc.git"
+    scm_url: "https://github.com/bpkrumme/web_ops.git"
     scm_clean: true
     scm_update_on_launch: true
     scm_update_cache_timeout: "600"
