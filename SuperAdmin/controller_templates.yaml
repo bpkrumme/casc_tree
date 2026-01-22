@@ -65,6 +65,7 @@ controller_templates:
             - "Default"
             - "Helpdesk"
             - "IDM"
+            - "ITSM"
             - "Monitoring"
             - "Network"
             - "OpenShift"
@@ -72,6 +73,7 @@ controller_templates:
             - "Server"
             - "SuperAdmin"
             - "Virtualization"
+            - "Web"
           required: True
           variable: dispatch_organization
           new_question: False
@@ -96,17 +98,19 @@ controller_templates:
           type: multiplechoice
           choices:
             - "Default"
-            - "HomeLab"
             - "SuperAdmin"
             - "Cloud Operations"
             - "Helpdesk"
             - "IDM Operations"
+            - "ITSM Operations"
             - "Monitoring Operations"
             - "Network Operations"
             - "OpenShift Operations"
             - "Patching Operations"
+            - "Self-Service"
             - "Server Operations"
             - "Virtualization Operations"
+            - "Web Operations"
           required: False
           variable: organization_filter
           new_question: False
