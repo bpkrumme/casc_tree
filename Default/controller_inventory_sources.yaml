@@ -27,20 +27,4 @@ controller_inventory_sources:
     update_on_launch: "True"
     overwrite: "True"
     credential: "Satellite Inventory Credential"
-  - name: "MASTER - TF State Source"
-    organization: "Default"
-    source: "terraform"
-    source_vars:
-      backend_type: s3
-      hostnames:
-      - name: tag:Name
-      keyed_groups:
-      - prefix: ec2_env
-        key: tags.Environment
-      - prefix: ec2_region
-        key: tags.Region
-    inventory: "Master Inventory"
-    update_on_launch: "True"
-    overwrite: "True"
-    credential: "CLOUD - Terraform State"
 ...
