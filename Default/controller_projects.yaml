@@ -1,15 +1,197 @@
 ---
 controller_projects:
+  - name: "Cloud Operations"
+    description: |-
+      {%- raw -%}
+      Project which includes playbooks for public cloud operations
+      {%- endraw -%}
+    organization: "Cloud Operations"
+    scm_type: "git"
+    scm_url: "https://github.com/bpkrumme/cloud_ops.git"
+    scm_branch: ""
+    scm_clean: true
+    scm_delete_on_update: false
+    scm_update_on_launch: true
+    scm_update_cache_timeout: "600"
+    scm_refspec: ""
+    allow_override: false
+    update_project: false
+    timeout: "0"
   - name: "Ansible POCs"
     organization: "Default"
     scm_type: "git"
     scm_url: "https://github.com/bpkrumme/ansible_pocs.git"
+    scm_branch: ""
     scm_clean: true
+    scm_delete_on_update: false
     scm_update_on_launch: true
+    scm_update_cache_timeout: "600"
+    scm_refspec: ""
+    allow_override: false
+    update_project: false
+    timeout: "0"
   - name: "EDA-HandOff-HACKATHON!!!!!!!"
     organization: "Default"
     scm_type: "git"
     scm_url: "https://github.com/bpkrumme/Ansible-Variable-Handoff.git"
+    scm_branch: ""
     scm_clean: true
+    scm_delete_on_update: false
     scm_update_on_launch: true
+    scm_update_cache_timeout: "0"
+    scm_refspec: ""
+    allow_override: false
+    update_project: false
+    timeout: "0"
+  - name: "IDM Operations"
+    description: |-
+      {%- raw -%}
+      Project which includes playbooks for Identity Management operations
+      {%- endraw -%}
+    organization: "IDM Operations"
+    scm_type: "git"
+    scm_url: "https://github.com/bpkrumme/idm_ops.git"
+    scm_branch: ""
+    scm_clean: true
+    scm_delete_on_update: false
+    scm_update_on_launch: true
+    scm_update_cache_timeout: "600"
+    scm_refspec: ""
+    allow_override: false
+    update_project: false
+    timeout: "0"
+  - name: "ITSM Operations"
+    organization: "ITSM Operations"
+    scm_type: "git"
+    scm_url: "https://github.com/bpkrumme/itsm_ops.git"
+    scm_branch: ""
+    scm_clean: true
+    scm_delete_on_update: false
+    scm_update_on_launch: true
+    scm_update_cache_timeout: "600"
+    scm_refspec: ""
+    allow_override: false
+    update_project: false
+    timeout: "0"
+  - name: "Network Operations"
+    organization: "Network Operations"
+    scm_type: "git"
+    scm_url: "https://github.com/bpkrumme/network_ops.git"
+    scm_branch: ""
+    scm_clean: true
+    scm_delete_on_update: false
+    scm_update_on_launch: true
+    scm_update_cache_timeout: "600"
+    scm_refspec: ""
+    allow_override: false
+    update_project: false
+    timeout: "0"
+  - name: "Patching Operations"
+    description: |-
+      {%- raw -%}
+      Project which includes playbooks for Patching operations
+      {%- endraw -%}
+    organization: "Patching Operations"
+    scm_type: "git"
+    scm_url: "https://github.com/bpkrumme/patch_ops.git"
+    scm_branch: ""
+    scm_clean: true
+    scm_delete_on_update: false
+    scm_update_on_launch: true
+    scm_update_cache_timeout: "600"
+    scm_refspec: ""
+    allow_override: false
+    update_project: false
+    timeout: "0"
+  - name: "Satellite Operations"
+    organization: "Patching Operations"
+    scm_type: "git"
+    scm_url: "https://github.com/bpkrumme/satellite_ops.git"
+    scm_branch: ""
+    scm_clean: true
+    scm_delete_on_update: false
+    scm_update_on_launch: true
+    scm_update_cache_timeout: "600"
+    scm_refspec: ""
+    allow_override: false
+    update_project: false
+    timeout: "0"
+  - name: "Self-Service Patching"
+    organization: "Self-Service"
+    scm_type: "git"
+    scm_url: "https://github.com/bpkrumme/patch_ops.git"
+    scm_branch: ""
+    scm_clean: false
+    scm_delete_on_update: false
+    scm_update_on_launch: false
+    scm_update_cache_timeout: "0"
+    scm_refspec: ""
+    allow_override: false
+    update_project: false
+    timeout: "0"
+  - name: "Day 1 Server Operations"
+    organization: "Server Operations"
+    scm_type: "git"
+    scm_url: "https://github.com/bpkrumme/day1_ops.git"
+    scm_branch: ""
+    scm_clean: true
+    scm_delete_on_update: false
+    scm_update_on_launch: true
+    scm_update_cache_timeout: "600"
+    scm_refspec: ""
+    allow_override: false
+    update_project: false
+    timeout: "0"
+  - name: "Day 2 Server Operations"
+    organization: "Server Operations"
+    scm_type: "git"
+    scm_url: "https://github.com/bpkrumme/day2_ops.git"
+    scm_branch: ""
+    scm_clean: true
+    scm_delete_on_update: false
+    scm_update_on_launch: true
+    scm_update_cache_timeout: "600"
+    scm_refspec: ""
+    allow_override: false
+    update_project: false
+    timeout: "0"
+  - name: "AAP Config as Code"
+    organization: "SuperAdmin"
+    scm_type: "git"
+    scm_url: "https://github.com/bpkrumme/aap_casc.git"
+    scm_branch: ""
+    scm_clean: true
+    scm_delete_on_update: false
+    scm_update_on_launch: true
+    scm_update_cache_timeout: "600"
+    scm_refspec: ""
+    allow_override: false
+    update_project: false
+    timeout: "0"
+  - name: "Virtualization Operations"
+    organization: "Virtualization Operations"
+    scm_type: "git"
+    scm_url: "https://github.com/bpkrumme/virt_ops.git"
+    scm_branch: ""
+    scm_clean: true
+    scm_delete_on_update: false
+    scm_update_on_launch: true
+    scm_update_cache_timeout: "600"
+    scm_refspec: ""
+    allow_override: false
+    update_project: false
+    timeout: "0"
+  - name: "Web Operations"
+    organization: "Web Operations"
+    scm_type: "git"
+    scm_url: "https://github.com/bpkrumme/web_ops.git"
+    scm_branch: ""
+    scm_clean: true
+    scm_delete_on_update: false
+    scm_update_on_launch: true
+    scm_update_cache_timeout: "600"
+    scm_refspec: ""
+    allow_override: false
+    update_project: false
+    timeout: "0"
 ...
