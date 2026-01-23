@@ -4,7 +4,7 @@ aap_user_accounts:
     email: ""
     first_name: ""
     last_name: ""
-    password: "{{ vaulted_gateway_users_bklab_servicenow_password }}"
+    password: "{{ vault_gateway_users_bklab_servicenow_password }}"
     is_superuser: "True"
     authenticators: [1]
     authenticator_uid: "BKLab_ServiceNow"
