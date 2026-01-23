@@ -395,8 +395,6 @@ controller_workflows:
           - "Delete manual host from inventory"
           - "Delete VM 2"
           - "Release IP 2"
-        failure_nodes:
-          - "1c33dfff-e503-4700-80ae-1390653b12e4"
       - identifier: "ITSM Update on IP Release"
         workflow_job_template: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
         unified_job_template: "ITSM - Update Catalog Request"
