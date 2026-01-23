@@ -632,10 +632,7 @@ controller_templates:
     webhook_service: ""
     prevent_instance_group_fallback: false
   - name: "CASC - Dispatch Configuration"
-    description: |-
-      
-      Playbook to apply CASC configuration to AAP Instance
-      
+    description: "Playbook to apply CASC configuration to AAP Instance"      
     organization: "SuperAdmin"
     project: "AAP Config as Code"
     inventory: "Localhost"
@@ -769,10 +766,7 @@ controller_templates:
     webhook_service: ""
     prevent_instance_group_fallback: false
   - name: "CASC - Configure Authentication"
-    description: |-
-      
-      Playbook to apply CASC configuration to AAP Instance
-      
+    description:"Playbook to apply CASC configuration to AAP Instance"      
     organization: "SuperAdmin"
     project: "AAP Config as Code"
     inventory: "Localhost"
