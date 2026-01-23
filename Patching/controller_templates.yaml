@@ -192,7 +192,7 @@ controller_templates:
             - "Composite-AAP"
             - "Composite-LabHosts"
             - "Composite-OL9"
-            - "Composite-RHEL100-DS13"
+            - "Composite-RHEL101-DS13"
           required: True
           variable: satellite_ops_cv_name
           new_question: True
@@ -229,7 +229,7 @@ controller_templates:
             - "Composite-AAP"
             - "Composite-LabHosts"
             - "Composite-OL9"
-            - "Composite-RHEL100-DS13"
+            - "Composite-RHEL101-DS13"
           required: True
           variable: satellite_ops_cv_name
           new_question: True
