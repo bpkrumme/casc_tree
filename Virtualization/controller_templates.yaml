@@ -161,7 +161,7 @@ controller_templates:
         - max: 1024
           min: 0
           type: password
-          default: "''"
+          default: "{{ vault_ocp_virt_default_password }}"
           required: True
           variable: virt_ops_vm_password
           new_question: False
