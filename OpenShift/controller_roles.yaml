@@ -1,0 +1,6 @@
+---
+controller_roles:
+  - team: "OpenShift Ops Members"
+    inventories:
+      - "Master Inventory"
+    role: "use"

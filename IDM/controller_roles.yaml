@@ -2,8 +2,6 @@
 controller_roles:
   - team: "IDM Ops Members"
     job_templates:
-#      - "IDM - Create IDM Group in BK.LAB"
-#      - "IDM - Add group to IDM group in BK.LAB"
       - "IDM - Delete host from BK.LAB"
       - "IDM - Join Domain"
       - "IDM - Unjoin Domain"
@@ -13,13 +11,13 @@ controller_roles:
       - "IDM Operations"
     role: "use"
   - team: "IDM Ops Members"
-    inventories:
-      - "Master Inventory"
-      - "Localhost"
-    role: "use"
-  - team: "IDM Ops Members"
     credentials:
+      - "Windows Machine"
       - "DAY1 - Linux Machine - No Domain"
       - "DAY2 - Linux Machine - BK.LAB Domain"
-      - "Windows Machine"
+    role: "use"
+  - team: "IDM Ops Members"
+    inventories:
+      - "Localhost"
+      - "Master Inventory"
     role: "use"

@@ -1,5 +1,5 @@
 ---
-aap_teams:
+gateway_teams:
   - name: "Monitoring Ops Admins"
     organization: "Monitoring Operations"
   - name: "Monitoring Ops Members"

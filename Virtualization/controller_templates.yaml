@@ -1,0 +1,379 @@
+---
+controller_templates:
+  - name: "VIRT - Create VM in OpenShift"
+    organization: "Virtualization Operations"
+    project: "Virtualization Operations"
+    inventory: "Localhost"
+    playbook: "playbooks/ocpv_create_vm.yml"
+    scm_branch: ""
+    forks: 0
+    limit: ""
+    verbosity: 0
+    job_type: "run"
+    job_slice_count: 1
+    use_fact_cache: false
+    credentials:
+      - "OCP Virt Credential"
+      - "VIRT - Vault"
+    allow_simultaneous: false
+    ask_scm_branch_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_tags_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_job_type_on_launch: false
+    ask_verbosity_on_launch: false
+    ask_variables_on_launch: false
+    ask_inventory_on_launch: false
+    ask_limit_on_launch: false
+    ask_credential_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_labels_on_launch: false
+    ask_forks_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_timeout_on_launch: false
+    ask_instance_groups_on_launch: false
+    extra_vars: ""
+    job_tags: ""
+    force_handlers: false
+    skip_tags: ""
+    start_at_task: ""
+    timeout: 0
+    execution_environment: "OCP Virtualization EE"
+    host_config_key: ""
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: vm_name
+          new_question: True
+          question_name: "{%- raw -%}What would you like to name the virtual machine?{%- endraw -%}"
+          question_description: "{%- raw -%}Please use the FQDN of the machine here{%- endraw -%}"
+        - max: 1024
+          min: 0
+          type: text
+          default: "{%- raw -%}bklab-vms{%- endraw -%}"
+          required: True
+          variable: virt_ops_vm_namespace
+          new_question: True
+          question_name: "{%- raw -%}Which OpenShift namespace should the VM be created in?{%- endraw -%}"
+          question_description: "{%- raw -%}This namespace needs to exist prior to provisioning.{%- endraw -%}"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "{%- raw -%}rhel9{%- endraw -%}"
+            - "{%- raw -%}rhel10{%- endraw -%}"
+          default: "{%- raw -%}rhel10{%- endraw -%}"
+          required: True
+          variable: virt_ops_vm_source_datasource
+          new_question: False
+          question_name: "{%- raw -%}Which OS do you want to deploy?{%- endraw -%}"
+        - max: 1024
+          min: 0
+          type: text
+          default: "{%- raw -%}openshift-virtualization-os-images{%- endraw -%}"
+          required: True
+          variable: virt_ops_vm_source_namespace
+          new_question: True
+          question_name: "{%- raw -%}What is the OpenShift namespace for the VM datasource?{%- endraw -%}"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "{%- raw -%}30Gi{%- endraw -%}"
+            - "{%- raw -%}80Gi{%- endraw -%}"
+            - "{%- raw -%}100Gi{%- endraw -%}"
+          default: "{%- raw -%}30Gi{%- endraw -%}"
+          required: True
+          variable: virt_ops_vm_disk_size
+          new_question: False
+          question_name: "{%- raw -%}How large does the primary disk need to be?{%- endraw -%}"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "{%- raw -%}1{%- endraw -%}"
+            - "{%- raw -%}2{%- endraw -%}"
+            - "{%- raw -%}4{%- endraw -%}"
+            - "{%- raw -%}8{%- endraw -%}"
+          default: "{%- raw -%}1{%- endraw -%}"
+          required: True
+          variable: virt_ops_vm_cpus
+          new_question: False
+          question_name: "{%- raw -%}How many vCPUs should the VM have?{%- endraw -%}"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "{%- raw -%}2Gi{%- endraw -%}"
+            - "{%- raw -%}4Gi{%- endraw -%}"
+            - "{%- raw -%}8Gi{%- endraw -%}"
+            - "{%- raw -%}16Gi{%- endraw -%}"
+          default: "{%- raw -%}2Gi{%- endraw -%}"
+          required: True
+          variable: virt_ops_vm_memory
+          new_question: True
+          question_name: "{%- raw -%}How much RAM is needed for the VM?{%- endraw -%}"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "{%- raw -%}bklab-virt-nad{%- endraw -%}"
+          default: "{%- raw -%}bklab-virt-nad{%- endraw -%}"
+          required: True
+          variable: virt_ops_vm_network_name
+          new_question: True
+          question_name: "{%- raw -%}Which Network Attachment Definition should be used?{%- endraw -%}"
+        - max: 15
+          min: 7
+          type: text
+          required: True
+          variable: virt_ops_ip_addr
+          new_question: True
+          question_name: "{%- raw -%}What should the IP address be?{%- endraw -%}"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "{%- raw -%}16{%- endraw -%}"
+            - "{%- raw -%}22{%- endraw -%}"
+            - "{%- raw -%}24{%- endraw -%}"
+          default: "{%- raw -%}24{%- endraw -%}"
+          required: True
+          variable: virt_ops_netmask
+          new_question: True
+          question_name: "{%- raw -%}Please select a valid network mask{%- endraw -%}"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "{%- raw -%}172.24.128.1{%- endraw -%}"
+            - "{%- raw -%}172.24.129.1{%- endraw -%}"
+          default: "{%- raw -%}172.24.129.1{%- endraw -%}"
+          required: True
+          variable: virt_ops_gw_addr
+          new_question: True
+          question_name: "{%- raw -%}Please select the correct gateway address for your machine{%- endraw -%}"
+        - max: 1024
+          min: 0
+          type: password
+          default: "{%- raw -%}''{%- endraw -%}"
+          required: True
+          variable: virt_ops_vm_password
+          new_question: False
+          question_name: "{%- raw -%}Please enter a password for cloud-user{%- endraw -%}"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "{%- raw -%}172.24.128.8{%- endraw -%}"
+            - "{%- raw -%}172.24.128.9{%- endraw -%}"
+          default: "{%- raw -%}172.24.128.8{%- endraw -%}"
+          required: True
+          variable: virt_ops_dns_1
+          new_question: True
+          question_name: "{%- raw -%}Please select the first DNS resolver{%- endraw -%}"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "{%- raw -%}172.24.128.8{%- endraw -%}"
+            - "{%- raw -%}172.24.128.9{%- endraw -%}"
+          default: "{%- raw -%}172.24.128.9{%- endraw -%}"
+          required: True
+          variable: virt_ops_dns_2
+          new_question: True
+          question_name: "{%- raw -%}Please select the second DNS resolver{%- endraw -%}"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "{%- raw -%}bk.lab{%- endraw -%}"
+          default: "{%- raw -%}bk.lab{%- endraw -%}"
+          required: True
+          variable: virt_ops_dns_search
+          new_question: True
+          question_name: "{%- raw -%}Please select a DNS search domain{%- endraw -%}"
+      description: ""
+    become_enabled: false
+    diff_mode: false
+    webhook_service: ""
+    prevent_instance_group_fallback: false
+  - name: "VIRT - Delete VM in OpenShift"
+    organization: "Virtualization Operations"
+    project: "Virtualization Operations"
+    inventory: "Localhost"
+    playbook: "playbooks/ocpv_delete_vm.yml"
+    scm_branch: ""
+    forks: 0
+    limit: ""
+    verbosity: 0
+    job_type: "run"
+    job_slice_count: 1
+    use_fact_cache: false
+    credentials:
+      - "OCP Virt Credential"
+    allow_simultaneous: false
+    ask_scm_branch_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_tags_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_job_type_on_launch: false
+    ask_verbosity_on_launch: false
+    ask_variables_on_launch: false
+    ask_inventory_on_launch: false
+    ask_limit_on_launch: false
+    ask_credential_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_labels_on_launch: false
+    ask_forks_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_timeout_on_launch: false
+    ask_instance_groups_on_launch: false
+    extra_vars: ""
+    job_tags: ""
+    force_handlers: false
+    skip_tags: ""
+    start_at_task: ""
+    timeout: 0
+    execution_environment: "OCP Virtualization EE"
+    host_config_key: ""
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: vm_name
+          new_question: False
+          question_name: "{%- raw -%}What is the name of the virtual machine?{%- endraw -%}"
+          question_description: "{%- raw -%}Please use the FQDN of the machine here{%- endraw -%}"
+        - max: 1024
+          min: 0
+          type: text
+          default: "{%- raw -%}bklab-vms{%- endraw -%}"
+          required: True
+          variable: virt_ops_vm_namespace
+          new_question: False
+          question_name: "{%- raw -%}Which OpenShift namespace is the VM?{%- endraw -%}"
+          question_description: "{%- raw -%}This namespace needs to exist prior to provisioning.{%- endraw -%}"
+      description: ""
+    become_enabled: false
+    diff_mode: false
+    webhook_service: ""
+    prevent_instance_group_fallback: false
+  - name: "VIRT - Pause for VM to become available"
+    organization: "Virtualization Operations"
+    project: "Virtualization Operations"
+    inventory: "Localhost"
+    playbook: "playbooks/pause.yml"
+    scm_branch: ""
+    forks: 0
+    limit: ""
+    verbosity: 0
+    job_type: "run"
+    job_slice_count: 1
+    use_fact_cache: false
+    allow_simultaneous: false
+    ask_scm_branch_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_tags_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_job_type_on_launch: false
+    ask_verbosity_on_launch: false
+    ask_variables_on_launch: false
+    ask_inventory_on_launch: false
+    ask_limit_on_launch: false
+    ask_credential_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_labels_on_launch: false
+    ask_forks_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_timeout_on_launch: false
+    ask_instance_groups_on_launch: false
+    extra_vars: ""
+    job_tags: ""
+    force_handlers: false
+    skip_tags: ""
+    start_at_task: ""
+    timeout: 0
+    execution_environment: "OCP Virtualization EE"
+    host_config_key: ""
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 300
+          min: 30
+          type: integer
+          default: 60
+          required: True
+          variable: virt_pause_time
+          new_question: True
+          question_name: "{%- raw -%}How long should we pause?{%- endraw -%}"
+      description: ""
+    become_enabled: false
+    diff_mode: false
+    webhook_service: ""
+    prevent_instance_group_fallback: false
+  - name: "VIRT - Wait for Connection"
+    organization: "Virtualization Operations"
+    project: "Virtualization Operations"
+    inventory: "Master Inventory"
+    playbook: "playbooks/wait_for_connection.yml"
+    scm_branch: ""
+    forks: 0
+    limit: ""
+    verbosity: 0
+    job_type: "run"
+    job_slice_count: 1
+    use_fact_cache: false
+    credentials:
+      - "DAY1 - Linux Machine - No Domain"
+    allow_simultaneous: false
+    ask_scm_branch_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_tags_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_job_type_on_launch: false
+    ask_verbosity_on_launch: false
+    ask_variables_on_launch: false
+    ask_inventory_on_launch: false
+    ask_limit_on_launch: false
+    ask_credential_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_labels_on_launch: false
+    ask_forks_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_timeout_on_launch: false
+    ask_instance_groups_on_launch: false
+    extra_vars: ""
+    job_tags: ""
+    force_handlers: false
+    skip_tags: ""
+    start_at_task: ""
+    timeout: 0
+    execution_environment: "OCP Virtualization EE"
+    host_config_key: ""
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: vm_name
+          new_question: True
+          question_name: "{%- raw -%}What is the VM Name?{%- endraw -%}"
+      description: ""
+    become_enabled: false
+    diff_mode: false
+    webhook_service: ""
+    prevent_instance_group_fallback: false

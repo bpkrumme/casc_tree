@@ -1,0 +1,10 @@
+---
+controller_roles:
+  - team: "Web Ops Members"
+    credentials:
+      - "DAY2 - Linux Machine - BK.LAB Domain"
+    role: "use"
+  - team: "Web Ops Members"
+    inventories:
+      - "Master Inventory"
+    role: "use"

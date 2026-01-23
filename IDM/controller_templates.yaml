@@ -211,7 +211,6 @@ controller_templates:
     execution_environment: "IDM Operations EE"
     host_config_key: ""
     survey_enabled: true
-    survey_enabled: true
     survey_spec:
       name: ""
       spec:

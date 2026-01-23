@@ -1,5 +1,5 @@
 ---
-aap_teams:
+gateway_teams:
   - name: "Network Ops Admins"
     organization: "Network Operations"
   - name: "Network Ops Members"
