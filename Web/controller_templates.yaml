@@ -49,7 +49,7 @@ controller_templates:
           required: True
           variable: vm_name
           new_question: True
-          question_name: "{%- raw -%}Which host should we deploy to?{%- endraw -%}"
+          question_name: "Which host should we deploy to?"
       description: ""
     become_enabled: true
     diff_mode: false

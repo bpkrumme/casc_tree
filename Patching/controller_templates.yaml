@@ -367,12 +367,12 @@ controller_templates:
           min: 0
           type: multiplechoice
           choices:
-            - "{%- raw -%}HomeLab{%- endraw -%}"
-          default: "{%- raw -%}HomeLab{%- endraw -%}"
+            - "HomeLab"
+          default: "HomeLab"
           required: True
           variable: satellite_ops_org_name
           new_question: True
-          question_name: "{%- raw -%}Please select the Satellite Organization{%- endraw -%}"
+          question_name: "Please select the Satellite Organization"
       description: ""
     become_enabled: false
     diff_mode: false
@@ -427,7 +427,7 @@ controller_templates:
           required: True
           variable: vm_name
           new_question: True
-          question_name: "{%- raw -%}What is the VM name?{%- endraw -%}"
+          question_name: "What is the VM name?"
       description: ""
     become_enabled: false
     diff_mode: false
@@ -480,7 +480,7 @@ controller_templates:
           required: True
           variable: patch_pause_time
           new_question: True
-          question_name: "{%- raw -%}How many minutes to pause for?{%- endraw -%}"
+          question_name: "How many minutes to pause for?"
       description: ""
     become_enabled: false
     diff_mode: false

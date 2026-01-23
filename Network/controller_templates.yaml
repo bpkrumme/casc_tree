@@ -47,12 +47,12 @@ controller_templates:
           min: 0
           type: multiplechoice
           choices:
-            - "{%- raw -%}172.24.128.0/24{%- endraw -%}"
-            - "{%- raw -%}172.24.129.0/24{%- endraw -%}"
+            - "172.24.128.0/24"
+            - "172.24.129.0/24"
           required: True
           variable: cidr
           new_question: True
-          question_name: "{%- raw -%}Please select the network CIDR you want an IP from{%- endraw -%}"
+          question_name: "Please select the network CIDR you want an IP from"
       description: ""
     become_enabled: false
     diff_mode: false
@@ -105,19 +105,19 @@ controller_templates:
           min: 0
           type: multiplechoice
           choices:
-            - "{%- raw -%}172.24.128.0/24{%- endraw -%}"
-            - "{%- raw -%}172.24.129.0/24{%- endraw -%}"
+            - "172.24.128.0/24"
+            - "172.24.129.0/24"
           required: True
           variable: cidr
           new_question: True
-          question_name: "{%- raw -%}Please select the network CIDR you want an IP from{%- endraw -%}"
+          question_name: "Please select the network CIDR you want an IP from"
         - max: 1024
           min: 0
           type: text
           required: True
           variable: vm_name
           new_question: True
-          question_name: "{%- raw -%}Enter the hostname for this IP{%- endraw -%}"
+          question_name: "Enter the hostname for this IP"
       description: ""
     become_enabled: false
     diff_mode: false
@@ -172,7 +172,7 @@ controller_templates:
           required: True
           variable: ip_address
           new_question: False
-          question_name: "{%- raw -%}What is the ip address?{%- endraw -%}"
+          question_name: "What is the ip address?"
       description: ""
     become_enabled: false
     diff_mode: false
@@ -227,7 +227,7 @@ controller_templates:
           required: True
           variable: vm_name
           new_question: True
-          question_name: "{%- raw -%}What is the Fully Qualified Hostname?{%- endraw -%}"
+          question_name: "What is the Fully Qualified Hostname?"
       description: ""
     become_enabled: false
     diff_mode: false

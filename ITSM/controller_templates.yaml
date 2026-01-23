@@ -49,25 +49,25 @@ controller_templates:
           required: True
           variable: ticket_number
           new_question: True
-          question_name: "{%- raw -%}What is the ticket number?{%- endraw -%}"
+          question_name: "What is the ticket number?"
         - max: 1024
           min: 0
           type: text
           required: True
           variable: work_notes
           new_question: True
-          question_name: "{%- raw -%}What are the work notes you'd like to add?{%- endraw -%}"
+          question_name: "What are the work notes you'd like to add?"
         - max: 1024
           min: 0
           type: multiplechoice
           choices:
-            - "{%- raw -%}in_process{%- endraw -%}"
-            - "{%- raw -%}closed_incomplete{%- endraw -%}"
-            - "{%- raw -%}closed_complete{%- endraw -%}"
+            - "in_process"
+            - "closed_incomplete"
+            - "closed_complete"
           required: False
           variable: request_state
           new_question: False
-          question_name: "{%- raw -%}What should we set the ticket state to?{%- endraw -%}"
+          question_name: "What should we set the ticket state to?"
       description: ""
     become_enabled: false
     diff_mode: false

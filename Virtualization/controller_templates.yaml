@@ -50,154 +50,154 @@ controller_templates:
           required: True
           variable: vm_name
           new_question: True
-          question_name: "{%- raw -%}What would you like to name the virtual machine?{%- endraw -%}"
-          question_description: "{%- raw -%}Please use the FQDN of the machine here{%- endraw -%}"
+          question_name: "What would you like to name the virtual machine?"
+          question_description: "Please use the FQDN of the machine here"
         - max: 1024
           min: 0
           type: text
-          default: "{%- raw -%}bklab-vms{%- endraw -%}"
+          default: "bklab-vms"
           required: True
           variable: virt_ops_vm_namespace
           new_question: True
-          question_name: "{%- raw -%}Which OpenShift namespace should the VM be created in?{%- endraw -%}"
-          question_description: "{%- raw -%}This namespace needs to exist prior to provisioning.{%- endraw -%}"
+          question_name: "Which OpenShift namespace should the VM be created in?"
+          question_description: "This namespace needs to exist prior to provisioning."
         - max: 1024
           min: 0
           type: multiplechoice
           choices:
-            - "{%- raw -%}rhel9{%- endraw -%}"
-            - "{%- raw -%}rhel10{%- endraw -%}"
-          default: "{%- raw -%}rhel10{%- endraw -%}"
+            - "rhel9"
+            - "rhel10"
+          default: "rhel10"
           required: True
           variable: virt_ops_vm_source_datasource
           new_question: False
-          question_name: "{%- raw -%}Which OS do you want to deploy?{%- endraw -%}"
+          question_name: "Which OS do you want to deploy?"
         - max: 1024
           min: 0
           type: text
-          default: "{%- raw -%}openshift-virtualization-os-images{%- endraw -%}"
+          default: "openshift-virtualization-os-images"
           required: True
           variable: virt_ops_vm_source_namespace
           new_question: True
-          question_name: "{%- raw -%}What is the OpenShift namespace for the VM datasource?{%- endraw -%}"
+          question_name: "What is the OpenShift namespace for the VM datasource?"
         - max: 1024
           min: 0
           type: multiplechoice
           choices:
-            - "{%- raw -%}30Gi{%- endraw -%}"
-            - "{%- raw -%}80Gi{%- endraw -%}"
-            - "{%- raw -%}100Gi{%- endraw -%}"
-          default: "{%- raw -%}30Gi{%- endraw -%}"
+            - "30Gi"
+            - "80Gi"
+            - "100Gi"
+          default: "30Gi"
           required: True
           variable: virt_ops_vm_disk_size
           new_question: False
-          question_name: "{%- raw -%}How large does the primary disk need to be?{%- endraw -%}"
+          question_name: "How large does the primary disk need to be?"
         - max: 1024
           min: 0
           type: multiplechoice
           choices:
-            - "{%- raw -%}1{%- endraw -%}"
-            - "{%- raw -%}2{%- endraw -%}"
-            - "{%- raw -%}4{%- endraw -%}"
-            - "{%- raw -%}8{%- endraw -%}"
-          default: "{%- raw -%}1{%- endraw -%}"
+            - "1"
+            - "2"
+            - "4"
+            - "8"
+          default: "1"
           required: True
           variable: virt_ops_vm_cpus
           new_question: False
-          question_name: "{%- raw -%}How many vCPUs should the VM have?{%- endraw -%}"
+          question_name: "How many vCPUs should the VM have?"
         - max: 1024
           min: 0
           type: multiplechoice
           choices:
-            - "{%- raw -%}2Gi{%- endraw -%}"
-            - "{%- raw -%}4Gi{%- endraw -%}"
-            - "{%- raw -%}8Gi{%- endraw -%}"
-            - "{%- raw -%}16Gi{%- endraw -%}"
-          default: "{%- raw -%}2Gi{%- endraw -%}"
+            - "2Gi"
+            - "4Gi"
+            - "8Gi"
+            - "16Gi"
+          default: "2Gi"
           required: True
           variable: virt_ops_vm_memory
           new_question: True
-          question_name: "{%- raw -%}How much RAM is needed for the VM?{%- endraw -%}"
+          question_name: "How much RAM is needed for the VM?"
         - max: 1024
           min: 0
           type: multiplechoice
           choices:
-            - "{%- raw -%}bklab-virt-nad{%- endraw -%}"
-          default: "{%- raw -%}bklab-virt-nad{%- endraw -%}"
+            - "bklab-virt-nad"
+          default: "bklab-virt-nad"
           required: True
           variable: virt_ops_vm_network_name
           new_question: True
-          question_name: "{%- raw -%}Which Network Attachment Definition should be used?{%- endraw -%}"
+          question_name: "Which Network Attachment Definition should be used?"
         - max: 15
           min: 7
           type: text
           required: True
           variable: virt_ops_ip_addr
           new_question: True
-          question_name: "{%- raw -%}What should the IP address be?{%- endraw -%}"
+          question_name: "What should the IP address be?"
         - max: 1024
           min: 0
           type: multiplechoice
           choices:
-            - "{%- raw -%}16{%- endraw -%}"
-            - "{%- raw -%}22{%- endraw -%}"
-            - "{%- raw -%}24{%- endraw -%}"
-          default: "{%- raw -%}24{%- endraw -%}"
+            - "16"
+            - "22"
+            - "24"
+          default: "24"
           required: True
           variable: virt_ops_netmask
           new_question: True
-          question_name: "{%- raw -%}Please select a valid network mask{%- endraw -%}"
+          question_name: "Please select a valid network mask"
         - max: 1024
           min: 0
           type: multiplechoice
           choices:
-            - "{%- raw -%}172.24.128.1{%- endraw -%}"
-            - "{%- raw -%}172.24.129.1{%- endraw -%}"
-          default: "{%- raw -%}172.24.129.1{%- endraw -%}"
+            - "172.24.128.1"
+            - "172.24.129.1"
+          default: "172.24.129.1"
           required: True
           variable: virt_ops_gw_addr
           new_question: True
-          question_name: "{%- raw -%}Please select the correct gateway address for your machine{%- endraw -%}"
+          question_name: "Please select the correct gateway address for your machine"
         - max: 1024
           min: 0
           type: password
-          default: "{%- raw -%}''{%- endraw -%}"
+          default: "''"
           required: True
           variable: virt_ops_vm_password
           new_question: False
-          question_name: "{%- raw -%}Please enter a password for cloud-user{%- endraw -%}"
+          question_name: "Please enter a password for cloud-user"
         - max: 1024
           min: 0
           type: multiplechoice
           choices:
-            - "{%- raw -%}172.24.128.8{%- endraw -%}"
-            - "{%- raw -%}172.24.128.9{%- endraw -%}"
-          default: "{%- raw -%}172.24.128.8{%- endraw -%}"
+            - "172.24.128.8"
+            - "172.24.128.9"
+          default: "172.24.128.8"
           required: True
           variable: virt_ops_dns_1
           new_question: True
-          question_name: "{%- raw -%}Please select the first DNS resolver{%- endraw -%}"
+          question_name: "Please select the first DNS resolver"
         - max: 1024
           min: 0
           type: multiplechoice
           choices:
-            - "{%- raw -%}172.24.128.8{%- endraw -%}"
-            - "{%- raw -%}172.24.128.9{%- endraw -%}"
-          default: "{%- raw -%}172.24.128.9{%- endraw -%}"
+            - "172.24.128.8"
+            - "172.24.128.9"
+          default: "172.24.128.9"
           required: True
           variable: virt_ops_dns_2
           new_question: True
-          question_name: "{%- raw -%}Please select the second DNS resolver{%- endraw -%}"
+          question_name: "Please select the second DNS resolver"
         - max: 1024
           min: 0
           type: multiplechoice
           choices:
-            - "{%- raw -%}bk.lab{%- endraw -%}"
-          default: "{%- raw -%}bk.lab{%- endraw -%}"
+            - "bk.lab"
+          default: "bk.lab"
           required: True
           variable: virt_ops_dns_search
           new_question: True
-          question_name: "{%- raw -%}Please select a DNS search domain{%- endraw -%}"
+          question_name: "Please select a DNS search domain"
       description: ""
     become_enabled: false
     diff_mode: false
@@ -252,17 +252,17 @@ controller_templates:
           required: True
           variable: vm_name
           new_question: False
-          question_name: "{%- raw -%}What is the name of the virtual machine?{%- endraw -%}"
-          question_description: "{%- raw -%}Please use the FQDN of the machine here{%- endraw -%}"
+          question_name: "What is the name of the virtual machine?"
+          question_description: "Please use the FQDN of the machine here"
         - max: 1024
           min: 0
           type: text
-          default: "{%- raw -%}bklab-vms{%- endraw -%}"
+          default: "bklab-vms"
           required: True
           variable: virt_ops_vm_namespace
           new_question: False
-          question_name: "{%- raw -%}Which OpenShift namespace is the VM?{%- endraw -%}"
-          question_description: "{%- raw -%}This namespace needs to exist prior to provisioning.{%- endraw -%}"
+          question_name: "Which OpenShift namespace is the VM?"
+          question_description: "This namespace needs to exist prior to provisioning."
       description: ""
     become_enabled: false
     diff_mode: false
@@ -316,7 +316,7 @@ controller_templates:
           required: True
           variable: virt_pause_time
           new_question: True
-          question_name: "{%- raw -%}How long should we pause?{%- endraw -%}"
+          question_name: "How long should we pause?"
       description: ""
     become_enabled: false
     diff_mode: false
@@ -371,7 +371,7 @@ controller_templates:
           required: True
           variable: vm_name
           new_question: True
-          question_name: "{%- raw -%}What is the VM Name?{%- endraw -%}"
+          question_name: "What is the VM Name?"
       description: ""
     become_enabled: false
     diff_mode: false

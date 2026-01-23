@@ -50,7 +50,7 @@ controller_templates:
           required: True
           variable: vm_name
           new_question: False
-          question_name: "{%- raw -%}Which host needs to be deleted?{%- endraw -%}"
+          question_name: "Which host needs to be deleted?"
       description: ""
     become_enabled: false
     diff_mode: false
@@ -89,8 +89,8 @@ controller_templates:
     ask_timeout_on_launch: false
     ask_instance_groups_on_launch: false
     extra_vars:
-      ipaclient_mkhomedir: "{%- raw -%}True{%- endraw -%}"
-      ipasssd_enable_dns_updates: "{%- raw -%}True{%- endraw -%}"
+      ipaclient_mkhomedir: "True"
+      ipasssd_enable_dns_updates: "True"
     job_tags: ""
     force_handlers: false
     skip_tags: ""
@@ -108,7 +108,7 @@ controller_templates:
           required: True
           variable: vm_name
           new_question: False
-          question_name: "{%- raw -%}VM Name{%- endraw -%}"
+          question_name: "VM Name"
       description: ""
     become_enabled: true
     diff_mode: false
@@ -164,7 +164,7 @@ controller_templates:
           required: True
           variable: vm_name
           new_question: False
-          question_name: "{%- raw -%}VM Name{%- endraw -%}"
+          question_name: "VM Name"
       description: ""
     become_enabled: true
     diff_mode: false
@@ -220,7 +220,7 @@ controller_templates:
           required: True
           variable: idm_ops_group_name
           new_question: False
-          question_name: "{%- raw -%}What is the name of the group you want to delete?{%- endraw -%}"
+          question_name: "What is the name of the group you want to delete?"
       description: ""
     become_enabled: false
     diff_mode: false

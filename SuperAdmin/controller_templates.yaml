@@ -48,33 +48,33 @@ controller_templates:
           min: 0
           type: multiplechoice
           choices:
-            - "{%- raw -%}Default{%- endraw -%}"
-            - "{%- raw -%}HomeLab{%- endraw -%}"
-            - "{%- raw -%}SuperAdmin{%- endraw -%}"
-            - "{%- raw -%}Cloud Operations{%- endraw -%}"
-            - "{%- raw -%}Helpdesk{%- endraw -%}"
-            - "{%- raw -%}IDM Operations{%- endraw -%}"
-            - "{%- raw -%}Monitoring Operations{%- endraw -%}"
-            - "{%- raw -%}Network Operations{%- endraw -%}"
-            - "{%- raw -%}OpenShift Operations{%- endraw -%}"
-            - "{%- raw -%}Patching Operations{%- endraw -%}"
-            - "{%- raw -%}Server Operations{%- endraw -%}"
-            - "{%- raw -%}Virtualization Operations{%- endraw -%}"
+            - "Default"
+            - "HomeLab"
+            - "SuperAdmin"
+            - "Cloud Operations"
+            - "Helpdesk"
+            - "IDM Operations"
+            - "Monitoring Operations"
+            - "Network Operations"
+            - "OpenShift Operations"
+            - "Patching Operations"
+            - "Server Operations"
+            - "Virtualization Operations"
           required: False
           variable: organization_filter
           new_question: False
-          question_name: "{%- raw -%}Which Organization would you like to export?{%- endraw -%}"
+          question_name: "Which Organization would you like to export?"
         - max: 1024
           min: 0
           type: multiplechoice
           choices:
-            - "{%- raw -%}True{%- endraw -%}"
-            - "{%- raw -%}False{%- endraw -%}"
-          default: "{%- raw -%}True{%- endraw -%}"
+            - "True"
+            - "False"
+          default: "True"
           required: True
           variable: flatten_output
           new_question: False
-          question_name: "{%- raw -%}Do you want to flatten the file output?{%- endraw -%}"
+          question_name: "Do you want to flatten the file output?"
       description: ""
     become_enabled: false
     diff_mode: false
@@ -130,40 +130,40 @@ controller_templates:
           required: True
           variable: schedule_month
           new_question: True
-          question_name: "{%- raw -%}What is the start month?{%- endraw -%}"
-          question_description: "{%- raw -%}Please use 2 digit format{%- endraw -%}"
+          question_name: "What is the start month?"
+          question_description: "Please use 2 digit format"
         - max: 1024
           min: 0
           type: text
           required: True
           variable: schedule_day
           new_question: True
-          question_name: "{%- raw -%}What is the start day?{%- endraw -%}"
-          question_description: "{%- raw -%}Please use 2-digit format{%- endraw -%}"
+          question_name: "What is the start day?"
+          question_description: "Please use 2-digit format"
         - max: 1024
           min: 0
           type: text
           required: True
           variable: schedule_year
           new_question: False
-          question_name: "{%- raw -%}What is the start year?{%- endraw -%}"
-          question_description: "{%- raw -%}Please use 4-digit format{%- endraw -%}"
+          question_name: "What is the start year?"
+          question_description: "Please use 4-digit format"
         - max: 1024
           min: 0
           type: text
           required: True
           variable: schedule_time
           new_question: True
-          question_name: "{%- raw -%}What is the start time?{%- endraw -%}"
-          question_description: "{%- raw -%}Please use HH:MM:SS format{%- endraw -%}"
+          question_name: "What is the start time?"
+          question_description: "Please use HH:MM:SS format"
         - max: 1024
           min: 0
           type: text
           required: True
           variable: schedule_limit
           new_question: True
-          question_name: "{%- raw -%}Which hosts need patched?{%- endraw -%}"
-          question_description: "{%- raw -%}Please enter a valid ansible target specification{%- endraw -%}"
+          question_name: "Which hosts need patched?"
+          question_description: "Please enter a valid ansible target specification"
       description: ""
     become_enabled: false
     diff_mode: false
@@ -264,8 +264,8 @@ controller_templates:
           required: True
           variable: org_name
           new_question: True
-          question_name: "{%- raw -%}What is the organization name?{%- endraw -%}"
-          question_description: "{%- raw -%}Enter a name for the organization{%- endraw -%}"
+          question_name: "What is the organization name?"
+          question_description: "Enter a name for the organization"
       description: ""
     become_enabled: false
     diff_mode: false
@@ -321,21 +321,21 @@ controller_templates:
           required: True
           variable: project_name
           new_question: True
-          question_name: "{%- raw -%}What is the name of the project?{%- endraw -%}"
+          question_name: "What is the name of the project?"
         - max: 1024
           min: 0
           type: text
           required: True
           variable: project_org
           new_question: True
-          question_name: "{%- raw -%}Which orgnization owns this project?{%- endraw -%}"
+          question_name: "Which orgnization owns this project?"
         - max: 1024
           min: 0
           type: text
           required: True
           variable: project_url
           new_question: True
-          question_name: "{%- raw -%}What is the project repo URL?{%- endraw -%}"
+          question_name: "What is the project repo URL?"
       description: ""
     become_enabled: false
     diff_mode: false
@@ -389,13 +389,13 @@ controller_templates:
           min: 0
           type: multiselect
           choices:
-            - "{%- raw -%}community{%- endraw -%}"
-            - "{%- raw -%}rh-certified{%- endraw -%}"
-            - "{%- raw -%}rh-validated{%- endraw -%}"
+            - "community"
+            - "rh-certified"
+            - "rh-validated"
           required: True
           variable: repository_name
           new_question: False
-          question_name: "{%- raw -%}Which repositories do you want to synchronize?{%- endraw -%}"
+          question_name: "Which repositories do you want to synchronize?"
       description: ""
     become_enabled: false
     diff_mode: false
@@ -449,12 +449,12 @@ controller_templates:
           min: 0
           type: multiselect
           choices:
-            - "{%- raw -%}Red Hat Registry{%- endraw -%}"
-          default: "{%- raw -%}Red Hat Registry{%- endraw -%}"
+            - "Red Hat Registry"
+          default: "Red Hat Registry"
           required: True
           variable: registry_name
           new_question: False
-          question_name: "{%- raw -%}Which registries do you want to synchronize?{%- endraw -%}"
+          question_name: "Which registries do you want to synchronize?"
       description: ""
     become_enabled: false
     diff_mode: false
@@ -508,68 +508,68 @@ controller_templates:
           min: 0
           type: multiplechoice
           choices:
-            - "{%- raw -%}BKLab LDAP{%- endraw -%}"
-          default: "{%- raw -%}BKLab LDAP{%- endraw -%}"
+            - "BKLab LDAP"
+          default: "BKLab LDAP"
           required: True
           variable: auth_map_authenticator
           new_question: False
-          question_name: "{%- raw -%}Which authenticator are creating a map for?{%- endraw -%}"
+          question_name: "Which authenticator are creating a map for?"
         - max: 1024
           min: 0
           type: multiplechoice
           choices:
-            - "{%- raw -%}allow{%- endraw -%}"
-            - "{%- raw -%}is_superuser{%- endraw -%}"
-            - "{%- raw -%}team{%- endraw -%}"
-            - "{%- raw -%}organization{%- endraw -%}"
-            - "{%- raw -%}role{%- endraw -%}"
+            - "allow"
+            - "is_superuser"
+            - "team"
+            - "organization"
+            - "role"
           required: True
           variable: auth_map_type
           new_question: False
-          question_name: "{%- raw -%}Which map type are you creating?{%- endraw -%}"
+          question_name: "Which map type are you creating?"
         - max: 1024
           min: 0
           type: text
           required: True
           variable: auth_map_name
           new_question: False
-          question_name: "{%- raw -%}Name your authenticator map{%- endraw -%}"
+          question_name: "Name your authenticator map"
         - max: 1024
           min: 0
           type: text
           required: True
           variable: auth_map_org
           new_question: False
-          question_name: "{%- raw -%}Which Organization does this apply to?{%- endraw -%}"
-          question_description: "{%- raw -%}Ensure the Organization name is entered properly.  This is case sensitive.{%- endraw -%}"
+          question_name: "Which Organization does this apply to?"
+          question_description: "Ensure the Organization name is entered properly.  This is case sensitive."
         - max: 1024
           min: 0
           type: text
           required: False
           variable: auth_map_team
           new_question: True
-          question_name: "{%- raw -%}Which team does this apply to?{%- endraw -%}"
-          question_description: "{%- raw -%}Only complete this if you are modifying a team map.  Ignore for org maps.{%- endraw -%}"
+          question_name: "Which team does this apply to?"
+          question_description: "Only complete this if you are modifying a team map.  Ignore for org maps."
         - max: 1024
           min: 0
           type: multiplechoice
           choices:
-            - "{%- raw -%}Organization Member{%- endraw -%}"
-            - "{%- raw -%}Organization Admin{%- endraw -%}"
-            - "{%- raw -%}Team Member{%- endraw -%}"
-            - "{%- raw -%}Team Admin{%- endraw -%}"
+            - "Organization Member"
+            - "Organization Admin"
+            - "Team Member"
+            - "Team Admin"
           required: True
           variable: auth_map_role
           new_question: False
-          question_name: "{%- raw -%}What role are you applying with this map?{%- endraw -%}"
-          question_description: "{%- raw -%}We only map groupst to orgs and groups to teams, pick appropriately{%- endraw -%}"
+          question_name: "What role are you applying with this map?"
+          question_description: "We only map groupst to orgs and groups to teams, pick appropriately"
         - max: 1024
           min: 0
           type: text
           required: True
           variable: auth_map_ldap_group
           new_question: False
-          question_name: "{%- raw -%}What is the CN of the LDAP group?{%- endraw -%}"
+          question_name: "What is the CN of the LDAP group?"
       description: ""
     become_enabled: false
     diff_mode: false
@@ -625,7 +625,7 @@ controller_templates:
           required: True
           variable: vm_name
           new_question: True
-          question_name: "{%- raw -%}Please enter the fqdn of the host to delete{%- endraw -%}"
+          question_name: "Please enter the fqdn of the host to delete"
       description: ""
     become_enabled: false
     diff_mode: false
@@ -633,9 +633,9 @@ controller_templates:
     prevent_instance_group_fallback: false
   - name: "CASC - Dispatch Configuration"
     description: |-
-      {%- raw -%}
+      
       Playbook to apply CASC configuration to AAP Instance
-      {%- endraw -%}
+      
     organization: "SuperAdmin"
     project: "AAP Config as Code"
     inventory: "Localhost"
@@ -683,41 +683,41 @@ controller_templates:
           min: 0
           type: multiplechoice
           choices:
-            - "{%- raw -%}bpkrumme{%- endraw -%}"
-          default: "{%- raw -%}bpkrumme{%- endraw -%}"
+            - "bpkrumme"
+          default: "bpkrumme"
           required: True
           variable: casc_tree_namespace
           new_question: True
-          question_name: "{%- raw -%}What is the repo namespace?{%- endraw -%}"
+          question_name: "What is the repo namespace?"
         - max: 1024
           min: 0
           type: multiplechoice
           choices:
-            - "{%- raw -%}casc_tree{%- endraw -%}"
-          default: "{%- raw -%}casc_tree{%- endraw -%}"
+            - "casc_tree"
+          default: "casc_tree"
           required: True
           variable: casc_tree_project
           new_question: True
-          question_name: "{%- raw -%}What is the project repo?{%- endraw -%}"
+          question_name: "What is the project repo?"
         - max: 1024
           min: 0
           type: multiplechoice
           choices:
-            - "{%- raw -%}Cloud{%- endraw -%}"
-            - "{%- raw -%}Default{%- endraw -%}"
-            - "{%- raw -%}Helpdesk{%- endraw -%}"
-            - "{%- raw -%}IDM{%- endraw -%}"
-            - "{%- raw -%}Monitoring{%- endraw -%}"
-            - "{%- raw -%}Network{%- endraw -%}"
-            - "{%- raw -%}OpenShift{%- endraw -%}"
-            - "{%- raw -%}Patching{%- endraw -%}"
-            - "{%- raw -%}Server{%- endraw -%}"
-            - "{%- raw -%}SuperAdmin{%- endraw -%}"
-            - "{%- raw -%}Virtualization{%- endraw -%}"
+            - "Cloud"
+            - "Default"
+            - "Helpdesk"
+            - "IDM"
+            - "Monitoring"
+            - "Network"
+            - "OpenShift"
+            - "Patching"
+            - "Server"
+            - "SuperAdmin"
+            - "Virtualization"
           required: True
           variable: dispatch_organization
           new_question: False
-          question_name: "{%- raw -%}Which Subtree?{%- endraw -%}"
+          question_name: "Which Subtree?"
       description: ""
     become_enabled: false
     diff_mode: false
@@ -770,9 +770,9 @@ controller_templates:
     prevent_instance_group_fallback: false
   - name: "CASC - Configure Authentication"
     description: |-
-      {%- raw -%}
+      
       Playbook to apply CASC configuration to AAP Instance
-      {%- endraw -%}
+      
     organization: "SuperAdmin"
     project: "AAP Config as Code"
     inventory: "Localhost"
@@ -820,42 +820,42 @@ controller_templates:
           min: 0
           type: multiplechoice
           choices:
-            - "{%- raw -%}bpkrumme{%- endraw -%}"
-          default: "{%- raw -%}bpkrumme{%- endraw -%}"
+            - "bpkrumme"
+          default: "bpkrumme"
           required: True
           variable: casc_tree_namespace
           new_question: True
-          question_name: "{%- raw -%}What is the repo namespace?{%- endraw -%}"
+          question_name: "What is the repo namespace?"
         - max: 1024
           min: 0
           type: multiplechoice
           choices:
-            - "{%- raw -%}casc_tree{%- endraw -%}"
-          default: "{%- raw -%}casc_tree{%- endraw -%}"
+            - "casc_tree"
+          default: "casc_tree"
           required: True
           variable: casc_tree_project
           new_question: True
-          question_name: "{%- raw -%}What is the project repo?{%- endraw -%}"
+          question_name: "What is the project repo?"
         - max: 1024
           min: 0
           type: multiplechoice
           choices:
-            - "{%- raw -%}Cloud{%- endraw -%}"
-            - "{%- raw -%}Default{%- endraw -%}"
-            - "{%- raw -%}Helpdesk{%- endraw -%}"
-            - "{%- raw -%}IDM{%- endraw -%}"
-            - "{%- raw -%}Monitoring{%- endraw -%}"
-            - "{%- raw -%}Network{%- endraw -%}"
-            - "{%- raw -%}OpenShift{%- endraw -%}"
-            - "{%- raw -%}Patching{%- endraw -%}"
-            - "{%- raw -%}Server{%- endraw -%}"
-            - "{%- raw -%}SuperAdmin{%- endraw -%}"
-            - "{%- raw -%}Virtualization{%- endraw -%}"
-          default: "{%- raw -%}Default{%- endraw -%}"
+            - "Cloud"
+            - "Default"
+            - "Helpdesk"
+            - "IDM"
+            - "Monitoring"
+            - "Network"
+            - "OpenShift"
+            - "Patching"
+            - "Server"
+            - "SuperAdmin"
+            - "Virtualization"
+          default: "Default"
           required: True
           variable: dispatch_organization
           new_question: False
-          question_name: "{%- raw -%}Which Subtree?{%- endraw -%}"
+          question_name: "Which Subtree?"
       description: ""
     become_enabled: false
     diff_mode: false
@@ -911,14 +911,14 @@ controller_templates:
           required: True
           variable: vm_name
           new_question: True
-          question_name: "{%- raw -%}What is the VM Name?{%- endraw -%}"
+          question_name: "What is the VM Name?"
         - max: 1024
           min: 0
           type: text
           required: True
           variable: virt_ops_ip_addr
           new_question: True
-          question_name: "{%- raw -%}What is the host's IP Address?{%- endraw -%}"
+          question_name: "What is the host's IP Address?"
       description: ""
     become_enabled: false
     diff_mode: false
@@ -974,7 +974,7 @@ controller_templates:
           required: True
           variable: vm_name
           new_question: True
-          question_name: "{%- raw -%}What is the VM Name?{%- endraw -%}"
+          question_name: "What is the VM Name?"
       description: ""
     become_enabled: false
     diff_mode: false

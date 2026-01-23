@@ -49,69 +49,69 @@ controller_templates:
           required: True
           variable: vm_name
           new_question: True
-          question_name: "{%- raw -%}What is the name of the machine to be configured?{%- endraw -%}"
-          question_description: "{%- raw -%}Please use the FQDN{%- endraw -%}"
+          question_name: "What is the name of the machine to be configured?"
+          question_description: "Please use the FQDN"
         - max: 1024
           min: 0
           type: text
           required: True
           variable: virt_ops_ip_addr
           new_question: True
-          question_name: "{%- raw -%}What is the IP address?{%- endraw -%}"
+          question_name: "What is the IP address?"
         - max: 1024
           min: 0
           type: multiplechoice
           choices:
-            - "{%- raw -%}16{%- endraw -%}"
-            - "{%- raw -%}24{%- endraw -%}"
-          default: "{%- raw -%}24{%- endraw -%}"
+            - "16"
+            - "24"
+          default: "24"
           required: True
           variable: virt_ops_netmask
           new_question: False
-          question_name: "{%- raw -%}Please select the correct subnet mask{%- endraw -%}"
+          question_name: "Please select the correct subnet mask"
         - max: 1024
           min: 0
           type: multiplechoice
           choices:
-            - "{%- raw -%}172.24.128.1{%- endraw -%}"
-            - "{%- raw -%}172.24.129.1{%- endraw -%}"
-          default: "{%- raw -%}172.24.129.1{%- endraw -%}"
+            - "172.24.128.1"
+            - "172.24.129.1"
+          default: "172.24.129.1"
           required: True
           variable: virt_ops_gw_addr
           new_question: True
-          question_name: "{%- raw -%}Please select an appropriate gateway{%- endraw -%}"
+          question_name: "Please select an appropriate gateway"
         - max: 1024
           min: 0
           type: multiplechoice
           choices:
-            - "{%- raw -%}172.24.128.8{%- endraw -%}"
-            - "{%- raw -%}172.24.128.9{%- endraw -%}"
-          default: "{%- raw -%}172.24.128.8{%- endraw -%}"
+            - "172.24.128.8"
+            - "172.24.128.9"
+          default: "172.24.128.8"
           required: True
           variable: virt_ops_dns_1
           new_question: True
-          question_name: "{%- raw -%}What is the first DNS resolver?{%- endraw -%}"
+          question_name: "What is the first DNS resolver?"
         - max: 1024
           min: 0
           type: multiplechoice
           choices:
-            - "{%- raw -%}172.24.128.8{%- endraw -%}"
-            - "{%- raw -%}172.24.128.9{%- endraw -%}"
-          default: "{%- raw -%}172.24.128.9{%- endraw -%}"
+            - "172.24.128.8"
+            - "172.24.128.9"
+          default: "172.24.128.9"
           required: True
           variable: virt_ops_dns_2
           new_question: True
-          question_name: "{%- raw -%}What is the second DNS resolver?{%- endraw -%}"
+          question_name: "What is the second DNS resolver?"
         - max: 1024
           min: 0
           type: multiplechoice
           choices:
-            - "{%- raw -%}bk.lab{%- endraw -%}"
-          default: "{%- raw -%}bk.lab{%- endraw -%}"
+            - "bk.lab"
+          default: "bk.lab"
           required: True
           variable: virt_ops_dns_search
           new_question: True
-          question_name: "{%- raw -%}Please select a DNS search domain{%- endraw -%}"
+          question_name: "Please select a DNS search domain"
       description: ""
     become_enabled: false
     diff_mode: false
@@ -166,7 +166,7 @@ controller_templates:
           required: True
           variable: vm_name
           new_question: True
-          question_name: "{%- raw -%}Which system do you want to configure (leave blank for all hosts in inventory){%- endraw -%}"
+          question_name: "Which system do you want to configure (leave blank for all hosts in inventory)"
       description: ""
     become_enabled: true
     diff_mode: false

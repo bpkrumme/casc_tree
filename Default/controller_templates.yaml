@@ -131,11 +131,11 @@ controller_templates:
         - max: 1024
           min: 0
           type: text
-          default: "{%- raw -%}brokenhost.bk.lab{%- endraw -%}"
+          default: "brokenhost.bk.lab"
           required: True
           variable: broken_host
           new_question: False
-          question_name: "{%- raw -%}Broken Hosts{%- endraw -%}"
+          question_name: "Broken Hosts"
       description: ""
     become_enabled: true
     diff_mode: false
