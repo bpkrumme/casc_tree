@@ -101,7 +101,7 @@ controller_workflows:
         organization: "Patching Operations"
         all_parents_must_converge: "False"
         extra_data:
-          patch_pause_time: "10"
+          patch_pause_time: 10
         success_nodes:
           - "Install Updates on Second Node"
       - identifier: "Install Updates on Second Node"
