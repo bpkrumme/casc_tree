@@ -16,6 +16,13 @@ controller_templates:
       spec:
         - max: 1024
           min: 0
+          type: text
+          required: True
+          variable: vm_name
+          new_question: True
+          question_name: "VM Name"
+        - max: 1024
+          min: 0
           type: multiplechoice
           choices:
             - "Dev"
