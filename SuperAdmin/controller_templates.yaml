@@ -48,18 +48,20 @@ controller_templates:
           min: 0
           type: multiplechoice
           choices:
-            - "Default"
-            - "HomeLab"
-            - "SuperAdmin"
             - "Cloud Operations"
+            - "Default"
             - "Helpdesk"
             - "IDM Operations"
+            - "ITSM Operations"
             - "Monitoring Operations"
             - "Network Operations"
             - "OpenShift Operations"
             - "Patching Operations"
+            - "Self-Service"
             - "Server Operations"
+            - "SuperAdmin"
             - "Virtualization Operations"
+            - "Web Operations"
           required: False
           variable: organization_filter
           new_question: False
@@ -704,13 +706,16 @@ controller_templates:
             - "Default"
             - "Helpdesk"
             - "IDM"
+            - "ITSM"
             - "Monitoring"
             - "Network"
             - "OpenShift"
             - "Patching"
+            - "Self-Service"
             - "Server"
             - "SuperAdmin"
             - "Virtualization"
+            - "Web"
           required: True
           variable: dispatch_organization
           new_question: False
@@ -838,13 +843,16 @@ controller_templates:
             - "Default"
             - "Helpdesk"
             - "IDM"
+            - "ITSM"
             - "Monitoring"
             - "Network"
             - "OpenShift"
             - "Patching"
+            - "Self-Service"
             - "Server"
             - "SuperAdmin"
             - "Virtualization"
+            - "Web"
           default: "Default"
           required: True
           variable: dispatch_organization
