@@ -1,0 +1,10 @@
+---
+controller_projects:
+  - name: "ITSM Operations"
+    description: "Project which includes playbooks for interacting with Servicenow"
+    organization: "ITSM Operations"
+    scm_type: "git"
+    scm_url: "https://github.com/bpkrumme/itsm_ops.git"
+    scm_clean: true
+    scm_update_on_launch: true
+    scm_update_cache_timeout: "600"

@@ -1,0 +1,7 @@
+---
+gateway_teams:
+  - name: "ITSM Ops Admins"
+    organization: "IDM Operations"
+  - name: "ITSM Ops Members"
+    organization: "IDM Operations"
+...

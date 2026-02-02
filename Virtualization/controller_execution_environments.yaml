@@ -1,0 +1,7 @@
+---
+controller_execution_environments:
+  - name: "OCP Virtualization EE"
+    organization: "Virtualization Operations"
+    image: "production-aap.apps.ocp.bk.lab/homelab_ees/ocpv_ee:latest"
+    pull: "always"
+...

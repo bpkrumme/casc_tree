@@ -1,0 +1,75 @@
+---
+controller_templates:
+  - name: "ITSM - Update Catalog Request"
+    organization: "ITSM Operations"
+    project: "ITSM Operations"
+    inventory: "Localhost"
+    playbook: "playbooks/snow_catalog_update.yml"
+    scm_branch: ""
+    forks: 0
+    limit: ""
+    verbosity: 0
+    job_type: "run"
+    job_slice_count: 1
+    use_fact_cache: false
+    credentials:
+      - "Servicenow ITSM"
+    allow_simultaneous: false
+    ask_scm_branch_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_tags_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_job_type_on_launch: false
+    ask_verbosity_on_launch: false
+    ask_variables_on_launch: false
+    ask_inventory_on_launch: false
+    ask_limit_on_launch: false
+    ask_credential_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_labels_on_launch: false
+    ask_forks_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_timeout_on_launch: false
+    ask_instance_groups_on_launch: false
+    extra_vars: ""
+    job_tags: ""
+    force_handlers: false
+    skip_tags: ""
+    start_at_task: ""
+    timeout: 0
+    execution_environment: "ITSM Operations EE"
+    host_config_key: ""
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: ticket_number
+          new_question: True
+          question_name: "What is the ticket number?"
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: work_notes
+          new_question: True
+          question_name: "What are the work notes you'd like to add?"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "in_process"
+            - "closed_incomplete"
+            - "closed_complete"
+          required: False
+          variable: request_state
+          new_question: False
+          question_name: "What should we set the ticket state to?"
+      description: ""
+    become_enabled: false
+    diff_mode: false
+    webhook_service: ""
+    prevent_instance_group_fallback: false

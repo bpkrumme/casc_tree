@@ -1,0 +1,5 @@
+---
+gateway_teams:
+  - name: "Self-Service Members"
+    organization: "Self-Service"
+...

@@ -1,0 +1,8 @@
+---
+controller_inventories:
+  - name: "Localhost"
+    organization: "Default"
+    prevent_instance_group_fallback: False
+  - name: "Master Inventory"
+    organization: "Default"
+    prevent_instance_group_fallback: False

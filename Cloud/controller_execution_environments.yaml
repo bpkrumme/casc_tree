@@ -1,0 +1,8 @@
+---
+controller_execution_environments:
+  - name: "Cloud Operations EE"
+    description: "Execution Environment for Cloud Operations Tasks"
+    organization: "Cloud Operations"
+    image: "production-aap.apps.ocp.bk.lab/homelab_ees/cloud_ee:latest"
+    pull: "always"
+...

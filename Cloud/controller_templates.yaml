@@ -1,0 +1,74 @@
+---
+controller_templates:
+  - name: "CLOUD - Terraform Apply"
+    description: "Run a Terraform Apply job from a TF project repository"
+    organization: "Cloud Operations"
+    project: "Cloud Operations"
+    inventory: "Localhost"
+    playbook: "playbooks/terraform_apply.yml"
+    job_type: "run"
+    credentials:
+      - "CLOUD - Terraform AWS Access"
+    execution_environment: "Cloud Operations EE"
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "terraform_basic"
+          default: "terraform_basic"
+          required: True
+          variable: terraform_project
+          new_question: False
+          question_name: "Which Terraform Project?"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "bpkrumme"
+          default: "bpkrumme"
+          required: True
+          variable: terraform_namespace
+          new_question: True
+          question_name: "Which terraform namespace?"
+      description: ""
+  - name: "CLOUD - Terraform Destroy"
+    description: "Run a Terraform Destroy job from a TF project repository"
+    organization: "Cloud Operations"
+    project: "Cloud Operations"
+    inventory: "Localhost"
+    playbook: "playbooks/terraform_destroy.yml"
+    job_type: "run"
+    credentials:
+      - "CLOUD - Terraform AWS Access"
+    execution_environment: "Cloud Operations EE"
+    host_config_key: ""
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "terraform_basic"
+          default: "terraform_basic"
+          required: True
+          variable: terraform_project
+          new_question: False
+          question_name: "Which Terraform Project?"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "bpkrumme"
+          default: "bpkrumme"
+          required: True
+          variable: terraform_namespace
+          new_question: True
+          question_name: "Which terraform namespace?"
+      description: ""
+...

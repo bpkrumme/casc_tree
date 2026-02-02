@@ -1,0 +1,11 @@
+---
+controller_execution_environments:
+  - name: "Linux Operations EE"
+    organization: "Server Operations"
+    image: "production-aap.apps.ocp.bk.lab/homelab_ees/day2_ee:latest"
+    pull: "always"
+  - name: "Windows Operations EE"
+    organization: "Server Operations"
+    image: "production-aap.apps.ocp.bk.lab/homelab_ees/windows_ee:latest"
+    pull: "always"
+...

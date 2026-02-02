@@ -1,0 +1,7 @@
+---
+controller_roles:
+  - team: "Network Ops Members"
+    inventories:
+      - "Localhost"
+      - "Master Inventory"
+    role: "use"

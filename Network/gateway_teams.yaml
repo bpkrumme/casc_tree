@@ -1,0 +1,7 @@
+---
+gateway_teams:
+  - name: "Network Ops Admins"
+    organization: "Network Operations"
+  - name: "Network Ops Members"
+    organization: "Network Operations"
+...

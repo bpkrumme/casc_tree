@@ -1,0 +1,15 @@
+---
+controller_inventory_sources:
+  - name: "MASTER - OCP Virt Source"
+    organization: "Default"
+    source: "openshift_virtualization"
+    source_vars:
+      host_format: '{name}'
+      keyed_groups:
+      - key: vmi_guest_os_info.name
+        prefix: OS
+    inventory: "Master Inventory"
+    update_on_launch: "True"
+    overwrite: "True"
+    credential: "OCP Virt Credential"
+...

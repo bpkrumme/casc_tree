@@ -1,0 +1,28 @@
+---
+gateway_authenticators: 
+  - name: "BKLab LDAP"
+    type: "ansible_base.authentication.authenticator_plugins.ldap"
+    enabled: true
+    create_objects: true
+    remove_users: true
+    configuration:
+      BIND_DN: uid=admin,cn=users,cn=accounts,dc=bk,dc=lab
+      BIND_PASSWORD: "{{ vault_gateway_authenticator_bklab_ldap_bind_password }}"
+      GROUP_SEARCH:
+        - dc=bk,dc=lab
+        - SCOPE_SUBTREE
+        - (objectClass=ipausergroup)
+      GROUP_TYPE: NestedMemberDNGroupType
+      GROUP_TYPE_PARAMS: 
+        name_attr: cn
+        member_attr: member
+      SERVER_URI:
+        - ldap://idm01.bk.lab:389
+      START_TLS: "False"
+      USER_ATTR_MAP: 
+        email: mail
+        last_name: sn
+        first_name: givenName
+      USER_DN_TEMPLATE: "uid=%(user)s,cn=users,cn=accounts,dc=bk,dc=lab"
+    order: "2"
+...

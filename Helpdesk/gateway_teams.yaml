@@ -1,0 +1,5 @@
+---
+gateway_teams:
+  - name: "Helpdesk Members"
+    organization: "Helpdesk"
+...

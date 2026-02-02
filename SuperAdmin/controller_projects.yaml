@@ -1,0 +1,10 @@
+---
+controller_projects:
+  - name: "AAP Config as Code"
+    organization: "SuperAdmin"
+    scm_type: "git"
+    scm_url: "https://github.com/bpkrumme/aap_casc.git"
+    scm_clean: true
+    scm_update_on_launch: true
+    scm_update_cache_timeout: "600"
+...

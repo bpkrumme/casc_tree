@@ -1,0 +1,29 @@
+---
+controller_roles:
+  - team: "Patching Ops Members"
+    job_templates:
+      - "SATELLITE - Register Host"
+      - "SATELLITE - Synchronize Products"
+      - "SATELLITE - Publish Base Content Views"
+      - "SATELLITE - Publish AddOn Content Views"
+      - "SATELLITE - Publish Composite Content Views"
+      - "SATELLITE - Promote Composite Content Views"
+      - "SATELLITE - Delete Host"
+      - "PATCH - Install Updates and Reboot"
+      - "PATCH - Update Windows with Dependent Reboot"
+    role: "execute"
+  - team: "Patching Ops Members"
+    projects:
+      - "Patching Operations"
+    role: "use"
+  - team: "Patching Ops Members"
+    credentials:
+      - "Windows Machine"
+      - "DAY1 - Linux Machine - No Domain"
+      - "DAY2 - Linux Machine - BK.LAB Domain"
+    role: "use"
+  - team: "Patching Ops Members"
+    inventories:
+      - "Localhost"
+      - "Master Inventory"
+    role: "use"

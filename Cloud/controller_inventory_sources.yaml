@@ -1,0 +1,27 @@
+---
+controller_inventory_sources: 
+  - name: "MASTER - AWS Inventory Source"
+    description: "AWS EC2 Inventory"
+    organization: "Default"
+    source: "ec2"
+    inventory: "Master Inventory"
+    update_on_launch: "False"
+    overwrite: "True"
+    credential: "CLOUD - Terraform AWS Access"
+  - name: "MASTER - TF State Source"
+    description: "Terraform State Inventory Source"
+    organization: "Default"
+    source: "terraform"
+    source_vars:
+      backend_type: s3
+      hostnames:
+      - name: tag:Name
+      keyed_groups:
+      - prefix: ec2_env
+        key: tags.Environment
+      - prefix: ec2_region
+        key: tags.Region
+    inventory: "Master Inventory"
+    update_on_launch: "False"
+    overwrite: "True"
+    credential: "CLOUD - Terraform State"

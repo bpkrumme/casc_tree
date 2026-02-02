@@ -1,0 +1,17 @@
+---
+controller_projects:
+  - name: "Day 1 Server Operations"
+    organization: "Server Operations"
+    scm_type: "git"
+    scm_url: "https://github.com/bpkrumme/day1_ops.git"
+    scm_clean: true
+    scm_update_on_launch: true
+    scm_update_cache_timeout: "600"
+  - name: "Day 2 Server Operations"
+    organization: "Server Operations"
+    scm_type: "git"
+    scm_url: "https://github.com/bpkrumme/day2_ops.git"
+    scm_clean: true
+    scm_update_on_launch: true
+    scm_update_cache_timeout: "600"
+...

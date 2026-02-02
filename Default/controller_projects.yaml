@@ -1,0 +1,18 @@
+---
+controller_projects:
+  - name: "Ansible POCs"
+    description: "Project which includes playbooks created during POCs"
+    organization: "Default"
+    scm_type: "git"
+    scm_url: "https://github.com/bpkrumme/ansible_pocs.git"
+    scm_clean: true
+    scm_update_on_launch: true
+    scm_update_cache_timeout: "600"
+  - name: "EDA-HandOff-HACKATHON!!!!!!!"
+    organization: "Default"
+    scm_type: "git"
+    scm_url: "https://github.com/bpkrumme/Ansible-Variable-Handoff.git"
+    scm_clean: true
+    scm_update_on_launch: true
+    scm_update_cache_timeout: "600"
+...

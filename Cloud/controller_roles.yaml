@@ -1,0 +1,22 @@
+---
+controller_roles:
+  - team: "Cloud Ops Members"
+    job_templates:
+      - "CLOUD - Terraform Apply"
+      - "CLOUD - Terraform Destroy"
+    role: "execute"
+  - team: "Cloud Ops Members"
+    projects:
+      - "Cloud Operations"
+    role: "use"
+  - team: "Cloud Ops Members"
+    credentials:
+      - "Windows Machine"
+      - "DAY1 - Linux Machine - No Domain"
+      - "DAY2 - Linux Machine - BK.LAB Domain"
+    role: "use"
+  - team: "Cloud Ops Members"
+    inventories:
+      - "Localhost"
+      - "Master Inventory"
+    role: "use"

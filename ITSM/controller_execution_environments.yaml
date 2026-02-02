@@ -1,0 +1,5 @@
+controller_execution_environments:
+  - name: "ITSM Operations EE"
+    organization: "ITSM Operations"
+    image: "production-aap.apps.ocp.bk.lab/homelab_ees/itsm_ee:latest"
+    pull: "always"

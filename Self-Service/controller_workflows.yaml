@@ -1,0 +1,842 @@
+---
+controller_workflows:
+  - name: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
+    organization: "Self-Service"
+    simplified_workflow_nodes:
+      - identifier: "ITSM Update on Inventory Add"
+        workflow_job_template: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
+        unified_job_template: "ITSM - Update Catalog Request"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          ticket_number: "dummy"
+          work_notes: "Host manually added to Ansible Inventory"
+          request_state: "in_process"
+      - identifier: "ITSM Update on VM Delete Fail"
+        workflow_job_template: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
+        unified_job_template: "ITSM - Update Catalog Request"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          ticket_number: "dummy"
+          work_notes: "Unable to delete VM in OCP-V - Manual Intervention Required - Closing Incomplete"
+          request_state: "closed_incomplete"
+      - identifier: "Patch New VM"
+        workflow_job_template: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
+        unified_job_template: "PATCH - Install Updates and Reboot"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          vm_name: "dummy"
+        success_nodes:
+          - "Delete manual host from Inventory 2"
+          - "ITSM Update on Successful Patch"
+      - identifier: "ITSM Update on Satellite Registration"
+        workflow_job_template: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
+        unified_job_template: "ITSM - Update Catalog Request"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          ticket_number: "dummy"
+          work_notes: "Host registered to Satellite"
+          request_state: "in_process"
+      - identifier: "Create manual host in Inventory"
+        workflow_job_template: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
+        unified_job_template: "CASC - Create Host in Master Inventory"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          vm_name: "dummy"
+          virt_ops_ip_addr: "dummy"
+        success_nodes:
+          - "Wait for Connection"
+          - "ITSM Update on Inventory Add"
+        failure_nodes:
+          - "ITSM Update on Failed manual host create"
+      - identifier: "Join IDM Domain"
+        workflow_job_template: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
+        unified_job_template: "IDM - Join Domain"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          vm_name: "dummy"
+        success_nodes:
+          - "ITSM Update on IDM Join"
+          - "Patch New VM"
+      - identifier: "Wait for Connection"
+        workflow_job_template: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
+        unified_job_template: "VIRT - Wait for Connection"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          vm_name: "dummy"
+        success_nodes:
+          - "ITSM Update on Successful Connection"
+          - "Network Config"
+        failure_nodes:
+          - "ITSM Update on Failed VM Connect"
+      - identifier: "ITSM Update on Failed IP Reservation"
+        workflow_job_template: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
+        unified_job_template: "ITSM - Update Catalog Request"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          ticket_number: "dummy"
+          work_notes: "Unable to release IP reservation - Manual Intervention Required - Closing Incomplete"
+          request_state: "closed_incomplete"
+      - identifier: "ITSM Update on Failed IP Release"
+        workflow_job_template: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
+        unified_job_template: "ITSM - Update Catalog Request"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          ticket_number: "dummy"
+          work_notes: "Unable to release IP reservation - Manual Intervention Required - Closing Incomplete"
+          request_state: "closed_incomplete"
+      - identifier: "ITSM Update on Failed VM Delete"
+        workflow_job_template: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
+        unified_job_template: "ITSM - Update Catalog Request"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          ticket_number: "dummy"
+          work_notes: "Unable to delete VM in OCP-V - Manual Intervention Required - Closing Incomplete"
+          request_state: "closed_incomplete"
+      - identifier: "Create VM"
+        workflow_job_template: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
+        unified_job_template: "VIRT - Create VM in OpenShift"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          virt_ops_vm_namespace: "bklab-vms"
+          virt_ops_vm_source_datasource: "rhel9"
+          virt_ops_vm_source_namespace: "openshift-virtualization-os-images"
+          virt_ops_vm_disk_size: "30Gi"
+          virt_ops_vm_cpus: "1"
+          virt_ops_vm_memory: "2Gi"
+          virt_ops_vm_network_name: "bklab-virt-nad"
+          vm_name: "dummy"
+        success_nodes:
+          - "ITSM Update on VM Create"
+          - "Create manual host in Inventory"
+        failure_nodes:
+          - "ITSM Update on Failed VM Create"
+      - identifier: "ITSM Update on Network Config"
+        workflow_job_template: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
+        unified_job_template: "ITSM - Update Catalog Request"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          ticket_number: "dummy"
+          work_notes: "NetworkManager reconfigured successfully"
+          request_state: "in_process"
+      - identifier: "Release IP"
+        workflow_job_template: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
+        unified_job_template: "NETWORK  - Release IP Reservation"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          ip_address: "dummy"
+        success_nodes:
+          - "ITSM Update on Rollback Complete 2"
+        failure_nodes:
+          - "ITSM Update on Failed IP Release"
+      - identifier: "Release IP 2"
+        workflow_job_template: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
+        unified_job_template: "NETWORK  - Release IP Reservation"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          ip_address: "dummy"
+        success_nodes:
+          - "ITSM Update on Rollback Complete"
+        failure_nodes:
+          - "ITSM Update on Failed IP Reservation"
+      - identifier: "Delete manual host from inventory"
+        workflow_job_template: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
+        unified_job_template: "CASC - Delete Host from Master Inventory"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          vm_name: "dummy"
+        success_nodes:
+          - "ITSM Update on Rollback Complete"
+        failure_nodes:
+          - "ITSM Update on Failed delete manual host final"
+      - identifier: "ITSM Update on Failed IP Release 2"
+        workflow_job_template: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
+        unified_job_template: "ITSM - Update Catalog Request"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          ticket_number: "dummy"
+          work_notes: "Unable to release IP reservation - Manual Intervention Required"
+          request_state: "closed_incomplete"
+      - identifier: "Delete VM"
+        workflow_job_template: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
+        unified_job_template: "VIRT - Delete VM in OpenShift"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          virt_ops_vm_namespace: "bklab-vms"
+          vm_name: "dummy"
+        success_nodes:
+          - "ITSM Update on Rollback Complete 2"
+        failure_nodes:
+          - "ITSM Update on Failed VM Delete"
+      - identifier: "ITSM Update on Successful Patch"
+        workflow_job_template: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
+        unified_job_template: "ITSM - Update Catalog Request"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          ticket_number: "dummy"
+          work_notes: "Host successfully patched with latest patch set and rebooted"
+          request_state: "in_process"
+        success_nodes:
+          - "ITSM Update on Inventory Sync"
+      - identifier: "Network Config"
+        workflow_job_template: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
+        unified_job_template: "SERVER - DAY1 - Configure Networking"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          vm_name: "dummy"
+        success_nodes:
+          - "ITSM Update on Network Config"
+          - "Satellite Registration"
+      - identifier: "Delete VM 2"
+        workflow_job_template: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
+        unified_job_template: "VIRT - Delete VM in OpenShift"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          virt_ops_vm_namespace: "bklab-vms"
+          vm_name: "dummy"
+        success_nodes:
+          - "ITSM Update on Rollback Complete"
+        failure_nodes:
+          - "ITSM Update on VM Delete Fail"
+      - identifier: "Satellite Registration"
+        workflow_job_template: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
+        unified_job_template: "SATELLITE - Register Host"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          vm_name: "dummy"
+          satellite_ops_environment: "Dev"
+          satellite_ops_server_type: "Web"
+          satellite_ops_org_name: "HomeLab"
+        success_nodes:
+          - "ITSM Update on Satellite Registration"
+          - "Join IDM Domain"
+      - identifier: "ITSM Update on IP Reservation"
+        workflow_job_template: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
+        unified_job_template: "ITSM - Update Catalog Request"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          ticket_number: "dummy"
+          work_notes: "Sucessfully reserved IP address"
+          request_state: "in_process"
+      - identifier: "Release IP 3"
+        workflow_job_template: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
+        unified_job_template: "NETWORK  - Release IP Reservation"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          ip_address: "dummy"
+        success_nodes:
+          - "ITSM Update on IP Release"
+        failure_nodes:
+          - "ITSM Update on Failed IP Release 2"
+      - identifier: "ITSM Update on VM Create"
+        workflow_job_template: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
+        unified_job_template: "ITSM - Update Catalog Request"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          ticket_number: "dummy"
+          work_notes: "VM Successfully provisioned in Openshift Virtualization"
+          request_state: "in_process"
+      - identifier: "ITSM Update on Inventory Sync"
+        workflow_job_template: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
+        unified_job_template: "ITSM - Update Catalog Request"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "True"
+        extra_data:
+          ticket_number: "dummy"
+          work_notes: "Master Inventory has been synchronized from Satellite Source"
+          request_state: "closed_complete"
+      - identifier: "ITSM Update on IDM Join"
+        workflow_job_template: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
+        unified_job_template: "ITSM - Update Catalog Request"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          ticket_number: "dummy"
+          work_notes: "Host succesfully joined to IDM Domain"
+          request_state: "in_process"
+      - identifier: "ITSM Update on Failed IP Reservation 2"
+        workflow_job_template: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
+        unified_job_template: "ITSM - Update Catalog Request"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          ticket_number: "dummy"
+          work_notes: "Could not reserve IP address - Closing Incomplete"
+          request_state: "closed_incomplete"
+      - identifier: "ITSM Update on Rollback Complete"
+        workflow_job_template: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
+        unified_job_template: "ITSM - Update Catalog Request"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "True"
+        extra_data:
+          ticket_number: "dummy"
+          work_notes: "Rollback Completed - Closing Incomplete"
+          request_state: "closed_incomplete"
+      - identifier: "ITSM Update on delete manual host"
+        workflow_job_template: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
+        unified_job_template: "ITSM - Update Catalog Request"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          ticket_number: "dummy"
+          work_notes: "Removed temporary manual host from Master Inventory"
+          request_state: "in_process"
+        success_nodes:
+          - "ITSM Update on Inventory Sync"
+      - identifier: "ITSM Update on Failed manual host create"
+        workflow_job_template: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
+        unified_job_template: "ITSM - Update Catalog Request"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          ticket_number: "dummy"
+          work_notes: "Unable to create host in Inventory - Rolling Back"
+          request_state: "in_process"
+        success_nodes:
+          - "Delete VM"
+          - "Release IP"
+      - identifier: "ITSM Update on Failed VM Create"
+        workflow_job_template: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
+        unified_job_template: "ITSM - Update Catalog Request"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          ticket_number: "dummy"
+          work_notes: "Unable to create VM in OCP-V - Releasing IP to Pool"
+          request_state: "in_process"
+        success_nodes:
+          - "Release IP 3"
+      - identifier: "ITSM Update on Rollback Complete 2"
+        workflow_job_template: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
+        unified_job_template: "ITSM - Update Catalog Request"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "True"
+        extra_data:
+          ticket_number: "dummy"
+          work_notes: "Rollback complete - Closing Incomplete"
+          request_state: "closed_incomplete"
+      - identifier: "Delete manual host from Inventory 2"
+        workflow_job_template: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
+        unified_job_template: "CASC - Delete Host from Master Inventory"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          vm_name: "dummy"
+        success_nodes:
+          - "Inventory Source Sync"
+          - "ITSM Update on delete manual host"
+      - identifier: "ITSM Update on Failed VM Connect"
+        workflow_job_template: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
+        unified_job_template: "ITSM - Update Catalog Request"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          ticket_number: "dummy"
+          work_notes: "Unable to make connection to VM in OCP-V - Rolling Back"
+          request_state: "in_process"
+        success_nodes:
+          - "Delete manual host from inventory"
+          - "Delete VM 2"
+          - "Release IP 2"
+      - identifier: "ITSM Update on IP Release"
+        workflow_job_template: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
+        unified_job_template: "ITSM - Update Catalog Request"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          ticket_number: "dummy"
+          work_notes: "IP Released Successfully - Closing Incomplete"
+          request_state: "closed_incomplete"
+      - identifier: "ITSM Update on Successful Connection"
+        workflow_job_template: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
+        unified_job_template: "ITSM - Update Catalog Request"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          ticket_number: "dummy"
+          work_notes: "SSH Connection to new host verified"
+          request_state: "in_process"
+      - identifier: "Get and Reserve IP Address"
+        workflow_job_template: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
+        unified_job_template: "NETWORK  - Reserve First Available IP in Subnet by CIDR"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          cidr: "172.24.129.0/24"
+          vm_name: "dummy"
+        success_nodes:
+          - "ITSM Update on IP Reservation"
+          - "Create VM"
+        failure_nodes:
+          - "ITSM Update on Failed IP Reservation 2"
+      - identifier: "ITSM Update on Failed delete manual host final"
+        workflow_job_template: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
+        unified_job_template: "ITSM - Update Catalog Request"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          ticket_number: "dummy"
+          work_notes: "Unable to remove host from Master Inventory - Manual Intervention Required - Closing Incomplete"
+          request_state: "closed_incomplete"
+      - identifier: "Inventory Source Sync"
+        workflow_job_template: "WORKFLOW - DAY0 - DAY1 - Provision and Configure VM in OpenShift"
+        unified_job_template: "MASTER - Satellite Source"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        success_nodes:
+          - "ITSM Update on Inventory Sync"
+    ask_variables_on_launch: "False"
+    allow_simultaneous: "False"
+    scm_branch: ""
+    limit: ""
+    ask_limit_on_launch: false
+    ask_inventory_on_launch: false
+    webhook_service: ""
+    extra_vars: ""
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: password
+          default: "{{ vault_ocp_virt_default_password }}"
+          required: True
+          variable: virt_ops_vm_password
+          new_question: False
+          question_name: "Enter a default password for the \"cloud-user\" user"
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: vm_name
+          new_question: True
+          question_name: "What should we name this VM?"
+          question_description: "Please use the FQDN"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "Dev"
+            - "Test"
+            - "Prod"
+          required: True
+          variable: satellite_ops_environment
+          new_question: True
+          question_name: "Which environment should this VM be in?"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "App"
+            - "Web"
+            - "Core"
+          required: True
+          variable: satellite_ops_server_type
+          new_question: False
+          question_name: "What is the server type?"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "30Gi"
+            - "80Gi"
+            - "100Gi"
+          required: True
+          variable: virt_ops_vm_disk_size
+          new_question: True
+          question_name: "What should the disk size be?"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "1"
+            - "2"
+            - "4"
+          default: "1"
+          required: True
+          variable: virt_ops_vm_cpus
+          new_question: True
+          question_name: "How many vCPUs?"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "2Gi"
+            - "4Gi"
+            - "8Gi"
+          default: "2Gi"
+          required: True
+          variable: virt_ops_vm_memory
+          new_question: True
+          question_name: "How much RAM?"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "bklab-virt-nad"
+          default: "bklab-virt-nad"
+          required: True
+          variable: virt_ops_vm_network_name
+          new_question: False
+          question_name: "Which network attachment definition?"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "172.24.129.0/24"
+          default: "172.24.129.0/24"
+          required: True
+          variable: cidr
+          new_question: False
+          question_name: "Please select the subnet"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "16"
+            - "24"
+          default: "24"
+          required: True
+          variable: virt_ops_netmask
+          new_question: True
+          question_name: "Please select a valid subnet mask"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "172.24.128.1"
+            - "172.24.129.1"
+          default: "172.24.129.1"
+          required: True
+          variable: virt_ops_gw_addr
+          new_question: True
+          question_name: "Please select the appropriate default gateway "
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "rhel9"
+            - "rhel10"
+          required: True
+          variable: virt_ops_vm_source_datasource
+          new_question: False
+          question_name: "Which OS?"
+        - max: 1024
+          min: 0
+          type: text
+          default: "openshift-virtualization-os-images"
+          required: True
+          variable: virt_ops_vm_source_namespace
+          new_question: True
+          question_name: "Which namespace contains the source datasource?"
+        - max: 1024
+          min: 0
+          type: text
+          default: "bklab-vms"
+          required: True
+          variable: virt_ops_vm_namespace
+          new_question: True
+          question_name: "Which OpenShift namespace do you want to deploy to?"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "172.24.128.8"
+            - "172.24.128.9"
+          default: "172.24.128.8"
+          required: True
+          variable: virt_ops_dns_1
+          new_question: True
+          question_name: "Please select the first DNS resolver"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "172.24.128.8"
+            - "172.24.128.9"
+          default: "172.24.128.9"
+          required: True
+          variable: virt_ops_dns_2
+          new_question: True
+          question_name: "Please select the second DNS resolver"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "bk.lab"
+          default: "bk.lab"
+          required: True
+          variable: virt_ops_dns_search
+          new_question: True
+          question_name: "Please select the DNS search domain"
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: ticket_number
+          new_question: True
+          question_name: "What is the Servicenow Request Ticket Number?"
+      description: ""
+  - name: "WORKFLOW - DAY LAST - Decommission VM in OpenShift"
+    organization: "Self-Service"
+    simplified_workflow_nodes:
+      - identifier: "Delete Host in Satellite"
+        workflow_job_template: "WORKFLOW - DAY LAST - Decommission VM in OpenShift"
+        unified_job_template: "SATELLITE - Delete Host"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          vm_name: "dummy"
+        success_nodes:
+          - "ITSM Update on Satellite Delete"
+          - "Delete Host from Inventory"
+      - identifier: "Delete Host in Insights"
+        workflow_job_template: "WORKFLOW - DAY LAST - Decommission VM in OpenShift"
+        unified_job_template: "INSIGHTS - Delete Host from Inventory"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          vm_name: "dummy"
+        success_nodes:
+          - "ITSM Update on Delete Host in Insights"
+      - identifier: "ITSM Update on Satellite Delete"
+        workflow_job_template: "WORKFLOW - DAY LAST - Decommission VM in OpenShift"
+        unified_job_template: "ITSM - Update Catalog Request"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          ticket_number: "dummy"
+          work_notes: "Host removed from Satellite"
+          request_state: "in_process"
+        success_nodes:
+          - "ITSM Update on Decom Complete"
+      - identifier: "ITSM Update on delete host from Inventory"
+        workflow_job_template: "WORKFLOW - DAY LAST - Decommission VM in OpenShift"
+        unified_job_template: "ITSM - Update Catalog Request"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          ticket_number: "dummy"
+          work_notes: "Host removed from Master Inventory"
+          request_state: "in_process"
+        success_nodes:
+          - "ITSM Update on Decom Complete"
+      - identifier: "Delete VM"
+        workflow_job_template: "WORKFLOW - DAY LAST - Decommission VM in OpenShift"
+        unified_job_template: "VIRT - Delete VM in OpenShift"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          virt_ops_vm_namespace: "bklab-vms"
+          vm_name: "dummy"
+        success_nodes:
+          - "ITSM Update on Delete VM"
+          - "Delete Host from Inventory"
+      - identifier: "ITSM Update on Delete Host in Insights"
+        workflow_job_template: "WORKFLOW - DAY LAST - Decommission VM in OpenShift"
+        unified_job_template: "ITSM - Update Catalog Request"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          ticket_number: "dummy"
+          work_notes: "Host removed from Red Hat Insights Inventory"
+          request_state: "in_process"
+        success_nodes:
+          - "ITSM Update on Decom Complete"
+      - identifier: "Get the Hosts's IP"
+        workflow_job_template: "WORKFLOW - DAY LAST - Decommission VM in OpenShift"
+        unified_job_template: "NETWORK - Get IP Address from Host"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          vm_name: "dummy"
+        success_nodes:
+          - "Delete Host in Satellite"
+          - "Delete VM"
+          - "Delete Host in IDM"
+      - identifier: "Delete Host in IDM"
+        workflow_job_template: "WORKFLOW - DAY LAST - Decommission VM in OpenShift"
+        unified_job_template: "IDM - Delete host from BK.LAB"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          vm_name: "dummy"
+        success_nodes:
+          - "ITSM Update on Delete Host in IDM"
+          - "Delete Host from Inventory"
+      - identifier: "ITSM Update on Delete VM"
+        workflow_job_template: "WORKFLOW - DAY LAST - Decommission VM in OpenShift"
+        unified_job_template: "ITSM - Update Catalog Request"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          ticket_number: "dummy"
+          work_notes: "Host removed from Openshift Virtualization"
+          request_state: "in_process"
+        success_nodes:
+          - "ITSM Update on Decom Complete"
+      - identifier: "ITSM Update on Delete Host in IDM"
+        workflow_job_template: "WORKFLOW - DAY LAST - Decommission VM in OpenShift"
+        unified_job_template: "ITSM - Update Catalog Request"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          ticket_number: "dummy"
+          work_notes: "Host removed from IDM Domain"
+          request_state: "in_process"
+        success_nodes:
+          - "ITSM Update on Decom Complete"
+      - identifier: "ITSM Update on Decom Complete"
+        workflow_job_template: "WORKFLOW - DAY LAST - Decommission VM in OpenShift"
+        unified_job_template: "ITSM - Update Catalog Request"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "True"
+        extra_data:
+          ticket_number: "dummy"
+          work_notes: "Server successfully decommissioned"
+          request_state: "closed_complete"
+      - identifier: "Delete Host from Inventory"
+        workflow_job_template: "WORKFLOW - DAY LAST - Decommission VM in OpenShift"
+        unified_job_template: "CASC - Delete Host from Master Inventory"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "True"
+        extra_data:
+          vm_name: "dummy"
+        success_nodes:
+          - "Delete Host in Insights"
+          - "Release IP"
+          - "ITSM Update on delete host from Inventory"
+      - identifier: "Release IP"
+        workflow_job_template: "WORKFLOW - DAY LAST - Decommission VM in OpenShift"
+        unified_job_template: "NETWORK  - Release IP Reservation"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          ip_address: "dummy"
+        success_nodes:
+          - "ITSM Update on Release IP"
+      - identifier: "ITSM Update on Release IP"
+        workflow_job_template: "WORKFLOW - DAY LAST - Decommission VM in OpenShift"
+        unified_job_template: "ITSM - Update Catalog Request"
+        limit: ""
+        organization: "Self-Service"
+        all_parents_must_converge: "False"
+        extra_data:
+          ticket_number: "dummy"
+          work_notes: "IP Address released to pool"
+          request_state: "in_process"
+        success_nodes:
+          - "ITSM Update on Decom Complete"
+    ask_variables_on_launch: "False"
+    allow_simultaneous: "False"
+    scm_branch: ""
+    limit: ""
+    ask_limit_on_launch: false
+    ask_inventory_on_launch: false
+    webhook_service: ""
+    extra_vars: ""
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: vm_name
+          new_question: True
+          question_name: "What is the VM name"
+          question_description: "Please use the FQDN"
+        - max: 1024
+          min: 0
+          type: text
+          default: "bklab-vms"
+          required: True
+          variable: virt_ops_vm_namespace
+          new_question: True
+          question_name: "What OpenShift namespace does the VM reside in?"
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: ticket_number
+          new_question: True
+          question_name: "What is the Servicenow Request Ticket Number?"
+      description: ""
+...

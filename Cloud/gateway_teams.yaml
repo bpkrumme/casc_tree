@@ -1,0 +1,7 @@
+---
+gateway_teams:
+  - name: "Cloud Ops Admins"
+    organization: "Cloud Operations"
+  - name: "Cloud Ops Members"
+    organization: "Cloud Operations"
+...

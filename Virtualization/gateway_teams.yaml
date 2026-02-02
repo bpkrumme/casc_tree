@@ -1,0 +1,7 @@
+---
+gateway_teams:
+  - name: "Virtualization Ops Admins"
+    organization: "Virtualization Operations"
+  - name: "Virtualization Ops Members"
+    organization: "Virtualization Operations"
+...

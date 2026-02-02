@@ -1,0 +1,7 @@
+---
+gateway_teams:
+  - name: "Monitoring Ops Admins"
+    organization: "Monitoring Operations"
+  - name: "Monitoring Ops Members"
+    organization: "Monitoring Operations"
+...

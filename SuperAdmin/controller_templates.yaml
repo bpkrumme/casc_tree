@@ -1,0 +1,985 @@
+---
+controller_templates:
+  - name: "CASC - Filetree Create"
+    organization: "SuperAdmin"
+    project: "AAP Config as Code"
+    inventory: "SuperAdmin Inventory"
+    playbook: "playbooks/filetree_create.yml"
+    scm_branch: ""
+    forks: 0
+    limit: ""
+    verbosity: 0
+    job_type: "run"
+    job_slice_count: 1
+    use_fact_cache: false
+    credentials:
+      - "AAP Credential"
+      - "CASC - Machine Credential"
+    allow_simultaneous: false
+    ask_scm_branch_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_tags_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_job_type_on_launch: false
+    ask_verbosity_on_launch: false
+    ask_variables_on_launch: false
+    ask_inventory_on_launch: false
+    ask_limit_on_launch: false
+    ask_credential_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_labels_on_launch: false
+    ask_forks_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_timeout_on_launch: false
+    ask_instance_groups_on_launch: false
+    extra_vars: ""
+    job_tags: ""
+    force_handlers: false
+    skip_tags: ""
+    start_at_task: ""
+    timeout: 0
+    execution_environment: "AAP Config as Code EE"
+    host_config_key: ""
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "Cloud Operations"
+            - "Default"
+            - "Helpdesk"
+            - "IDM Operations"
+            - "ITSM Operations"
+            - "Monitoring Operations"
+            - "Network Operations"
+            - "OpenShift Operations"
+            - "Patching Operations"
+            - "Self-Service"
+            - "Server Operations"
+            - "SuperAdmin"
+            - "Virtualization Operations"
+            - "Web Operations"
+          required: False
+          variable: organization_filter
+          new_question: False
+          question_name: "Which Organization would you like to export?"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "True"
+            - "False"
+          default: "True"
+          required: True
+          variable: flatten_output
+          new_question: False
+          question_name: "Do you want to flatten the file output?"
+      description: ""
+    become_enabled: false
+    diff_mode: false
+    webhook_service: ""
+    prevent_instance_group_fallback: false
+  - name: "CASC - Create Scheduled Patching Job"
+    organization: "SuperAdmin"
+    project: "AAP Config as Code"
+    inventory: "SuperAdmin Inventory"
+    playbook: "playbooks/create_patching_schedule.yml"
+    scm_branch: ""
+    forks: 0
+    limit: ""
+    verbosity: 0
+    job_type: "run"
+    job_slice_count: 1
+    use_fact_cache: false
+    credentials:
+      - "AAP Credential"
+      - "CASC - Machine Credential"
+    allow_simultaneous: false
+    ask_scm_branch_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_tags_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_job_type_on_launch: false
+    ask_verbosity_on_launch: false
+    ask_variables_on_launch: false
+    ask_inventory_on_launch: false
+    ask_limit_on_launch: false
+    ask_credential_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_labels_on_launch: false
+    ask_forks_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_timeout_on_launch: false
+    ask_instance_groups_on_launch: false
+    extra_vars: ""
+    job_tags: ""
+    force_handlers: false
+    skip_tags: ""
+    start_at_task: ""
+    timeout: 0
+    execution_environment: "AAP Config as Code EE"
+    host_config_key: ""
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: schedule_month
+          new_question: True
+          question_name: "What is the start month?"
+          question_description: "Please use 2 digit format"
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: schedule_day
+          new_question: True
+          question_name: "What is the start day?"
+          question_description: "Please use 2-digit format"
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: schedule_year
+          new_question: False
+          question_name: "What is the start year?"
+          question_description: "Please use 4-digit format"
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: schedule_time
+          new_question: True
+          question_name: "What is the start time?"
+          question_description: "Please use HH:MM:SS format"
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: schedule_limit
+          new_question: True
+          question_name: "Which hosts need patched?"
+          question_description: "Please enter a valid ansible target specification"
+      description: ""
+    become_enabled: false
+    diff_mode: false
+    webhook_service: ""
+    prevent_instance_group_fallback: false
+  - name: "CASC - Export Workflows as JSON Object"
+    organization: "SuperAdmin"
+    project: "AAP Config as Code"
+    inventory: "SuperAdmin Inventory"
+    playbook: "playbooks/export_test.yml"
+    scm_branch: ""
+    forks: 0
+    limit: ""
+    verbosity: 0
+    job_type: "run"
+    job_slice_count: 1
+    use_fact_cache: false
+    credentials:
+      - "AAP Credential"
+      - "CASC - Machine Credential"
+    allow_simultaneous: false
+    ask_scm_branch_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_tags_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_job_type_on_launch: false
+    ask_verbosity_on_launch: false
+    ask_variables_on_launch: false
+    ask_inventory_on_launch: false
+    ask_limit_on_launch: false
+    ask_credential_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_labels_on_launch: false
+    ask_forks_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_timeout_on_launch: false
+    ask_instance_groups_on_launch: false
+    extra_vars: ""
+    job_tags: ""
+    force_handlers: false
+    skip_tags: ""
+    start_at_task: ""
+    timeout: 0
+    execution_environment: "AAP Config as Code EE"
+    host_config_key: ""
+    survey_enabled: true
+    become_enabled: false
+    diff_mode: false
+    webhook_service: ""
+    prevent_instance_group_fallback: false
+  - name: "CASC - Create Organization"
+    organization: "SuperAdmin"
+    project: "AAP Config as Code"
+    inventory: "SuperAdmin Inventory"
+    playbook: "playbooks/create_org.yml"
+    scm_branch: ""
+    forks: 0
+    limit: ""
+    verbosity: 0
+    job_type: "run"
+    job_slice_count: 1
+    use_fact_cache: false
+    credentials:
+      - "AAP Credential"
+      - "CASC - Machine Credential"
+    allow_simultaneous: false
+    ask_scm_branch_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_tags_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_job_type_on_launch: false
+    ask_verbosity_on_launch: false
+    ask_variables_on_launch: false
+    ask_inventory_on_launch: false
+    ask_limit_on_launch: false
+    ask_credential_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_labels_on_launch: false
+    ask_forks_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_timeout_on_launch: false
+    ask_instance_groups_on_launch: false
+    extra_vars: ""
+    job_tags: ""
+    force_handlers: false
+    skip_tags: ""
+    start_at_task: ""
+    timeout: 0
+    execution_environment: "AAP Config as Code EE"
+    host_config_key: ""
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: org_name
+          new_question: True
+          question_name: "What is the organization name?"
+          question_description: "Enter a name for the organization"
+      description: ""
+    become_enabled: false
+    diff_mode: false
+    webhook_service: ""
+    prevent_instance_group_fallback: false
+  - name: "CASC - Create Project"
+    organization: "SuperAdmin"
+    project: "AAP Config as Code"
+    inventory: "SuperAdmin Inventory"
+    playbook: "playbooks/create_project.yml"
+    scm_branch: ""
+    forks: 0
+    limit: ""
+    verbosity: 0
+    job_type: "run"
+    job_slice_count: 1
+    use_fact_cache: false
+    credentials:
+      - "AAP Credential"
+      - "CASC - Machine Credential"
+    allow_simultaneous: false
+    ask_scm_branch_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_tags_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_job_type_on_launch: false
+    ask_verbosity_on_launch: false
+    ask_variables_on_launch: false
+    ask_inventory_on_launch: false
+    ask_limit_on_launch: false
+    ask_credential_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_labels_on_launch: false
+    ask_forks_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_timeout_on_launch: false
+    ask_instance_groups_on_launch: false
+    extra_vars: ""
+    job_tags: ""
+    force_handlers: false
+    skip_tags: ""
+    start_at_task: ""
+    timeout: 0
+    execution_environment: "AAP Config as Code EE"
+    host_config_key: ""
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: project_name
+          new_question: True
+          question_name: "What is the name of the project?"
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: project_org
+          new_question: True
+          question_name: "Which orgnization owns this project?"
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: project_url
+          new_question: True
+          question_name: "What is the project repo URL?"
+      description: ""
+    become_enabled: false
+    diff_mode: false
+    webhook_service: ""
+    prevent_instance_group_fallback: false
+  - name: "CASC - Synchronize Collection Repositories"
+    organization: "SuperAdmin"
+    project: "AAP Config as Code"
+    inventory: "SuperAdmin Inventory"
+    playbook: "playbooks/sync_collection_repos.yml"
+    scm_branch: ""
+    forks: 0
+    limit: ""
+    verbosity: 0
+    job_type: "run"
+    job_slice_count: 1
+    use_fact_cache: false
+    credentials:
+      - "AAP Credential"
+      - "CASC - Machine Credential"
+    allow_simultaneous: false
+    ask_scm_branch_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_tags_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_job_type_on_launch: false
+    ask_verbosity_on_launch: false
+    ask_variables_on_launch: false
+    ask_inventory_on_launch: false
+    ask_limit_on_launch: false
+    ask_credential_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_labels_on_launch: false
+    ask_forks_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_timeout_on_launch: false
+    ask_instance_groups_on_launch: false
+    extra_vars: ""
+    job_tags: ""
+    force_handlers: false
+    skip_tags: ""
+    start_at_task: ""
+    timeout: 0
+    execution_environment: "AAP Config as Code EE"
+    host_config_key: ""
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: multiselect
+          choices:
+            - "community"
+            - "rh-certified"
+            - "rh-validated"
+          required: True
+          variable: repository_name
+          new_question: False
+          question_name: "Which repositories do you want to synchronize?"
+      description: ""
+    become_enabled: false
+    diff_mode: false
+    webhook_service: ""
+    prevent_instance_group_fallback: false
+  - name: "CASC - Synchronize EE Registries"
+    organization: "SuperAdmin"
+    project: "AAP Config as Code"
+    inventory: "SuperAdmin Inventory"
+    playbook: "playbooks/sync_ee_registries.yml"
+    scm_branch: ""
+    forks: 0
+    limit: ""
+    verbosity: 0
+    job_type: "run"
+    job_slice_count: 1
+    use_fact_cache: false
+    credentials:
+      - "AAP Credential"
+      - "CASC - Machine Credential"
+    allow_simultaneous: false
+    ask_scm_branch_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_tags_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_job_type_on_launch: false
+    ask_verbosity_on_launch: false
+    ask_variables_on_launch: false
+    ask_inventory_on_launch: false
+    ask_limit_on_launch: false
+    ask_credential_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_labels_on_launch: false
+    ask_forks_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_timeout_on_launch: false
+    ask_instance_groups_on_launch: false
+    extra_vars: ""
+    job_tags: ""
+    force_handlers: false
+    skip_tags: ""
+    start_at_task: ""
+    timeout: 0
+    execution_environment: "AAP Config as Code EE"
+    host_config_key: ""
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: multiselect
+          choices:
+            - "Red Hat Registry"
+          default: "Red Hat Registry"
+          required: True
+          variable: registry_name
+          new_question: False
+          question_name: "Which registries do you want to synchronize?"
+      description: ""
+    become_enabled: false
+    diff_mode: false
+    webhook_service: ""
+    prevent_instance_group_fallback: false
+  - name: "CASC - Create Authenticator Mapping"
+    organization: "SuperAdmin"
+    project: "AAP Config as Code"
+    inventory: "Localhost"
+    playbook: "playbooks/create_auth_map.yml"
+    scm_branch: ""
+    forks: 0
+    limit: ""
+    verbosity: 0
+    job_type: "run"
+    job_slice_count: 1
+    use_fact_cache: false
+    credentials:
+      - "AAP Credential"
+      - "CASC - Machine Credential"
+    allow_simultaneous: false
+    ask_scm_branch_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_tags_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_job_type_on_launch: false
+    ask_verbosity_on_launch: false
+    ask_variables_on_launch: false
+    ask_inventory_on_launch: false
+    ask_limit_on_launch: false
+    ask_credential_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_labels_on_launch: false
+    ask_forks_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_timeout_on_launch: false
+    ask_instance_groups_on_launch: false
+    extra_vars: ""
+    job_tags: ""
+    force_handlers: false
+    skip_tags: ""
+    start_at_task: ""
+    timeout: 0
+    execution_environment: "AAP Config as Code EE"
+    host_config_key: ""
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "BKLab LDAP"
+          default: "BKLab LDAP"
+          required: True
+          variable: auth_map_authenticator
+          new_question: False
+          question_name: "Which authenticator are creating a map for?"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "allow"
+            - "is_superuser"
+            - "team"
+            - "organization"
+            - "role"
+          required: True
+          variable: auth_map_type
+          new_question: False
+          question_name: "Which map type are you creating?"
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: auth_map_name
+          new_question: False
+          question_name: "Name your authenticator map"
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: auth_map_org
+          new_question: False
+          question_name: "Which Organization does this apply to?"
+          question_description: "Ensure the Organization name is entered properly.  This is case sensitive."
+        - max: 1024
+          min: 0
+          type: text
+          required: False
+          variable: auth_map_team
+          new_question: True
+          question_name: "Which team does this apply to?"
+          question_description: "Only complete this if you are modifying a team map.  Ignore for org maps."
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "Organization Member"
+            - "Organization Admin"
+            - "Team Member"
+            - "Team Admin"
+          required: True
+          variable: auth_map_role
+          new_question: False
+          question_name: "What role are you applying with this map?"
+          question_description: "We only map groupst to orgs and groups to teams, pick appropriately"
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: auth_map_ldap_group
+          new_question: False
+          question_name: "What is the CN of the LDAP group?"
+      description: ""
+    become_enabled: false
+    diff_mode: false
+    webhook_service: ""
+    prevent_instance_group_fallback: false
+  - name: "CASC - Soft Delete Host"
+    organization: "SuperAdmin"
+    project: "AAP Config as Code"
+    inventory: "SuperAdmin Inventory"
+    playbook: "playbooks/aap_host_delete.yml"
+    scm_branch: ""
+    forks: 0
+    limit: ""
+    verbosity: 0
+    job_type: "run"
+    job_slice_count: 1
+    use_fact_cache: false
+    credentials:
+      - "AAP Credential"
+      - "CASC - Machine Credential"
+    allow_simultaneous: false
+    ask_scm_branch_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_tags_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_job_type_on_launch: false
+    ask_verbosity_on_launch: false
+    ask_variables_on_launch: false
+    ask_inventory_on_launch: false
+    ask_limit_on_launch: false
+    ask_credential_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_labels_on_launch: false
+    ask_forks_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_timeout_on_launch: false
+    ask_instance_groups_on_launch: false
+    extra_vars: ""
+    job_tags: ""
+    force_handlers: false
+    skip_tags: ""
+    start_at_task: ""
+    timeout: 0
+    execution_environment: "AAP Config as Code EE"
+    host_config_key: ""
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: vm_name
+          new_question: True
+          question_name: "Please enter the fqdn of the host to delete"
+      description: ""
+    become_enabled: false
+    diff_mode: false
+    webhook_service: ""
+    prevent_instance_group_fallback: false
+  - name: "CASC - Dispatch Configuration"
+    description: "Playbook to apply CASC configuration to AAP Instance"      
+    organization: "SuperAdmin"
+    project: "AAP Config as Code"
+    inventory: "Localhost"
+    playbook: "playbooks/filetree_dispatch.yml"
+    scm_branch: ""
+    forks: 0
+    limit: ""
+    verbosity: 0
+    job_type: "run"
+    job_slice_count: 1
+    use_fact_cache: false
+    credentials:
+      - "AAP Credential"
+      - "SuperAdmin Vault"
+    allow_simultaneous: false
+    ask_scm_branch_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_tags_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_job_type_on_launch: false
+    ask_verbosity_on_launch: false
+    ask_variables_on_launch: false
+    ask_inventory_on_launch: false
+    ask_limit_on_launch: false
+    ask_credential_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_labels_on_launch: false
+    ask_forks_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_timeout_on_launch: false
+    ask_instance_groups_on_launch: false
+    extra_vars: ""
+    job_tags: ""
+    force_handlers: false
+    skip_tags: ""
+    start_at_task: ""
+    timeout: 0
+    execution_environment: "AAP Config as Code EE"
+    host_config_key: ""
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "bpkrumme"
+          default: "bpkrumme"
+          required: True
+          variable: casc_tree_namespace
+          new_question: True
+          question_name: "What is the repo namespace?"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "casc_tree"
+          default: "casc_tree"
+          required: True
+          variable: casc_tree_project
+          new_question: True
+          question_name: "What is the project repo?"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "Cloud"
+            - "Default"
+            - "Helpdesk"
+            - "IDM"
+            - "ITSM"
+            - "Monitoring"
+            - "Network"
+            - "OpenShift"
+            - "Patching"
+            - "Self-Service"
+            - "Server"
+            - "SuperAdmin"
+            - "Virtualization"
+            - "Web"
+          required: True
+          variable: dispatch_organization
+          new_question: False
+          question_name: "Which Subtree?"
+      description: ""
+    become_enabled: false
+    diff_mode: false
+    webhook_service: ""
+    prevent_instance_group_fallback: false
+  - name: "CASC - Export all Resources"
+    organization: "SuperAdmin"
+    project: "AAP Config as Code"
+    inventory: "SuperAdmin Inventory"
+    playbook: "playbooks/export_all.yml"
+    scm_branch: ""
+    forks: 0
+    limit: ""
+    verbosity: 0
+    job_type: "run"
+    job_slice_count: 1
+    use_fact_cache: false
+    credentials:
+      - "AAP Credential"
+      - "CASC - Machine Credential"
+    allow_simultaneous: false
+    ask_scm_branch_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_tags_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_job_type_on_launch: false
+    ask_verbosity_on_launch: false
+    ask_variables_on_launch: false
+    ask_inventory_on_launch: false
+    ask_limit_on_launch: false
+    ask_credential_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_labels_on_launch: false
+    ask_forks_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_timeout_on_launch: false
+    ask_instance_groups_on_launch: false
+    extra_vars: ""
+    job_tags: ""
+    force_handlers: false
+    skip_tags: ""
+    start_at_task: ""
+    timeout: 0
+    execution_environment: "AAP Config as Code EE"
+    host_config_key: ""
+    survey_enabled: false
+    become_enabled: false
+    diff_mode: false
+    webhook_service: ""
+    prevent_instance_group_fallback: false
+  - name: "CASC - Configure Authentication"
+    description: "Playbook to apply CASC configuration to AAP Instance"
+    organization: "SuperAdmin"
+    project: "AAP Config as Code"
+    inventory: "Localhost"
+    playbook: "playbooks/gateway_auth_config.yml"
+    scm_branch: ""
+    forks: 0
+    limit: ""
+    verbosity: 0
+    job_type: "run"
+    job_slice_count: 1
+    use_fact_cache: false
+    credentials:
+      - "AAP Credential"
+      - "SuperAdmin Vault"
+    allow_simultaneous: false
+    ask_scm_branch_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_tags_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_job_type_on_launch: false
+    ask_verbosity_on_launch: false
+    ask_variables_on_launch: false
+    ask_inventory_on_launch: false
+    ask_limit_on_launch: false
+    ask_credential_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_labels_on_launch: false
+    ask_forks_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_timeout_on_launch: false
+    ask_instance_groups_on_launch: false
+    extra_vars: ""
+    job_tags: ""
+    force_handlers: false
+    skip_tags: ""
+    start_at_task: ""
+    timeout: 0
+    execution_environment: "AAP Config as Code EE"
+    host_config_key: ""
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "bpkrumme"
+          default: "bpkrumme"
+          required: True
+          variable: casc_tree_namespace
+          new_question: True
+          question_name: "What is the repo namespace?"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "casc_tree"
+          default: "casc_tree"
+          required: True
+          variable: casc_tree_project
+          new_question: True
+          question_name: "What is the project repo?"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "Cloud"
+            - "Default"
+            - "Helpdesk"
+            - "IDM"
+            - "ITSM"
+            - "Monitoring"
+            - "Network"
+            - "OpenShift"
+            - "Patching"
+            - "Self-Service"
+            - "Server"
+            - "SuperAdmin"
+            - "Virtualization"
+            - "Web"
+          default: "Default"
+          required: True
+          variable: dispatch_organization
+          new_question: False
+          question_name: "Which Subtree?"
+      description: ""
+    become_enabled: false
+    diff_mode: false
+    webhook_service: ""
+    prevent_instance_group_fallback: false
+  - name: "CASC - Create Host in Master Inventory"
+    organization: "SuperAdmin"
+    project: "AAP Config as Code"
+    inventory: "SuperAdmin Inventory"
+    playbook: "playbooks/create_host_in_inventory.yml"
+    scm_branch: ""
+    forks: 0
+    limit: ""
+    verbosity: 0
+    job_type: "run"
+    job_slice_count: 1
+    use_fact_cache: false
+    credentials:
+      - "AAP Credential"
+      - "CASC - Machine Credential"
+    allow_simultaneous: false
+    ask_scm_branch_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_tags_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_job_type_on_launch: false
+    ask_verbosity_on_launch: false
+    ask_variables_on_launch: false
+    ask_inventory_on_launch: false
+    ask_limit_on_launch: false
+    ask_credential_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_labels_on_launch: false
+    ask_forks_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_timeout_on_launch: false
+    ask_instance_groups_on_launch: false
+    extra_vars: ""
+    job_tags: ""
+    force_handlers: false
+    skip_tags: ""
+    start_at_task: ""
+    timeout: 0
+    execution_environment: "AAP Config as Code EE"
+    host_config_key: ""
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: vm_name
+          new_question: True
+          question_name: "What is the VM Name?"
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: virt_ops_ip_addr
+          new_question: True
+          question_name: "What is the host's IP Address?"
+      description: ""
+    become_enabled: false
+    diff_mode: false
+    webhook_service: ""
+    prevent_instance_group_fallback: false
+  - name: "CASC - Delete Host from Master Inventory"
+    organization: "SuperAdmin"
+    project: "AAP Config as Code"
+    inventory: "SuperAdmin Inventory"
+    playbook: "playbooks/delete_host_from_inventory.yml"
+    scm_branch: ""
+    forks: 0
+    limit: ""
+    verbosity: 0
+    job_type: "run"
+    job_slice_count: 1
+    use_fact_cache: false
+    credentials:
+      - "AAP Credential"
+      - "CASC - Machine Credential"
+    allow_simultaneous: false
+    ask_scm_branch_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_tags_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_job_type_on_launch: false
+    ask_verbosity_on_launch: false
+    ask_variables_on_launch: false
+    ask_inventory_on_launch: false
+    ask_limit_on_launch: false
+    ask_credential_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_labels_on_launch: false
+    ask_forks_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_timeout_on_launch: false
+    ask_instance_groups_on_launch: false
+    extra_vars: ""
+    job_tags: ""
+    force_handlers: false
+    skip_tags: ""
+    start_at_task: ""
+    timeout: 0
+    execution_environment: "AAP Config as Code EE"
+    host_config_key: ""
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: vm_name
+          new_question: True
+          question_name: "What is the VM Name?"
+      description: ""
+    become_enabled: false
+    diff_mode: false
+    webhook_service: ""
+    prevent_instance_group_fallback: false
+...

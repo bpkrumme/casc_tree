@@ -1,0 +1,11 @@
+---
+controller_projects:
+  - name: "Cloud Operations"
+    description: "Project which includes playbooks for public cloud operations"
+    organization: "Cloud Operations"
+    scm_type: "git"
+    scm_url: "https://github.com/bpkrumme/cloud_ops.git"
+    scm_clean: true
+    scm_update_on_launch: true
+    scm_update_cache_timeout: "600"
+...

@@ -1,0 +1,23 @@
+---
+controller_roles:
+  - team: "IDM Ops Members"
+    job_templates:
+      - "IDM - Delete host from BK.LAB"
+      - "IDM - Join Domain"
+      - "IDM - Unjoin Domain"
+    role: "execute"
+  - team: "IDM Ops Members"
+    projects:
+      - "IDM Operations"
+    role: "use"
+  - team: "IDM Ops Members"
+    credentials:
+      - "Windows Machine"
+      - "DAY1 - Linux Machine - No Domain"
+      - "DAY2 - Linux Machine - BK.LAB Domain"
+    role: "use"
+  - team: "IDM Ops Members"
+    inventories:
+      - "Localhost"
+      - "Master Inventory"
+    role: "use"

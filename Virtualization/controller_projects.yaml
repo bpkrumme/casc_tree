@@ -1,0 +1,10 @@
+---
+controller_projects:
+  - name: "Virtualization Operations"
+    organization: "Virtualization Operations"
+    scm_type: "git"
+    scm_url: "https://github.com/bpkrumme/virt_ops.git"
+    scm_clean: true
+    scm_update_on_launch: true
+    scm_update_cache_timeout: "600"
+...

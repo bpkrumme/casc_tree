@@ -1,0 +1,123 @@
+---
+controller_workflows:
+  - name: "WORKFLOW - SATELLITE - Sync Content and Publish Content Views"
+    organization: "Patching Operations"
+    simplified_workflow_nodes:
+      - identifier: "Sync Satellite Project"
+        workflow_job_template: "WORKFLOW - SATELLITE - Sync Content and Publish Content Views"
+        unified_job_template: "Satellite Operations"
+        limit: ""
+        organization: "Patching Operations"
+        all_parents_must_converge: "False"
+        success_nodes:
+          - "Sync Products"
+      - identifier: "Publish AddOn CVs"
+        workflow_job_template: "WORKFLOW - SATELLITE - Sync Content and Publish Content Views"
+        unified_job_template: "SATELLITE - Publish AddOn Content Views"
+        limit: ""
+        organization: "Patching Operations"
+        all_parents_must_converge: "False"
+        extra_data:
+          satellite_ops_org_name: "HomeLab"
+          satellite_ops_cv_name:
+            - "AddOn-AAP2.5-RHEL9"
+            - "AddOn-AAP2.6-RHEL9"
+            - "AddOn-OCP420-RHEL9"
+            - "AddOn-ODF-RHEL9"
+        success_nodes:
+          - "Publish Composite CVs"
+      - identifier: "Publish Composite CVs"
+        workflow_job_template: "WORKFLOW - SATELLITE - Sync Content and Publish Content Views"
+        unified_job_template: "SATELLITE - Publish Composite Content Views"
+        limit: ""
+        organization: "Patching Operations"
+        all_parents_must_converge: "True"
+        extra_data:
+          satellite_ops_org_name: "HomeLab"
+          satellite_ops_cv_name:
+            - "Composite-AAP"
+            - "Composite-LabHosts"
+            - "Composite-OL9"
+            - "Composite-RHEL101-DS13"
+      - identifier: "Publish Base CVs"
+        workflow_job_template: "WORKFLOW - SATELLITE - Sync Content and Publish Content Views"
+        unified_job_template: "SATELLITE - Publish Base Content Views"
+        limit: ""
+        organization: "Patching Operations"
+        all_parents_must_converge: "False"
+        extra_data:
+          satellite_ops_org_name: "HomeLab"
+          satellite_ops_cv_name:
+            - "Base-OL9"
+            - "Base-RHEL10"
+            - "Base-RHEL101"
+            - "Base-RHEL9"
+        success_nodes:
+          - "Publish Composite CVs"
+      - identifier: "Sync Products"
+        workflow_job_template: "WORKFLOW - SATELLITE - Sync Content and Publish Content Views"
+        unified_job_template: "SATELLITE - Synchronize Products"
+        limit: ""
+        organization: "Patching Operations"
+        all_parents_must_converge: "False"
+        extra_data:
+          satellite_ops_org_name: "HomeLab"
+          satellite_ops_product:
+            - "Oracle Linux for x86_64"
+            - "Red Hat Ansible Automation Platform"
+            - "Red Hat Directory Server"
+            - "Red Hat Enterprise Linux for x86_64"
+            - "Red Hat OpenShift Container Platform"
+            - "Red Hat OpenShift Data Foundation"
+        success_nodes:
+          - "Publish Base CVs"
+          - "Publish AddOn CVs"
+    ask_variables_on_launch: "False"
+    allow_simultaneous: "False"
+    scm_branch: ""
+    limit: ""
+    ask_limit_on_launch: false
+    ask_inventory_on_launch: false
+    webhook_service: ""
+    extra_vars: ""
+    survey_enabled: false
+  - name: "WORKFLOW - PATCH - IDM - Update packages and reboot with pause between hosts"
+    organization: "Patching Operations"
+    simplified_workflow_nodes:
+      - identifier: "Install Updates on First Node"
+        workflow_job_template: "WORKFLOW - PATCH - IDM - Update packages and reboot with pause between hosts"
+        unified_job_template: "PATCH - Install Updates and Reboot"
+        limit: ""
+        organization: "Patching Operations"
+        all_parents_must_converge: "False"
+        extra_data:
+          vm_name: "idm02.bk.lab"
+        success_nodes:
+          - "Pause for LB Pair"
+      - identifier: "Pause for LB Pair"
+        workflow_job_template: "WORKFLOW - PATCH - IDM - Update packages and reboot with pause between hosts"
+        unified_job_template: "PATCH - Pause for LB Pair"
+        limit: ""
+        organization: "Patching Operations"
+        all_parents_must_converge: "False"
+        extra_data:
+          patch_pause_time: 10
+        success_nodes:
+          - "Install Updates on Second Node"
+      - identifier: "Install Updates on Second Node"
+        workflow_job_template: "WORKFLOW - PATCH - IDM - Update packages and reboot with pause between hosts"
+        unified_job_template: "PATCH - Install Updates and Reboot"
+        limit: ""
+        organization: "Patching Operations"
+        all_parents_must_converge: "False"
+        extra_data:
+          vm_name: "idm01.bk.lab"
+    ask_variables_on_launch: "False"
+    allow_simultaneous: "False"
+    scm_branch: ""
+    limit: ""
+    ask_limit_on_launch: false
+    ask_inventory_on_launch: false
+    webhook_service: ""
+    extra_vars: ""
+    survey_enabled: false

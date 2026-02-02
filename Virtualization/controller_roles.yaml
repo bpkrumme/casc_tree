@@ -1,0 +1,13 @@
+---
+controller_roles:
+  - team: "Virtualization Ops Members"
+    credentials:
+      - "Windows Machine"
+      - "DAY1 - Linux Machine - No Domain"
+      - "DAY2 - Linux Machine - BK.LAB Domain"
+    role: "use"
+  - team: "Virtualization Ops Members"
+    inventories:
+      - "Localhost"
+      - "Master Inventory"
+    role: "use"

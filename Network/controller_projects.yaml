@@ -1,0 +1,10 @@
+---
+controller_projects:
+  - name: "Network Operations"
+    description: "Project which includes playbooks for Network Operations"
+    organization: "Network Operations"
+    scm_type: "git"
+    scm_url: "https://github.com/bpkrumme/network_ops.git"
+    scm_clean: true
+    scm_update_on_launch: true
+    scm_update_cache_timeout: "600"

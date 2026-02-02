@@ -1,0 +1,7 @@
+---
+gateway_teams:
+  - name: "OpenShift Ops Admins"
+    organization: "OpenShift Operations"
+  - name: "OpenShift Ops Members"
+    organization: "OpenShift Operations"
+...

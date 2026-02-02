@@ -1,0 +1,7 @@
+---
+gateway_teams:
+  - name: "Patching Ops Admins"
+    organization: "Patching Operations"
+  - name: "Patching Ops Members"
+    organization: "Patching Operations"
+...

@@ -1,0 +1,496 @@
+---
+controller_templates:
+  - name: "SATELLITE - Register Host"
+    organization: "Patching Operations"
+    project: "Satellite Operations"
+    inventory: "Master Inventory"
+    playbook: "playbooks/register_host.yml"
+    job_type: "run"
+    credentials:
+      - "DAY1 - Linux Machine - No Domain"
+      - "Satellite Ops Credential"
+    allow_simultaneous: true
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: vm_name
+          new_question: True
+          question_name: "VM Name"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "Dev"
+            - "Test"
+            - "Prod"
+          required: True
+          variable: satellite_ops_environment
+          new_question: True
+          question_name: "VM Lifecycle Environment"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "App"
+            - "Web"
+            - "Core"
+          required: True
+          variable: satellite_ops_server_type
+          new_question: True
+          question_name: "VM Server Type"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "HomeLab"
+          default: "HomeLab"
+          required: True
+          variable: satellite_ops_org_name
+          new_question: True
+          question_name: "VM Organization"
+      description: ""
+    become_enabled: true
+  - name: "SATELLITE - Synchronize Products"
+    organization: "Patching Operations"
+    project: "Satellite Operations"
+    inventory: "Master Inventory"
+    playbook: "playbooks/sync_products.yml"
+    job_type: "run"
+    credentials:
+      - "DAY2 - Linux Machine - BK.LAB Domain"
+      - "Satellite Ops Credential"
+    execution_environment: "Satellite Operations EE"
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "HomeLab"
+          default: "HomeLab"
+          required: True
+          variable: satellite_ops_org_name
+          new_question: False
+          question_name: "Please select the Satellite Organization"
+        - max: 1024
+          min: 0
+          type: multiselect
+          choices:
+            - "Oracle Linux for x86_64"
+            - "Red Hat Ansible Automation Platform"
+            - "Red Hat Directory Server"
+            - "Red Hat Enterprise Linux for x86_64"
+            - "Red Hat OpenShift Container Platform"
+            - "Red Hat OpenShift Data Foundation"
+          required: True
+          variable: satellite_ops_product
+          new_question: False
+          question_name: "Which products would you like to synchronize?"
+      description: ""
+  - name: "SATELLITE - Publish Base Content Views"
+    organization: "Patching Operations"
+    project: "Satellite Operations"
+    inventory: "Master Inventory"
+    playbook: "playbooks/publish_content_view.yml"
+    credentials:
+      - "DAY2 - Linux Machine - BK.LAB Domain"
+      - "Satellite Ops Credential"
+    execution_environment: "Satellite Operations EE"
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "HomeLab"
+          default: "HomeLab"
+          required: True
+          variable: satellite_ops_org_name
+          new_question: True
+          question_name: "Please select the Satellite Organization"
+        - max: 1024
+          min: 0
+          type: multiselect
+          choices:
+            - "Base-OL9"
+            - "Base-RHEL9"
+            - "Base-RHEL10"
+            - "Base-RHEL101"
+          required: True
+          variable: satellite_ops_cv_name
+          new_question: True
+          question_name: "Which Base Content Views would you like to Publish?"
+      description: ""
+  - name: "SATELLITE - Publish AddOn Content Views"
+    organization: "Patching Operations"
+    project: "Satellite Operations"
+    inventory: "Master Inventory"
+    playbook: "playbooks/publish_content_view.yml"
+    job_type: "run"
+    credentials:
+      - "DAY2 - Linux Machine - BK.LAB Domain"
+      - "Satellite Ops Credential"
+    execution_environment: "Satellite Operations EE"
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "HomeLab"
+          default: "HomeLab"
+          required: True
+          variable: satellite_ops_org_name
+          new_question: True
+          question_name: "Please select the Satellite Organization"
+        - max: 1024
+          min: 0
+          type: multiselect
+          choices:
+            - "AddOn-AAP2.5-RHEL9"
+            - "AddOn-AAP2.6-RHEL9"
+            - "AddOn-OCP420-RHEL9"
+            - "AddOn-ODF-RHEL9"
+            - "AddOn-RHDS13-RHEL101"
+          required: True
+          variable: satellite_ops_cv_name
+          new_question: True
+          question_name: "Which AddOn Content Views would you like to Publish?"
+      description: ""
+  - name: "SATELLITE - Publish Composite Content Views"
+    organization: "Patching Operations"
+    project: "Satellite Operations"
+    inventory: "Master Inventory"
+    playbook: "playbooks/publish_content_view.yml"
+    job_type: "run"
+    credentials:
+      - "DAY2 - Linux Machine - BK.LAB Domain"
+      - "Satellite Ops Credential"
+    execution_environment: "Satellite Operations EE"
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "HomeLab"
+          default: "HomeLab"
+          required: True
+          variable: satellite_ops_org_name
+          new_question: True
+          question_name: "Please select the Satellite Organization"
+        - max: 1024
+          min: 0
+          type: multiselect
+          choices:
+            - "Composite-AAP"
+            - "Composite-LabHosts"
+            - "Composite-OL9"
+            - "Composite-RHEL101-DS13"
+          required: True
+          variable: satellite_ops_cv_name
+          new_question: True
+          question_name: "Which Composite Content Views would you like to Publish?"
+      description: ""
+  - name: "SATELLITE - Promote Composite Content Views"
+    organization: "Patching Operations"
+    project: "Satellite Operations"
+    inventory: "Master Inventory"
+    playbook: "playbooks/promote_content_view.yml"
+    job_type: "run"
+    credentials:
+      - "DAY2 - Linux Machine - BK.LAB Domain"
+      - "Satellite Ops Credential"
+    execution_environment: "Satellite Operations EE"
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "HomeLab"
+          default: "HomeLab"
+          required: True
+          variable: satellite_ops_org_name
+          new_question: True
+          question_name: "Please select the Satellite Organization"
+        - max: 1024
+          min: 0
+          type: multiselect
+          choices:
+            - "Composite-AAP"
+            - "Composite-LabHosts"
+            - "Composite-OL9"
+            - "Composite-RHEL101-DS13"
+          required: True
+          variable: satellite_ops_cv_name
+          new_question: True
+          question_name: "Which Composite Content Views would you like to Publish?"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "Library"
+            - "Development"
+            - "Testing"
+            - "Production"
+          default: "Library"
+          required: True
+          variable: satellite_ops_current_lc_env
+          new_question: True
+          question_name: "Please select the CURRENT Lifecycle Environment"
+          question_description: "If the CCV has been promoted from Library select the appropriate LCE, Otherwise select \"Library\""
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "Development"
+            - "Testing"
+            - "Production"
+          required: True
+          variable: satellite_ops_lc_env
+          new_question: True
+          question_name: "Please select the TARGET Lifecycle Environment"
+          question_description: "This is the LCE you want to make content available to"
+      description: ""
+  - name: "SATELLITE - Delete Host"
+    organization: "Patching Operations"
+    project: "Satellite Operations"
+    inventory: "Master Inventory"
+    playbook: "playbooks/delete_satellite_host.yml"
+    job_type: "run"
+    credentials:
+      - "DAY1 - Linux Machine - No Domain"
+      - "Satellite Ops Credential"
+    allow_simultaneous: true
+    execution_environment: "Satellite Operations EE"
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: vm_name
+          new_question: True
+          question_name: "VM Name"
+      description: ""
+  - name: "PATCH - Install Updates and Reboot"
+    organization: "Patching Operations"
+    project: "Patching Operations"
+    inventory: "Master Inventory"
+    playbook: "playbooks/dnf_update_and_reboot.yml"
+    job_type: "run"
+    credentials:
+      - "DAY2 - Linux Machine - BK.LAB Domain"
+    allow_simultaneous: true
+    execution_environment: "Patch Operations EE"
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: vm_name
+          new_question: True
+          question_name: "Enter a valid ansible hosts parameter spec"
+      description: ""
+    become_enabled: true
+  - name: "PATCH - Update Windows with Dependent Reboot"
+    organization: "Patching Operations"
+    project: "Patching Operations"
+    inventory: "Master Inventory"
+    playbook: "playbooks/windows_update_and_reboot.yml"
+    job_type: "run"
+    credentials:
+      - "Windows Machine"
+    allow_simultaneous: true
+    execution_environment: "Patch Operations EE"
+    survey_enabled: false
+    become_enabled: true
+  - name: "SATELLITE - Clean up old Content View versions"
+    organization: "Patching Operations"
+    project: "Satellite Operations"
+    inventory: "Master Inventory"
+    playbook: "playbooks/clean_up_old_cv_versions.yml"
+    scm_branch: ""
+    forks: 0
+    limit: ""
+    verbosity: 0
+    job_type: "run"
+    job_slice_count: 1
+    use_fact_cache: false
+    credentials:
+      - "DAY2 - Linux Machine - BK.LAB Domain"
+      - "Satellite Ops Credential"
+    allow_simultaneous: false
+    ask_scm_branch_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_tags_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_job_type_on_launch: false
+    ask_verbosity_on_launch: false
+    ask_variables_on_launch: false
+    ask_inventory_on_launch: false
+    ask_limit_on_launch: false
+    ask_credential_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_labels_on_launch: false
+    ask_forks_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_timeout_on_launch: false
+    ask_instance_groups_on_launch: false
+    extra_vars: ""
+    job_tags: ""
+    force_handlers: false
+    skip_tags: ""
+    start_at_task: ""
+    timeout: 0
+    execution_environment: "Satellite Operations EE"
+    host_config_key: ""
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "HomeLab"
+          default: "HomeLab"
+          required: True
+          variable: satellite_ops_org_name
+          new_question: True
+          question_name: "Please select the Satellite Organization"
+      description: ""
+    become_enabled: false
+    diff_mode: false
+    webhook_service: ""
+    prevent_instance_group_fallback: false
+  - name: "INSIGHTS - Delete Host from Inventory"
+    organization: "Patching Operations"
+    project: "Satellite Operations"
+    inventory: "Localhost"
+    playbook: "playbooks/delete_host_from_insights.yml"
+    scm_branch: ""
+    forks: 0
+    limit: ""
+    verbosity: 0
+    job_type: "run"
+    job_slice_count: 1
+    use_fact_cache: false
+    credentials:
+      - "INSIGHTS - API Operations Service Account"
+    allow_simultaneous: false
+    ask_scm_branch_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_tags_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_job_type_on_launch: false
+    ask_verbosity_on_launch: false
+    ask_variables_on_launch: false
+    ask_inventory_on_launch: false
+    ask_limit_on_launch: false
+    ask_credential_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_labels_on_launch: false
+    ask_forks_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_timeout_on_launch: false
+    ask_instance_groups_on_launch: false
+    extra_vars: ""
+    job_tags: ""
+    force_handlers: false
+    skip_tags: ""
+    start_at_task: ""
+    timeout: 0
+    execution_environment: "Satellite Operations EE"
+    host_config_key: ""
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: text
+          required: True
+          variable: vm_name
+          new_question: True
+          question_name: "What is the VM name?"
+      description: ""
+    become_enabled: false
+    diff_mode: false
+    webhook_service: ""
+    prevent_instance_group_fallback: false
+  - name: "PATCH - Pause for LB Pair"
+    organization: "Patching Operations"
+    project: "Patching Operations"
+    inventory: "Master Inventory"
+    playbook: "playbooks/pause.yml"
+    scm_branch: ""
+    forks: 0
+    limit: ""
+    verbosity: 0
+    job_type: "run"
+    job_slice_count: 1
+    use_fact_cache: false
+    allow_simultaneous: false
+    ask_scm_branch_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_tags_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_job_type_on_launch: false
+    ask_verbosity_on_launch: false
+    ask_variables_on_launch: false
+    ask_inventory_on_launch: false
+    ask_limit_on_launch: false
+    ask_credential_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_labels_on_launch: false
+    ask_forks_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_timeout_on_launch: false
+    ask_instance_groups_on_launch: false
+    extra_vars: ""
+    job_tags: ""
+    force_handlers: false
+    skip_tags: ""
+    start_at_task: ""
+    timeout: 0
+    execution_environment: "Patch Operations EE"
+    host_config_key: ""
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 20
+          min: 0
+          type: integer
+          required: True
+          variable: patch_pause_time
+          new_question: True
+          question_name: "How many minutes to pause for?"
+      description: ""
+    become_enabled: false
+    diff_mode: false
+    webhook_service: ""
+    prevent_instance_group_fallback: false
+...

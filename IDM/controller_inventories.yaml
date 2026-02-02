@@ -1,0 +1,7 @@
+---
+controller_inventories:
+  - name: "IDM Operations Inventory"
+    organization: "IDM Operations"
+    prevent_instance_group_fallback: False
+    state: absent
+...

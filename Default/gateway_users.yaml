@@ -1,0 +1,10 @@
+---
+aap_user_accounts:
+  - username: "BKLab_ServiceNow"
+    email: ""
+    first_name: ""
+    last_name: ""
+    password: "{{ vault_gateway_users_bklab_servicenow_password }}"
+    is_superuser: "True"
+    authenticators: [1]
+    authenticator_uid: "BKLab_ServiceNow"

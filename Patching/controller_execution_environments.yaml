@@ -1,0 +1,10 @@
+---
+controller_execution_environments:
+  - name: "Satellite Operations EE"
+    organization: "Patching Operations"
+    image: "production-aap.apps.ocp.bk.lab/homelab_ees/satellite_ee:latest"
+    pull: "always"
+  - name: "Patch Operations EE"
+    organization: "Patching Operations"
+    image: "production-aap.apps.ocp.bk.lab/homelab_ees/patch_ee:latest"
+    pull: "always"
