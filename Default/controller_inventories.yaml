@@ -6,3 +6,6 @@ controller_inventories:
   - name: "Master Inventory"
     organization: "Default"
     prevent_instance_group_fallback: False
+  - name: "New Inventory"
+    organization: "Default"
+    prevent_instance_group_fallback: False
