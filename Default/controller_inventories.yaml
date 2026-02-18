@@ -9,3 +9,4 @@ controller_inventories:
   - name: "New Inventory"
     organization: "Default"
     prevent_instance_group_fallback: False
+    state: absent
