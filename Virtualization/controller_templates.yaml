@@ -122,8 +122,8 @@ controller_templates:
           min: 0
           type: multiplechoice
           choices:
-            - "bklab-virt-nad"
-          default: "bklab-virt-nad"
+            - "nad-bklab-bridge"
+          default: "nad-bklab-bridge"
           required: True
           variable: virt_ops_vm_network_name
           new_question: True
