@@ -125,7 +125,7 @@ controller_workflows:
           virt_ops_vm_disk_size: "30Gi"
           virt_ops_vm_cpus: "1"
           virt_ops_vm_memory: "2Gi"
-          virt_ops_vm_network_name: "bklab-virt-nad"
+          virt_ops_vm_network_name: "nad-bklab-bridge"
           vm_name: "dummy"
         success_nodes:
           - "ITSM Update on VM Create"
@@ -536,8 +536,8 @@ controller_workflows:
           min: 0
           type: multiplechoice
           choices:
-            - "bklab-virt-nad"
-          default: "bklab-virt-nad"
+            - "nad-bklab-bridge"
+          default: "nad-bklab-bridge"
           required: True
           variable: virt_ops_vm_network_name
           new_question: False
