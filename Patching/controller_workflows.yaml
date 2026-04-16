@@ -23,7 +23,9 @@ controller_workflows:
             - "AddOn-AAP2.5-RHEL9"
             - "AddOn-AAP2.6-RHEL9"
             - "AddOn-OCP420-RHEL9"
+            - "AddOn-OCP421-RHEL9"
             - "AddOn-ODF-RHEL9"
+            - "AddOn-RHDS13-RHEL101"
         success_nodes:
           - "Publish Composite CVs"
       - identifier: "Publish Composite CVs"
