@@ -49,7 +49,6 @@ controller_templates:
           type: text
           required: True
           variable: vm_name
-          new_question: False
           question_name: "Which host needs to be deleted?"
       description: ""
     become_enabled: false
@@ -107,7 +106,6 @@ controller_templates:
           type: text
           required: True
           variable: vm_name
-          new_question: False
           question_name: "VM Name"
       description: ""
     become_enabled: true
@@ -163,7 +161,6 @@ controller_templates:
           type: text
           required: True
           variable: vm_name
-          new_question: False
           question_name: "VM Name"
       description: ""
     become_enabled: true
@@ -219,7 +216,6 @@ controller_templates:
           type: text
           required: True
           variable: idm_ops_group_name
-          new_question: False
           question_name: "What is the name of the group you want to delete?"
       description: ""
     become_enabled: false

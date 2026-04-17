@@ -49,7 +49,6 @@ controller_templates:
           type: text
           required: True
           variable: vm_name
-          new_question: True
           question_name: "What would you like to name the virtual machine?"
           question_description: "Please use the FQDN of the machine here"
         - max: 1024
@@ -58,7 +57,6 @@ controller_templates:
           default: "bklab-vms"
           required: True
           variable: virt_ops_vm_namespace
-          new_question: True
           question_name: "Which OpenShift namespace should the VM be created in?"
           question_description: "This namespace needs to exist prior to provisioning."
         - max: 1024
@@ -70,7 +68,6 @@ controller_templates:
           default: "rhel10"
           required: True
           variable: virt_ops_vm_source_datasource
-          new_question: False
           question_name: "Which OS do you want to deploy?"
         - max: 1024
           min: 0
@@ -78,7 +75,6 @@ controller_templates:
           default: "openshift-virtualization-os-images"
           required: True
           variable: virt_ops_vm_source_namespace
-          new_question: True
           question_name: "What is the OpenShift namespace for the VM datasource?"
         - max: 1024
           min: 0
@@ -90,7 +86,6 @@ controller_templates:
           default: "30Gi"
           required: True
           variable: virt_ops_vm_disk_size
-          new_question: False
           question_name: "How large does the primary disk need to be?"
         - max: 1024
           min: 0
@@ -103,7 +98,6 @@ controller_templates:
           default: "1"
           required: True
           variable: virt_ops_vm_cpus
-          new_question: False
           question_name: "How many vCPUs should the VM have?"
         - max: 1024
           min: 0
@@ -116,7 +110,6 @@ controller_templates:
           default: "2Gi"
           required: True
           variable: virt_ops_vm_memory
-          new_question: True
           question_name: "How much RAM is needed for the VM?"
         - max: 1024
           min: 0
@@ -126,14 +119,12 @@ controller_templates:
           default: "nad-bklab-bridge"
           required: True
           variable: virt_ops_vm_network_name
-          new_question: True
           question_name: "Which Network Attachment Definition should be used?"
         - max: 15
           min: 7
           type: text
           required: True
           variable: virt_ops_ip_addr
-          new_question: True
           question_name: "What should the IP address be?"
         - max: 1024
           min: 0
@@ -145,7 +136,6 @@ controller_templates:
           default: "24"
           required: True
           variable: virt_ops_netmask
-          new_question: True
           question_name: "Please select a valid network mask"
         - max: 1024
           min: 0
@@ -156,7 +146,6 @@ controller_templates:
           default: "172.24.129.1"
           required: True
           variable: virt_ops_gw_addr
-          new_question: True
           question_name: "Please select the correct gateway address for your machine"
         - max: 1024
           min: 0
@@ -164,7 +153,6 @@ controller_templates:
           default: "{{ vault_ocp_virt_default_password }}"
           required: True
           variable: virt_ops_vm_password
-          new_question: False
           question_name: "Please enter a password for cloud-user"
         - max: 1024
           min: 0
@@ -175,7 +163,6 @@ controller_templates:
           default: "172.24.128.8"
           required: True
           variable: virt_ops_dns_1
-          new_question: True
           question_name: "Please select the first DNS resolver"
         - max: 1024
           min: 0
@@ -186,7 +173,6 @@ controller_templates:
           default: "172.24.128.9"
           required: True
           variable: virt_ops_dns_2
-          new_question: True
           question_name: "Please select the second DNS resolver"
         - max: 1024
           min: 0
@@ -196,7 +182,6 @@ controller_templates:
           default: "bk.lab"
           required: True
           variable: virt_ops_dns_search
-          new_question: True
           question_name: "Please select a DNS search domain"
       description: ""
     become_enabled: false
@@ -251,7 +236,6 @@ controller_templates:
           type: text
           required: True
           variable: vm_name
-          new_question: False
           question_name: "What is the name of the virtual machine?"
           question_description: "Please use the FQDN of the machine here"
         - max: 1024
@@ -260,7 +244,6 @@ controller_templates:
           default: "bklab-vms"
           required: True
           variable: virt_ops_vm_namespace
-          new_question: False
           question_name: "Which OpenShift namespace is the VM?"
           question_description: "This namespace needs to exist prior to provisioning."
       description: ""
@@ -315,7 +298,6 @@ controller_templates:
           default: 60
           required: True
           variable: virt_pause_time
-          new_question: True
           question_name: "How long should we pause?"
       description: ""
     become_enabled: false
@@ -370,7 +352,6 @@ controller_templates:
           type: text
           required: True
           variable: vm_name
-          new_question: True
           question_name: "What is the VM Name?"
       description: ""
     become_enabled: false

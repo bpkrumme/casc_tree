@@ -134,7 +134,6 @@ controller_templates:
           default: "brokenhost.bk.lab"
           required: True
           variable: broken_host
-          new_question: False
           question_name: "Broken Hosts"
       description: ""
     become_enabled: true

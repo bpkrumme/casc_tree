@@ -465,14 +465,12 @@ controller_workflows:
           default: "{{ vault_ocp_virt_default_password }}"
           required: True
           variable: virt_ops_vm_password
-          new_question: False
           question_name: "Enter a default password for the \"cloud-user\" user"
         - max: 1024
           min: 0
           type: text
           required: True
           variable: vm_name
-          new_question: True
           question_name: "What should we name this VM?"
           question_description: "Please use the FQDN"
         - max: 1024
@@ -484,7 +482,6 @@ controller_workflows:
             - "Prod"
           required: True
           variable: satellite_ops_environment
-          new_question: True
           question_name: "Which environment should this VM be in?"
         - max: 1024
           min: 0
@@ -495,7 +492,6 @@ controller_workflows:
             - "Core"
           required: True
           variable: satellite_ops_server_type
-          new_question: False
           question_name: "What is the server type?"
         - max: 1024
           min: 0
@@ -506,7 +502,6 @@ controller_workflows:
             - "100Gi"
           required: True
           variable: virt_ops_vm_disk_size
-          new_question: True
           question_name: "What should the disk size be?"
         - max: 1024
           min: 0
@@ -518,7 +513,6 @@ controller_workflows:
           default: "1"
           required: True
           variable: virt_ops_vm_cpus
-          new_question: True
           question_name: "How many vCPUs?"
         - max: 1024
           min: 0
@@ -530,7 +524,6 @@ controller_workflows:
           default: "2Gi"
           required: True
           variable: virt_ops_vm_memory
-          new_question: True
           question_name: "How much RAM?"
         - max: 1024
           min: 0
@@ -540,7 +533,6 @@ controller_workflows:
           default: "nad-bklab-bridge"
           required: True
           variable: virt_ops_vm_network_name
-          new_question: False
           question_name: "Which network attachment definition?"
         - max: 1024
           min: 0
@@ -550,7 +542,6 @@ controller_workflows:
           default: "172.24.129.0/24"
           required: True
           variable: cidr
-          new_question: False
           question_name: "Please select the subnet"
         - max: 1024
           min: 0
@@ -561,7 +552,6 @@ controller_workflows:
           default: "24"
           required: True
           variable: virt_ops_netmask
-          new_question: True
           question_name: "Please select a valid subnet mask"
         - max: 1024
           min: 0
@@ -572,7 +562,6 @@ controller_workflows:
           default: "172.24.129.1"
           required: True
           variable: virt_ops_gw_addr
-          new_question: True
           question_name: "Please select the appropriate default gateway "
         - max: 1024
           min: 0
@@ -582,7 +571,6 @@ controller_workflows:
             - "rhel10"
           required: True
           variable: virt_ops_vm_source_datasource
-          new_question: False
           question_name: "Which OS?"
         - max: 1024
           min: 0
@@ -590,7 +578,6 @@ controller_workflows:
           default: "openshift-virtualization-os-images"
           required: True
           variable: virt_ops_vm_source_namespace
-          new_question: True
           question_name: "Which namespace contains the source datasource?"
         - max: 1024
           min: 0
@@ -598,7 +585,6 @@ controller_workflows:
           default: "bklab-vms"
           required: True
           variable: virt_ops_vm_namespace
-          new_question: True
           question_name: "Which OpenShift namespace do you want to deploy to?"
         - max: 1024
           min: 0
@@ -609,7 +595,6 @@ controller_workflows:
           default: "172.24.128.8"
           required: True
           variable: virt_ops_dns_1
-          new_question: True
           question_name: "Please select the first DNS resolver"
         - max: 1024
           min: 0
@@ -620,7 +605,6 @@ controller_workflows:
           default: "172.24.128.9"
           required: True
           variable: virt_ops_dns_2
-          new_question: True
           question_name: "Please select the second DNS resolver"
         - max: 1024
           min: 0
@@ -630,14 +614,12 @@ controller_workflows:
           default: "bk.lab"
           required: True
           variable: virt_ops_dns_search
-          new_question: True
           question_name: "Please select the DNS search domain"
         - max: 1024
           min: 0
           type: text
           required: True
           variable: ticket_number
-          new_question: True
           question_name: "What is the Servicenow Request Ticket Number?"
       description: ""
   - name: "WORKFLOW - DAY LAST - Decommission VM in OpenShift"
@@ -820,7 +802,6 @@ controller_workflows:
           type: text
           required: True
           variable: vm_name
-          new_question: True
           question_name: "What is the VM name"
           question_description: "Please use the FQDN"
         - max: 1024
@@ -829,14 +810,12 @@ controller_workflows:
           default: "bklab-vms"
           required: True
           variable: virt_ops_vm_namespace
-          new_question: True
           question_name: "What OpenShift namespace does the VM reside in?"
         - max: 1024
           min: 0
           type: text
           required: True
           variable: ticket_number
-          new_question: True
           question_name: "What is the Servicenow Request Ticket Number?"
       description: ""
 ...

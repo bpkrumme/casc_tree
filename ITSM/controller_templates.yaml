@@ -48,14 +48,12 @@ controller_templates:
           type: text
           required: True
           variable: ticket_number
-          new_question: True
           question_name: "What is the ticket number?"
         - max: 1024
           min: 0
           type: text
           required: True
           variable: work_notes
-          new_question: True
           question_name: "What are the work notes you'd like to add?"
         - max: 1024
           min: 0
@@ -66,7 +64,6 @@ controller_templates:
             - "closed_complete"
           required: False
           variable: request_state
-          new_question: False
           question_name: "What should we set the ticket state to?"
       description: ""
     become_enabled: false

@@ -51,7 +51,6 @@ controller_templates:
             - "172.24.129.0/24"
           required: True
           variable: cidr
-          new_question: True
           question_name: "Please select the network CIDR you want an IP from"
       description: ""
     become_enabled: false
@@ -109,14 +108,12 @@ controller_templates:
             - "172.24.129.0/24"
           required: True
           variable: cidr
-          new_question: True
           question_name: "Please select the network CIDR you want an IP from"
         - max: 1024
           min: 0
           type: text
           required: True
           variable: vm_name
-          new_question: True
           question_name: "Enter the hostname for this IP"
       description: ""
     become_enabled: false
@@ -171,7 +168,6 @@ controller_templates:
           type: text
           required: True
           variable: ip_address
-          new_question: False
           question_name: "What is the ip address?"
       description: ""
     become_enabled: false
@@ -226,7 +222,6 @@ controller_templates:
           type: text
           required: True
           variable: vm_name
-          new_question: True
           question_name: "What is the Fully Qualified Hostname?"
       description: ""
     become_enabled: false

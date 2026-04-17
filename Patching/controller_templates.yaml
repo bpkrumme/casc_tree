@@ -19,7 +19,6 @@ controller_templates:
           type: text
           required: True
           variable: vm_name
-          new_question: True
           question_name: "VM Name"
         - max: 1024
           min: 0
@@ -30,7 +29,6 @@ controller_templates:
             - "Prod"
           required: True
           variable: satellite_ops_environment
-          new_question: True
           question_name: "VM Lifecycle Environment"
         - max: 1024
           min: 0
@@ -41,7 +39,6 @@ controller_templates:
             - "Core"
           required: True
           variable: satellite_ops_server_type
-          new_question: True
           question_name: "VM Server Type"
         - max: 1024
           min: 0
@@ -51,7 +48,6 @@ controller_templates:
           default: "HomeLab"
           required: True
           variable: satellite_ops_org_name
-          new_question: True
           question_name: "VM Organization"
       description: ""
     become_enabled: true
@@ -77,7 +73,6 @@ controller_templates:
           default: "HomeLab"
           required: True
           variable: satellite_ops_org_name
-          new_question: False
           question_name: "Please select the Satellite Organization"
         - max: 1024
           min: 0
@@ -91,7 +86,6 @@ controller_templates:
             - "Red Hat OpenShift Data Foundation"
           required: True
           variable: satellite_ops_product
-          new_question: False
           question_name: "Which products would you like to synchronize?"
       description: ""
   - name: "SATELLITE - Publish Base Content Views"
@@ -115,7 +109,6 @@ controller_templates:
           default: "HomeLab"
           required: True
           variable: satellite_ops_org_name
-          new_question: True
           question_name: "Please select the Satellite Organization"
         - max: 1024
           min: 0
@@ -127,7 +120,6 @@ controller_templates:
             - "Base-RHEL101"
           required: True
           variable: satellite_ops_cv_name
-          new_question: True
           question_name: "Which Base Content Views would you like to Publish?"
       description: ""
   - name: "SATELLITE - Publish AddOn Content Views"
@@ -152,7 +144,6 @@ controller_templates:
           default: "HomeLab"
           required: True
           variable: satellite_ops_org_name
-          new_question: True
           question_name: "Please select the Satellite Organization"
         - max: 1024
           min: 0
@@ -166,7 +157,6 @@ controller_templates:
             - "AddOn-RHDS13-RHEL101"
           required: True
           variable: satellite_ops_cv_name
-          new_question: True
           question_name: "Which AddOn Content Views would you like to Publish?"
       description: ""
   - name: "SATELLITE - Publish Composite Content Views"
@@ -191,7 +181,6 @@ controller_templates:
           default: "HomeLab"
           required: True
           variable: satellite_ops_org_name
-          new_question: True
           question_name: "Please select the Satellite Organization"
         - max: 1024
           min: 0
@@ -203,7 +192,6 @@ controller_templates:
             - "Composite-RHEL101-DS13"
           required: True
           variable: satellite_ops_cv_name
-          new_question: True
           question_name: "Which Composite Content Views would you like to Publish?"
       description: ""
   - name: "SATELLITE - Promote Composite Content Views"
@@ -228,7 +216,6 @@ controller_templates:
           default: "HomeLab"
           required: True
           variable: satellite_ops_org_name
-          new_question: True
           question_name: "Please select the Satellite Organization"
         - max: 1024
           min: 0
@@ -240,7 +227,6 @@ controller_templates:
             - "Composite-RHEL101-DS13"
           required: True
           variable: satellite_ops_cv_name
-          new_question: True
           question_name: "Which Composite Content Views would you like to Publish?"
         - max: 1024
           min: 0
@@ -253,7 +239,6 @@ controller_templates:
           default: "Library"
           required: True
           variable: satellite_ops_current_lc_env
-          new_question: True
           question_name: "Please select the CURRENT Lifecycle Environment"
           question_description: "If the CCV has been promoted from Library select the appropriate LCE, Otherwise select \"Library\""
         - max: 1024
@@ -265,7 +250,6 @@ controller_templates:
             - "Production"
           required: True
           variable: satellite_ops_lc_env
-          new_question: True
           question_name: "Please select the TARGET Lifecycle Environment"
           question_description: "This is the LCE you want to make content available to"
       description: ""
@@ -289,7 +273,6 @@ controller_templates:
           type: text
           required: True
           variable: vm_name
-          new_question: True
           question_name: "VM Name"
       description: ""
   - name: "PATCH - Install Updates and Reboot"
@@ -311,7 +294,6 @@ controller_templates:
           type: text
           required: True
           variable: vm_name
-          new_question: True
           question_name: "Enter a valid ansible hosts parameter spec"
       description: ""
     become_enabled: true
@@ -379,7 +361,6 @@ controller_templates:
           default: "HomeLab"
           required: True
           variable: satellite_ops_org_name
-          new_question: True
           question_name: "Please select the Satellite Organization"
       description: ""
     become_enabled: false
@@ -434,7 +415,6 @@ controller_templates:
           type: text
           required: True
           variable: vm_name
-          new_question: True
           question_name: "What is the VM name?"
       description: ""
     become_enabled: false
@@ -487,7 +467,6 @@ controller_templates:
           type: integer
           required: True
           variable: patch_pause_time
-          new_question: True
           question_name: "How many minutes to pause for?"
       description: ""
     become_enabled: false
