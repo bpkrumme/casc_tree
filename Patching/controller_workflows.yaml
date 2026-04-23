@@ -123,3 +123,32 @@ controller_workflows:
     webhook_service: ""
     extra_vars: ""
     survey_enabled: false
+  - name: "WORKFLOW - PATCH - Full Lab Patch"
+    organization: "Patching Operations"
+    simplified_workflow_nodes:
+      - identifier: "Patch Non-Core Hosts"
+        workflow_job_template: "WORKFLOW - PATCH - Full Lab Patch"
+        unified_job_template: "PATCH - Install Updates and Reboot"
+        limit: ""
+        organization: "Patching Operations"
+        all_parents_must_converge: "False"
+        extra_data:
+          vm_name: "all:!satellite.bk.lab:!idm01.bk.lab:!idm02.bk.lab:!ipaserver"
+        success_nodes:
+          - "Patch IDM"
+      - identifier: "Patch IDM"
+        workflow_job_template: "WORKFLOW - PATCH - Full Lab Patch"
+        unified_job_template: "WORKFLOW - PATCH - IDM - Update packages and reboot with pause between hosts"
+        limit: ""
+        organization: "Patching Operations"
+        all_parents_must_converge: "False"
+        extra_data: {}
+    ask_variables_on_launch: "False"
+    allow_simultaneous: "False"
+    scm_branch: ""
+    limit: ""
+    ask_limit_on_launch: false
+    ask_inventory_on_launch: false
+    webhook_service: ""
+    extra_vars: ""
+    survey_enabled: false
