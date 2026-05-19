@@ -164,9 +164,9 @@ controller_templates:
     diff_mode: false
     webhook_service: ""
     prevent_instance_group_fallback: false
-  - name: "SERVER - Day1 - Configure Command Line Assistant"
+  - name: "SERVER - Day2 - Configure Command Line Assistant"
     organization: "Server Operations"
-    project: "Day 1 Server Operations"
+    project: "Day 2 Server Operations"
     inventory: "Master Inventory"
     playbook: "playbooks/configure_command_line_assistant.yml"
     scm_branch: ""
@@ -177,7 +177,7 @@ controller_templates:
     job_slice_count: 1
     use_fact_cache: false
     credentials:
-      - "DAY1 - Linux Machine - No Domain"
+      - "DAY2 - Linux Machine - BK.LAB Domain"
     allow_simultaneous: false
     ask_scm_branch_on_launch: false
     ask_diff_mode_on_launch: false
