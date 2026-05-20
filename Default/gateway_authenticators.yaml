@@ -17,7 +17,8 @@ gateway_authenticators:
         name_attr: cn
         member_attr: member
       SERVER_URI:
-        - ldap://idm01.bk.lab:389
+        - ldaps://idm01.bk.lab:636
+        - ldaps://idm02.bk.lab:636
       START_TLS: "False"
       USER_ATTR_MAP: 
         email: mail
