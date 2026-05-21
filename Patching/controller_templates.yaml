@@ -309,6 +309,43 @@ controller_templates:
     execution_environment: "Patch Operations EE"
     survey_enabled: false
     become_enabled: true
+  - name: "SATELLITE - Update Satellite Server"
+    organization: "Patching Operations"
+    project: "Satellite Operations"
+    inventory: "Master Inventory"
+    playbook: "playbooks/update_satellite_server.yml"
+    job_type: "run"
+    limit: "satellite.bk.lab"
+    timeout: 7200
+    credentials:
+      - "DAY2 - Linux Machine - BK.LAB Domain"
+    execution_environment: "Patch Operations EE"
+    allow_simultaneous: false
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: text
+          required: true
+          default: "satellite.bk.lab"
+          variable: vm_name
+          question_name: "Satellite Server hostname (inventory name)"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "check"
+            - "run"
+          default: "check"
+          required: true
+          variable: satellite_update_action
+          question_name: "Run pre-update checks only, or apply updates?"
+      description: >-
+        Updates the Satellite Server base OS using satellite-maintain (not dnf).
+        Always run with action=check first. Use action=run during a maintenance window.
+    become_enabled: true
   - name: "SATELLITE - Clean up old Content View versions"
     organization: "Patching Operations"
     project: "Satellite Operations"

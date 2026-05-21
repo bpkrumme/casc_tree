@@ -9,6 +9,7 @@ controller_roles:
       - "SATELLITE - Publish Composite Content Views"
       - "SATELLITE - Promote Composite Content Views"
       - "SATELLITE - Delete Host"
+      - "SATELLITE - Update Satellite Server"
       - "PATCH - Install Updates and Reboot"
       - "PATCH - Update Windows with Dependent Reboot"
     role: "execute"

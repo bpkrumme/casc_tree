@@ -143,6 +143,17 @@ controller_workflows:
         organization: "Patching Operations"
         all_parents_must_converge: "False"
         extra_data: {}
+        success_nodes:
+          - "Update Satellite Server"
+      - identifier: "Update Satellite Server"
+        workflow_job_template: "WORKFLOW - PATCH - Full Lab Patch"
+        unified_job_template: "SATELLITE - Update Satellite Server"
+        limit: ""
+        organization: "Patching Operations"
+        all_parents_must_converge: "False"
+        extra_data:
+          vm_name: "satellite.bk.lab"
+          satellite_update_action: "run"
     ask_variables_on_launch: "False"
     allow_simultaneous: "False"
     scm_branch: ""
