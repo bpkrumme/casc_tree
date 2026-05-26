@@ -68,7 +68,6 @@ controller_workflows:
           satellite_ops_product:
             - "Oracle Linux for x86_64"
             - "Red Hat Ansible Automation Platform"
-            - "Red Hat Directory Server"
             - "Red Hat Enterprise Linux for x86_64"
             - "Red Hat OpenShift Container Platform"
             - "Red Hat OpenShift Data Foundation"
