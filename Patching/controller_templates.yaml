@@ -80,7 +80,6 @@ controller_templates:
           choices:
             - "Oracle Linux for x86_64"
             - "Red Hat Ansible Automation Platform"
-            - "Red Hat Directory Server"
             - "Red Hat Enterprise Linux for x86_64"
             - "Red Hat OpenShift Container Platform"
             - "Red Hat OpenShift Data Foundation"
@@ -155,7 +154,6 @@ controller_templates:
             - "AddOn-OCP420-RHEL9"
             - "AddOn-OCP421-RHEL9"
             - "AddOn-ODF-RHEL9"
-            - "AddOn-RHDS13-RHEL101"
           required: True
           variable: satellite_ops_cv_name
           question_name: "Which AddOn Content Views would you like to Publish?"
