@@ -40,7 +40,7 @@ controller_workflows:
             - "Composite-AAP"
             - "Composite-LabHosts"
             - "Composite-OL9"
-            - "Composite-RHEL101-DS13"
+            - "Composite-IDMHosts"
       - identifier: "Publish Base CVs"
         workflow_job_template: "WORKFLOW - SATELLITE - Sync Content and Publish Content Views"
         unified_job_template: "SATELLITE - Publish Base Content Views"
@@ -53,6 +53,7 @@ controller_workflows:
             - "Base-OL9"
             - "Base-RHEL10"
             - "Base-RHEL101"
+            - "Base-RHEL102"
             - "Base-RHEL9"
         success_nodes:
           - "Publish Composite CVs"

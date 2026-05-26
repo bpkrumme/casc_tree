@@ -118,6 +118,7 @@ controller_templates:
             - "Base-RHEL9"
             - "Base-RHEL10"
             - "Base-RHEL101"
+            - "Base-RHEL102"
           required: True
           variable: satellite_ops_cv_name
           question_name: "Which Base Content Views would you like to Publish?"
@@ -189,7 +190,7 @@ controller_templates:
             - "Composite-AAP"
             - "Composite-LabHosts"
             - "Composite-OL9"
-            - "Composite-RHEL101-DS13"
+            - "Composite-IDMHosts"
           required: True
           variable: satellite_ops_cv_name
           question_name: "Which Composite Content Views would you like to Publish?"
@@ -224,7 +225,7 @@ controller_templates:
             - "Composite-AAP"
             - "Composite-LabHosts"
             - "Composite-OL9"
-            - "Composite-RHEL101-DS13"
+            - "Composite-IDMHosts"
           required: True
           variable: satellite_ops_cv_name
           question_name: "Which Composite Content Views would you like to Publish?"
@@ -252,7 +253,7 @@ controller_templates:
           variable: satellite_ops_lc_env
           question_name: "Please select the TARGET Lifecycle Environment"
           question_description: "This is the LCE you want to make content available to"
-      description: ""
+      description: "Promote Content Views which have already been published"
   - name: "SATELLITE - Delete Host"
     organization: "Patching Operations"
     project: "Satellite Operations"
