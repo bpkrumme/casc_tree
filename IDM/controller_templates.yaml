@@ -51,7 +51,7 @@ controller_templates:
           variable: vm_name
           question_name: "Which host needs to be deleted?"
       description: ""
-    become_enabled: false
+    become_enabled: true
     diff_mode: false
     webhook_service: ""
     prevent_instance_group_fallback: false
@@ -218,7 +218,7 @@ controller_templates:
           variable: idm_ops_group_name
           question_name: "What is the name of the group you want to delete?"
       description: ""
-    become_enabled: false
+    become_enabled: true
     diff_mode: false
     webhook_service: ""
     prevent_instance_group_fallback: false
