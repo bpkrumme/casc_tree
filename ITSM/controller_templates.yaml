@@ -46,13 +46,13 @@ controller_templates:
         - max: 1024
           min: 0
           type: text
-          required: True
+          required: False
           variable: ticket_number
           question_name: "What is the ticket number?"
         - max: 1024
           min: 0
           type: text
-          required: True
+          required: False
           variable: work_notes
           question_name: "What are the work notes you'd like to add?"
         - max: 1024
