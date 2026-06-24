@@ -10,7 +10,7 @@ controller_workflows:
         organization: "Self-Service"
         all_parents_must_converge: "False"
         extra_data:
-          ticket_number: ''
+          ticket_number: "dummy"
           work_notes: "Host manually added to Ansible Inventory"
           request_state: "in_process"
       - identifier: "ITSM Update on VM Delete Fail"
@@ -20,7 +20,7 @@ controller_workflows:
         organization: "Self-Service"
         all_parents_must_converge: "False"
         extra_data:
-          ticket_number: ''
+          ticket_number: "dummy"
           work_notes: "Unable to delete VM in OCP-V - Manual Intervention Required - Closing Incomplete"
           request_state: "closed_incomplete"
       - identifier: "Patch New VM"
@@ -41,7 +41,7 @@ controller_workflows:
         organization: "Self-Service"
         all_parents_must_converge: "False"
         extra_data:
-          ticket_number: ''
+          ticket_number: "dummy"
           work_notes: "Host registered to Satellite"
           request_state: "in_process"
       - identifier: "Create manual host in Inventory"
@@ -89,7 +89,7 @@ controller_workflows:
         organization: "Self-Service"
         all_parents_must_converge: "False"
         extra_data:
-          ticket_number: ''
+          ticket_number: "dummy"
           work_notes: "Unable to release IP reservation - Manual Intervention Required - Closing Incomplete"
           request_state: "closed_incomplete"
       - identifier: "ITSM Update on Failed IP Release"
@@ -99,7 +99,7 @@ controller_workflows:
         organization: "Self-Service"
         all_parents_must_converge: "False"
         extra_data:
-          ticket_number: ''
+          ticket_number: "dummy"
           work_notes: "Unable to release IP reservation - Manual Intervention Required - Closing Incomplete"
           request_state: "closed_incomplete"
       - identifier: "ITSM Update on Failed VM Delete"
@@ -109,7 +109,7 @@ controller_workflows:
         organization: "Self-Service"
         all_parents_must_converge: "False"
         extra_data:
-          ticket_number: ''
+          ticket_number: "dummy"
           work_notes: "Unable to delete VM in OCP-V - Manual Intervention Required - Closing Incomplete"
           request_state: "closed_incomplete"
       - identifier: "Create VM"
@@ -139,7 +139,7 @@ controller_workflows:
         organization: "Self-Service"
         all_parents_must_converge: "False"
         extra_data:
-          ticket_number: ''
+          ticket_number: "dummy"
           work_notes: "NetworkManager reconfigured successfully"
           request_state: "in_process"
       - identifier: "Release IP"
@@ -185,7 +185,7 @@ controller_workflows:
         organization: "Self-Service"
         all_parents_must_converge: "False"
         extra_data:
-          ticket_number: ''
+          ticket_number: "dummy"
           work_notes: "Unable to release IP reservation - Manual Intervention Required"
           request_state: "closed_incomplete"
       - identifier: "Delete VM"
@@ -208,7 +208,7 @@ controller_workflows:
         organization: "Self-Service"
         all_parents_must_converge: "False"
         extra_data:
-          ticket_number: ''
+          ticket_number: "dummy"
           work_notes: "Host successfully patched with latest patch set and rebooted"
           request_state: "in_process"
         success_nodes:
@@ -258,7 +258,7 @@ controller_workflows:
         organization: "Self-Service"
         all_parents_must_converge: "False"
         extra_data:
-          ticket_number: ''
+          ticket_number: "dummy"
           work_notes: "Sucessfully reserved IP address"
           request_state: "in_process"
       - identifier: "Release IP 3"
@@ -280,7 +280,7 @@ controller_workflows:
         organization: "Self-Service"
         all_parents_must_converge: "False"
         extra_data:
-          ticket_number: ''
+          ticket_number: "dummy"
           work_notes: "VM Successfully provisioned in Openshift Virtualization"
           request_state: "in_process"
       - identifier: "ITSM Update on Inventory Sync"
@@ -290,7 +290,7 @@ controller_workflows:
         organization: "Self-Service"
         all_parents_must_converge: "True"
         extra_data:
-          ticket_number: ''
+          ticket_number: "dummy"
           work_notes: "Master Inventory has been synchronized from Satellite Source"
           request_state: "closed_complete"
       - identifier: "ITSM Update on IDM Join"
@@ -300,7 +300,7 @@ controller_workflows:
         organization: "Self-Service"
         all_parents_must_converge: "False"
         extra_data:
-          ticket_number: ''
+          ticket_number: "dummy"
           work_notes: "Host succesfully joined to IDM Domain"
           request_state: "in_process"
       - identifier: "ITSM Update on Failed IP Reservation 2"
@@ -310,7 +310,7 @@ controller_workflows:
         organization: "Self-Service"
         all_parents_must_converge: "False"
         extra_data:
-          ticket_number: ''
+          ticket_number: "dummy"
           work_notes: "Could not reserve IP address - Closing Incomplete"
           request_state: "closed_incomplete"
       - identifier: "ITSM Update on Rollback Complete"
@@ -320,7 +320,7 @@ controller_workflows:
         organization: "Self-Service"
         all_parents_must_converge: "True"
         extra_data:
-          ticket_number: ''
+          ticket_number: "dummy"
           work_notes: "Rollback Completed - Closing Incomplete"
           request_state: "closed_incomplete"
       - identifier: "ITSM Update on delete manual host"
@@ -330,7 +330,7 @@ controller_workflows:
         organization: "Self-Service"
         all_parents_must_converge: "False"
         extra_data:
-          ticket_number: ''
+          ticket_number: "dummy"
           work_notes: "Removed temporary manual host from Master Inventory"
           request_state: "in_process"
         success_nodes:
@@ -342,7 +342,7 @@ controller_workflows:
         organization: "Self-Service"
         all_parents_must_converge: "False"
         extra_data:
-          ticket_number: ''
+          ticket_number: "dummy"
           work_notes: "Unable to create host in Inventory - Rolling Back"
           request_state: "in_process"
         success_nodes:
@@ -355,7 +355,7 @@ controller_workflows:
         organization: "Self-Service"
         all_parents_must_converge: "False"
         extra_data:
-          ticket_number: ''
+          ticket_number: "dummy"
           work_notes: "Unable to create VM in OCP-V - Releasing IP to Pool"
           request_state: "in_process"
         success_nodes:
@@ -367,7 +367,7 @@ controller_workflows:
         organization: "Self-Service"
         all_parents_must_converge: "True"
         extra_data:
-          ticket_number: ''
+          ticket_number: "dummy"
           work_notes: "Rollback complete - Closing Incomplete"
           request_state: "closed_incomplete"
       - identifier: "Delete manual host from Inventory 2"
@@ -388,7 +388,7 @@ controller_workflows:
         organization: "Self-Service"
         all_parents_must_converge: "False"
         extra_data:
-          ticket_number: ''
+          ticket_number: "dummy"
           work_notes: "Unable to make connection to VM in OCP-V - Rolling Back"
           request_state: "in_process"
         success_nodes:
@@ -402,7 +402,7 @@ controller_workflows:
         organization: "Self-Service"
         all_parents_must_converge: "False"
         extra_data:
-          ticket_number: ''
+          ticket_number: "dummy"
           work_notes: "IP Released Successfully - Closing Incomplete"
           request_state: "closed_incomplete"
       - identifier: "ITSM Update on Successful Connection"
@@ -412,7 +412,7 @@ controller_workflows:
         organization: "Self-Service"
         all_parents_must_converge: "False"
         extra_data:
-          ticket_number: ''
+          ticket_number: "dummy"
           work_notes: "SSH Connection to new host verified"
           request_state: "in_process"
       - identifier: "Get and Reserve IP Address"
@@ -436,7 +436,7 @@ controller_workflows:
         organization: "Self-Service"
         all_parents_must_converge: "False"
         extra_data:
-          ticket_number: ''
+          ticket_number: "dummy"
           work_notes: "Unable to remove host from Master Inventory - Manual Intervention Required - Closing Incomplete"
           request_state: "closed_incomplete"
       - identifier: "Inventory Source Sync"
@@ -653,7 +653,7 @@ controller_workflows:
         organization: "Self-Service"
         all_parents_must_converge: "False"
         extra_data:
-          ticket_number: ''
+          ticket_number: "dummy"
           work_notes: "Host removed from Satellite"
           request_state: "in_process"
         success_nodes:
@@ -665,7 +665,7 @@ controller_workflows:
         organization: "Self-Service"
         all_parents_must_converge: "False"
         extra_data:
-          ticket_number: ''
+          ticket_number: "dummy"
           work_notes: "Host removed from Master Inventory"
           request_state: "in_process"
         success_nodes:
@@ -689,7 +689,7 @@ controller_workflows:
         organization: "Self-Service"
         all_parents_must_converge: "False"
         extra_data:
-          ticket_number: ''
+          ticket_number: "dummy"
           work_notes: "Host removed from Red Hat Insights Inventory"
           request_state: "in_process"
         success_nodes:
@@ -724,7 +724,7 @@ controller_workflows:
         organization: "Self-Service"
         all_parents_must_converge: "False"
         extra_data:
-          ticket_number: ''
+          ticket_number: "dummy"
           work_notes: "Host removed from Openshift Virtualization"
           request_state: "in_process"
         success_nodes:
@@ -736,7 +736,7 @@ controller_workflows:
         organization: "Self-Service"
         all_parents_must_converge: "False"
         extra_data:
-          ticket_number: ''
+          ticket_number: "dummy"
           work_notes: "Host removed from IDM Domain"
           request_state: "in_process"
         success_nodes:
@@ -748,7 +748,7 @@ controller_workflows:
         organization: "Self-Service"
         all_parents_must_converge: "True"
         extra_data:
-          ticket_number: ''
+          ticket_number: "dummy"
           work_notes: "Server successfully decommissioned"
           request_state: "closed_complete"
       - identifier: "Delete Host from Inventory"
@@ -780,7 +780,7 @@ controller_workflows:
         organization: "Self-Service"
         all_parents_must_converge: "False"
         extra_data:
-          ticket_number: ''
+          ticket_number: "dummy"
           work_notes: "IP Address released to pool"
           request_state: "in_process"
         success_nodes:
