@@ -80,7 +80,6 @@ controller_templates:
           choices:
             - "Oracle Linux for x86_64"
             - "Red Hat Ansible Automation Platform"
-            - "Red Hat Directory Server"
             - "Red Hat Enterprise Linux for x86_64"
             - "Red Hat OpenShift Container Platform"
             - "Red Hat OpenShift Data Foundation"
@@ -118,6 +117,7 @@ controller_templates:
             - "Base-RHEL9"
             - "Base-RHEL10"
             - "Base-RHEL101"
+            - "Base-RHEL102"
           required: True
           variable: satellite_ops_cv_name
           question_name: "Which Base Content Views would you like to Publish?"
@@ -154,7 +154,6 @@ controller_templates:
             - "AddOn-OCP420-RHEL9"
             - "AddOn-OCP421-RHEL9"
             - "AddOn-ODF-RHEL9"
-            - "AddOn-RHDS13-RHEL101"
           required: True
           variable: satellite_ops_cv_name
           question_name: "Which AddOn Content Views would you like to Publish?"
@@ -189,7 +188,7 @@ controller_templates:
             - "Composite-AAP"
             - "Composite-LabHosts"
             - "Composite-OL9"
-            - "Composite-RHEL101-DS13"
+            - "Composite-IDMHosts"
           required: True
           variable: satellite_ops_cv_name
           question_name: "Which Composite Content Views would you like to Publish?"
@@ -224,7 +223,7 @@ controller_templates:
             - "Composite-AAP"
             - "Composite-LabHosts"
             - "Composite-OL9"
-            - "Composite-RHEL101-DS13"
+            - "Composite-IDMHosts"
           required: True
           variable: satellite_ops_cv_name
           question_name: "Which Composite Content Views would you like to Publish?"
@@ -252,7 +251,7 @@ controller_templates:
           variable: satellite_ops_lc_env
           question_name: "Please select the TARGET Lifecycle Environment"
           question_description: "This is the LCE you want to make content available to"
-      description: ""
+      description: "Promote Content Views which have already been published"
   - name: "SATELLITE - Delete Host"
     organization: "Patching Operations"
     project: "Satellite Operations"
@@ -308,6 +307,43 @@ controller_templates:
     allow_simultaneous: true
     execution_environment: "Patch Operations EE"
     survey_enabled: false
+    become_enabled: true
+  - name: "SATELLITE - Update Satellite Server"
+    organization: "Patching Operations"
+    project: "Satellite Operations"
+    inventory: "Master Inventory"
+    playbook: "playbooks/update_satellite_server.yml"
+    job_type: "run"
+    limit: "satellite.bk.lab"
+    timeout: 7200
+    credentials:
+      - "DAY2 - Linux Machine - BK.LAB Domain"
+    execution_environment: "Patch Operations EE"
+    allow_simultaneous: false
+    survey_enabled: true
+    survey_spec:
+      name: ""
+      spec:
+        - max: 1024
+          min: 0
+          type: text
+          required: true
+          default: "satellite.bk.lab"
+          variable: vm_name
+          question_name: "Satellite Server hostname (inventory name)"
+        - max: 1024
+          min: 0
+          type: multiplechoice
+          choices:
+            - "check"
+            - "run"
+          default: "check"
+          required: true
+          variable: satellite_update_action
+          question_name: "Run pre-update checks only, or apply updates?"
+      description: >-
+        Updates the Satellite Server base OS using satellite-maintain (not dnf).
+        Always run with action=check first. Use action=run during a maintenance window.
     become_enabled: true
   - name: "SATELLITE - Clean up old Content View versions"
     organization: "Patching Operations"

@@ -25,7 +25,6 @@ controller_workflows:
             - "AddOn-OCP420-RHEL9"
             - "AddOn-OCP421-RHEL9"
             - "AddOn-ODF-RHEL9"
-            - "AddOn-RHDS13-RHEL101"
         success_nodes:
           - "Publish Composite CVs"
       - identifier: "Publish Composite CVs"
@@ -40,7 +39,7 @@ controller_workflows:
             - "Composite-AAP"
             - "Composite-LabHosts"
             - "Composite-OL9"
-            - "Composite-RHEL101-DS13"
+            - "Composite-IDMHosts"
       - identifier: "Publish Base CVs"
         workflow_job_template: "WORKFLOW - SATELLITE - Sync Content and Publish Content Views"
         unified_job_template: "SATELLITE - Publish Base Content Views"
@@ -53,6 +52,7 @@ controller_workflows:
             - "Base-OL9"
             - "Base-RHEL10"
             - "Base-RHEL101"
+            - "Base-RHEL102"
             - "Base-RHEL9"
         success_nodes:
           - "Publish Composite CVs"
@@ -67,7 +67,6 @@ controller_workflows:
           satellite_ops_product:
             - "Oracle Linux for x86_64"
             - "Red Hat Ansible Automation Platform"
-            - "Red Hat Directory Server"
             - "Red Hat Enterprise Linux for x86_64"
             - "Red Hat OpenShift Container Platform"
             - "Red Hat OpenShift Data Foundation"
@@ -143,6 +142,17 @@ controller_workflows:
         organization: "Patching Operations"
         all_parents_must_converge: "False"
         extra_data: {}
+        success_nodes:
+          - "Update Satellite Server"
+      - identifier: "Update Satellite Server"
+        workflow_job_template: "WORKFLOW - PATCH - Full Lab Patch"
+        unified_job_template: "SATELLITE - Update Satellite Server"
+        limit: ""
+        organization: "Patching Operations"
+        all_parents_must_converge: "False"
+        extra_data:
+          vm_name: "satellite.bk.lab"
+          satellite_update_action: "run"
     ask_variables_on_launch: "False"
     allow_simultaneous: "False"
     scm_branch: ""
