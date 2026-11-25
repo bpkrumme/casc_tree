@@ -65,7 +65,6 @@ controller_workflows:
         extra_data:
           satellite_ops_org_name: "HomeLab"
           satellite_ops_product:
-            - "Oracle Linux for x86_64"
             - "Red Hat Ansible Automation Platform"
             - "Red Hat Enterprise Linux for x86_64"
             - "Red Hat OpenShift Container Platform"

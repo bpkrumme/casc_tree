@@ -153,7 +153,6 @@ controller_templates:
             - "AddOn-OCP421-RHEL9"
             - "AddOn-OCP50-RHEL9"
             - "AddOn-ODF-RHEL9"
-            - "AddOn-Satellite_Client"
           required: True
           variable: satellite_ops_cv_name
           question_name: "Which AddOn Content Views would you like to Publish?"
