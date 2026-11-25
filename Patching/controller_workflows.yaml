@@ -26,7 +26,6 @@ controller_workflows:
             - "AddOn-OCP421-RHEL9"
             - "AddOn-OCP50-RHEL9"
             - "AddOn-ODF-RHEL9"
-            - "AddOn-Satellite_Client"
         success_nodes:
           - "Publish Composite CVs"
       - identifier: "Publish Composite CVs"
@@ -53,6 +52,7 @@ controller_workflows:
             - "Base-RHEL10"
             - "Base-RHEL101"
             - "Base-RHEL102"
+            - "Base-RHEL103"
             - "Base-RHEL9"
         success_nodes:
           - "Publish Composite CVs"
