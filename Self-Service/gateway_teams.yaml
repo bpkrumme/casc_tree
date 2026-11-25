@@ -1,5 +1,5 @@
 ---
-gateway_teams:
+aap_teams:
   - name: "Self-Service Members"
     organization: "Self-Service"
 ...

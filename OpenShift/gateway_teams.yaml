@@ -1,5 +1,5 @@
 ---
-gateway_teams:
+aap_teams:
   - name: "OpenShift Ops Admins"
     organization: "OpenShift Operations"
   - name: "OpenShift Ops Members"

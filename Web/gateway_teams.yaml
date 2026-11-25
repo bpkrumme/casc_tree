@@ -1,5 +1,5 @@
 ---
-gateway_teams:
+aap_teams:
   - name: "Web Ops Admins"
     organization: "Web Operations"
   - name: "Web Ops Members"

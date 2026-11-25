@@ -1,5 +1,5 @@
 ---
-gateway_teams:
+aap_teams:
   - name: "Server Ops Admins"
     organization: "Server Operations"
   - name: "Server Ops Members"

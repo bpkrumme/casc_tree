@@ -1,5 +1,5 @@
 ---
-gateway_teams:
+aap_teams:
   - name: "ITSM Ops Admins"
     organization: "IDM Operations"
   - name: "ITSM Ops Members"

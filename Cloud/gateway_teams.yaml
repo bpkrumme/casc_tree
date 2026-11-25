@@ -1,5 +1,5 @@
 ---
-gateway_teams:
+aap_teams:
   - name: "Cloud Ops Admins"
     organization: "Cloud Operations"
   - name: "Cloud Ops Members"
