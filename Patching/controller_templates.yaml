@@ -113,7 +113,6 @@ controller_templates:
           min: 0
           type: multiselect
           choices:
-            - "Base-OL9"
             - "Base-RHEL9"
             - "Base-RHEL10"
             - "Base-RHEL101"
@@ -187,7 +186,6 @@ controller_templates:
           choices:
             - "Composite-AAP"
             - "Composite-LabHosts"
-            - "Composite-OL9"
             - "Composite-IDMHosts"
           required: True
           variable: satellite_ops_cv_name
@@ -222,7 +220,6 @@ controller_templates:
           choices:
             - "Composite-AAP"
             - "Composite-LabHosts"
-            - "Composite-OL9"
             - "Composite-IDMHosts"
           required: True
           variable: satellite_ops_cv_name
