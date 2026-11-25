@@ -78,7 +78,6 @@ controller_templates:
           min: 0
           type: multiselect
           choices:
-            - "Oracle Linux for x86_64"
             - "Red Hat Ansible Automation Platform"
             - "Red Hat Enterprise Linux for x86_64"
             - "Red Hat OpenShift Container Platform"
@@ -152,7 +151,9 @@ controller_templates:
             - "AddOn-AAP2.6-RHEL9"
             - "AddOn-OCP420-RHEL9"
             - "AddOn-OCP421-RHEL9"
+            - "AddOn-OCP50-RHEL9"
             - "AddOn-ODF-RHEL9"
+            - "AddOn-Satellite_Client"
           required: True
           variable: satellite_ops_cv_name
           question_name: "Which AddOn Content Views would you like to Publish?"
