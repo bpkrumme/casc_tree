@@ -2,6 +2,6 @@
 controller_execution_environments:
   - name: "Web Operations EE"
     organization: "Web Operations"
-    image: "production-aap.apps.ocp.bk.lab/homelab_ees/web_ee:latest"
+    image: "production-aap.apps.openshift.bk.lab/homelab_ees/web_ee:latest"
     pull: "always"
 ...
