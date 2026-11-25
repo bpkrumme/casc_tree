@@ -116,6 +116,7 @@ controller_templates:
             - "Base-RHEL10"
             - "Base-RHEL101"
             - "Base-RHEL102"
+            - "Base-RHEL103"
           required: True
           variable: satellite_ops_cv_name
           question_name: "Which Base Content Views would you like to Publish?"
