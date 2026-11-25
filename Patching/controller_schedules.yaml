@@ -1,0 +1,7 @@
+---
+controller_schedules:
+  - name: "SATELLITE - Sync Content and Publish Content Views - Weekly"
+    description: "Weekly Sunday 6:00 PM Eastern"
+    unified_job_template: "WORKFLOW - SATELLITE - Sync Content and Publish Content Views"
+    rrule: "DTSTART;TZID=America/New_York:20261129T180000 RRULE:FREQ=WEEKLY;INTERVAL=1;BYDAY=SU"
+    enabled: true
